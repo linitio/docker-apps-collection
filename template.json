@@ -1,66 +1,64 @@
 {
 	"version": "2",
 	"templates": [{
-    "type": 3,
-    "title": "Plex",
-    "description": "Serveur Multimédia",
-	"note": "<p>Site de l'application : <a href=\"https:\/\/plex.tv\/\" target=\"_blank\" rel=\"noopener\">plex.tv<\/a>",
-    "categories": [
-		"SelfHosting",
-		"LinIT"
-    ],
-    "platform": "linux",
-    "logo": "https://pbs.twimg.com/profile_images/1664989409/twitter_400x400.png",
-    "repository": {
-        "url": "https://github.com/PAPAMICA/docker-compose-collection",
-        "stackfile": "plex.yml"
-    },
-    "env": [{
-        "name": "SERVICE",
-        "label": "Nom du service"
+        "type": 3,
+        "title": "Plex",
+        "description": "Serveur Multimédia",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/plex.tv\/\" target=\"_blank\" rel=\"noopener\">plex.tv<\/a>",
+        "categories": [
+		    "SelfHosting",
+		    "LinIT"
+        ],
+        "platform": "linux",
+        "logo": "https://pbs.twimg.com/profile_images/1664989409/twitter_400x400.png",
+        "repository": {
+            "url": "https://github.com/PAPAMICA/docker-compose-collection",
+            "stackfile": "plex.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
         },
         {
-        "name": "VERSION",
-        "label": "Choix de la version"
+            "name": "VERSION",
+            "label": "Choix de la version"
         },
         {
-        "name": "PUID",
-        "label": "Identifiant utilisateur plex"
+            "name": "PUID",
+            "label": "Identifiant utilisateur plex"
         },
         {
-        "name": "GUID",
-        "label": "Identifiant du groupe plex"
+            "name": "GUID",
+            "label": "Identifiant du groupe plex"
         },
         {
-        "name": "TZ",
-        "label": "Timezone du service"
+            "name": "TZ",
+            "label": "Timezone du service"
         },
         {
-        "name": "CONFIG_DATA_LOCATION",
-        "label": "Localisation des données de configuration"
+            "name": "CONFIG_DATA_LOCATION",
+            "label": "Localisation des données de configuration"
         },
         {
-        "name": "MOVIES_DATA_LOCATION",
-        "label": "Localisation des films"
+            "name": "MOVIES_DATA_LOCATION",
+            "label": "Localisation des films"
         },
         {
-        "name": "TVSHOWS_DATA_LOCATION",
-        "label": "Localisation des séries"
+            "name": "TVSHOWS_DATA_LOCATION",
+            "label": "Localisation des séries"
         },
         {
-        "name": "PHOTOS_DATA_LOCATION",
-        "label": "Localisation des photos"
+            "name": "PHOTOS_DATA_LOCATION",
+            "label": "Localisation des photos"
         },
         {
-        "name": "TRANSCODE_DATA_LOCATION",
-        "label": "Dossier pour le transcodage"
+            "name": "TRANSCODE_DATA_LOCATION",
+            "label": "Dossier pour le transcodage"
         },
         {
-        "name": "TRANSCODE_DEVICE",
-        "label": "Périphérique de transcodage"
-    }]
-    }
-
-	
-]
+            "name": "TRANSCODE_DEVICE",
+            "label": "Périphérique de transcodage"
+        }]
+        }   
+    ]
 }
