@@ -10,7 +10,7 @@
 		    "LinIT"
         ],
         "platform": "linux",
-        "logo": "https://pbs.twimg.com/profile_images/1664989409/twitter_400x400.png",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/plex_logo.png",
         "repository": {
             "url": "https://github.com/PAPAMICA/docker-compose-collection",
             "stackfile": "plex.yml"
