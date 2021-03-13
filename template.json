@@ -108,6 +108,43 @@
             "name": "NETWORK",
             "label": "Nom du réseau de déploiement"
         }]
+    },
+
+    {
+        "type": 3,
+        "title": "phpMyAdmin",
+        "description": "Application d'administration pour MariaDB et MySQL",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/www.phpmyadmin.net\/\" target=\"_blank\" rel=\"noopener\">www.phpmyadmin.net<\/a>",
+        "categories": [
+		    "SelfHosting",
+		    "LinIT"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/phpmyadmin_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "phpmyadmin.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "PMA_HOST",
+            "label": "Nom du conteneur MariaDB/MySQL"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Localisation des données du service"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Nom du réseau applicatif"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Nom du réseau data"
+        }]
     }
 
     ]
