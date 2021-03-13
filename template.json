@@ -138,6 +138,10 @@
             "label": "Localisation des données du service"
         },
         {
+            "name": "NDD",
+            "label": "Nom de domaine de l'application"
+        },
+        {
             "name": "NETWORK_APP",
             "label": "Nom du réseau applicatif"
         },
