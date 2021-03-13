@@ -59,6 +59,28 @@
             "name": "TRANSCODE_DEVICE",
             "label": "Périphérique de transcodage"
         }]
-        }   
+    },
+
+    {
+        "type": 3,
+        "title": "MariaDB & PMA",
+        "description": "Serveur SGBD & PMA",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/plex.tv\/\" target=\"_blank\" rel=\"noopener\">plex.tv<\/a>",
+        "categories": [
+		    "SelfHosting",
+		    "LinIT"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/plex_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "mariadb-pma.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },   
+    }
+
     ]
 }
