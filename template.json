@@ -52,6 +52,10 @@
             "label": "Localisation des photos"
         },
         {
+            "name": "WEBINARS_DATA_LOCATION",
+            "label": "Localisation des webinars"
+        },
+        {
             "name": "TRANSCODE_DATA_LOCATION",
             "label": "Dossier pour le transcodage"
         },
