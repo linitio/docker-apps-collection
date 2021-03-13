@@ -12,7 +12,7 @@
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/plex_logo.png",
         "repository": {
-            "url": "https://github.com/PAPAMICA/docker-compose-collection",
+            "url": "https://gitlab.com/kallioli/docker-server-container/-/tree/master/stack",
             "stackfile": "plex.yml"
         },
         "env": [{
