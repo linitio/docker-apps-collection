@@ -27,3 +27,8 @@ services:
     restart: always
     networks:
       - $NETWORK
+
+networks:
+  $NETWORK:
+    external:
+      name: $NETWORK
