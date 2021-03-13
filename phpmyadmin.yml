@@ -3,7 +3,7 @@
 
 # Variables d'environnement à déclarer :
 #     - SERVICE : nom du service (exemple : mariadb)
-#     - PMA_HOST : nom du conteneur MariaDB/MySQL
+#     - DB_SERVER : nom du conteneur MariaDB/MySQL
 #     - DATA_LOCATION : localisation des données (exemple /apps/"service")
 #     - NDD : Nom de domaine de l'application
 #     - NETWORK_APP : nom du réseau applicatif

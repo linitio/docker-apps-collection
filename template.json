@@ -130,7 +130,7 @@
             "label": "Nom du service"
         },
         {
-            "name": "PMA_HOST",
+            "name": "DB_SERVER",
             "label": "Nom du conteneur MariaDB/MySQL"
         },
         {
