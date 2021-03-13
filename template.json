@@ -2,71 +2,6 @@
 	"version": "2",
 	"templates": [{
         "type": 3,
-        "title": "Plex",
-        "description": "Serveur Multimédia",
-	    "note": "<p>Site de l'application : <a href=\"https:\/\/plex.tv\/\" target=\"_blank\" rel=\"noopener\">plex.tv<\/a>",
-        "categories": [
-		    "SelfHosting",
-		    "LinIT"
-        ],
-        "platform": "linux",
-        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/plex_logo.png",
-        "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
-            "stackfile": "plex.yml"
-        },
-        "env": [{
-            "name": "SERVICE",
-            "label": "Nom du service"
-        },
-        {
-            "name": "VERSION",
-            "label": "Choix de la version"
-        },
-        {
-            "name": "PUID",
-            "label": "Identifiant utilisateur plex"
-        },
-        {
-            "name": "GUID",
-            "label": "Identifiant du groupe plex"
-        },
-        {
-            "name": "TZ",
-            "label": "Timezone du service"
-        },
-        {
-            "name": "CONFIG_DATA_LOCATION",
-            "label": "Localisation des données de configuration"
-        },
-        {
-            "name": "MOVIES_DATA_LOCATION",
-            "label": "Localisation des films"
-        },
-        {
-            "name": "TVSHOWS_DATA_LOCATION",
-            "label": "Localisation des séries"
-        },
-        {
-            "name": "PHOTOS_DATA_LOCATION",
-            "label": "Localisation des photos"
-        },
-        {
-            "name": "WEBINARS_DATA_LOCATION",
-            "label": "Localisation des webinars"
-        },
-        {
-            "name": "TRANSCODE_DATA_LOCATION",
-            "label": "Dossier pour le transcodage"
-        },
-        {
-            "name": "TRANSCODE_DEVICE",
-            "label": "Périphérique de transcodage"
-        }]
-    },
-
-    {
-        "type": 3,
         "title": "MariaDB",
         "description": "Serveur SGBD",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/mariadb.org\/\" target=\"_blank\" rel=\"noopener\">mariadb.org<\/a>",
@@ -148,6 +83,71 @@
         {
             "name": "NETWORK_DATA",
             "label": "Nom du réseau data"
+        }]
+    },
+
+    {
+        "type": 3,
+        "title": "Plex",
+        "description": "Serveur Multimédia",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/plex.tv\/\" target=\"_blank\" rel=\"noopener\">plex.tv<\/a>",
+        "categories": [
+		    "SelfHosting",
+		    "LinIT"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/plex_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "plex.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "VERSION",
+            "label": "Choix de la version"
+        },
+        {
+            "name": "PUID",
+            "label": "Identifiant utilisateur plex"
+        },
+        {
+            "name": "GUID",
+            "label": "Identifiant du groupe plex"
+        },
+        {
+            "name": "TZ",
+            "label": "Timezone du service"
+        },
+        {
+            "name": "CONFIG_DATA_LOCATION",
+            "label": "Localisation des données de configuration"
+        },
+        {
+            "name": "MOVIES_DATA_LOCATION",
+            "label": "Localisation des films"
+        },
+        {
+            "name": "TVSHOWS_DATA_LOCATION",
+            "label": "Localisation des séries"
+        },
+        {
+            "name": "PHOTOS_DATA_LOCATION",
+            "label": "Localisation des photos"
+        },
+        {
+            "name": "WEBINARS_DATA_LOCATION",
+            "label": "Localisation des webinars"
+        },
+        {
+            "name": "TRANSCODE_DATA_LOCATION",
+            "label": "Dossier pour le transcodage"
+        },
+        {
+            "name": "TRANSCODE_DEVICE",
+            "label": "Périphérique de transcodage"
         }]
     }
 
