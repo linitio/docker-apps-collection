@@ -1,0 +1,29 @@
+# Docker-compose mis à disposition par Kevin Allioli
+# Date de mise à jour : 13/03/2021
+
+# Variables d'environnement à déclarer :
+#     - SERVICE : nom du service (exemple : mariadb)
+#     - PUID : uid de l'utilisateur système (exemple : 1001)
+#     - GUID : gid du groupe système (exemple : 1001)
+#     - ROOT_PASSWORD : Mot de passe de l'utilisateur root
+#     - TZ : Timezone du service (exemple : Europe/Paris)
+#     - DATA_LOCATION : localisation des données (exemple /apps/"service")
+#     - NETWORK : nom du réseau du conteneur
+
+# Fonctionne avec Portainer
+
+version: "2"
+services:
+  mariadb:
+    image: ghcr.io/linuxserver/mariadb
+    container_name: $SERVICE
+    environment:
+      - PUID=$PUID
+      - PGID=$GUID
+      - MYSQL_ROOT_PASSWORD=$ROOT_PASSWORD
+      - TZ=$TZ
+    volumes:
+      - $DATA_LOCATION:/config
+    restart: always
+    networks:
+      - $NETWORK
