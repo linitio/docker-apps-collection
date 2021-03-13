@@ -63,23 +63,47 @@
 
     {
         "type": 3,
-        "title": "MariaDB & PMA",
-        "description": "Serveur SGBD & PMA",
-	    "note": "<p>Site de l'application : <a href=\"https:\/\/plex.tv\/\" target=\"_blank\" rel=\"noopener\">plex.tv<\/a>",
+        "title": "MariaDB",
+        "description": "Serveur SGBD",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/mariadb.org\/\" target=\"_blank\" rel=\"noopener\">mariadb.org<\/a>",
         "categories": [
 		    "SelfHosting",
 		    "LinIT"
         ],
         "platform": "linux",
-        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/plex_logo.png",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/mariadb_logo.png",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
-            "stackfile": "mariadb-pma.yml"
+            "stackfile": "mariadb.yml"
         },
         "env": [{
             "name": "SERVICE",
             "label": "Nom du service"
-        },   
+        },
+        {
+            "name": "PUID",
+            "label": "Identifiant utilisateur plex"
+        },
+        {
+            "name": "GUID",
+            "label": "Identifiant du groupe plex"
+        },
+        {
+            "name": "TZ",
+            "label": "Timezone du service"
+        },
+        {
+            "name": "ROOT_PASSWORD",
+            "label": "Mot de passe administrateur du serveur"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Localisation des données du service"
+        },
+        {
+            "name": "NETWORK",
+            "label": "Nom du réseau de déploiement"
+        }]
     }
 
     ]
