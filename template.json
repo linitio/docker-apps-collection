@@ -82,11 +82,11 @@
         },
         {
             "name": "PUID",
-            "label": "Identifiant utilisateur plex"
+            "label": "Identifiant utilisateur mariadb"
         },
         {
             "name": "GUID",
-            "label": "Identifiant du groupe plex"
+            "label": "Identifiant du groupe mariadb"
         },
         {
             "name": "TZ",
