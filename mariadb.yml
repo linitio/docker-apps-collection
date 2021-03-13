@@ -29,6 +29,6 @@ services:
       - $NETWORK
 
 networks:
-  $NETWORK:
+  default:
     external:
       name: $NETWORK
