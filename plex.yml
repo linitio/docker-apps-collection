@@ -1,12 +1,19 @@
-# Docker-compose mis à disposition par Mickael "PAPAMICA" Asseline
-# Date de mise à jour : 27/10/2020
+# Docker-compose mis à disposition par Kevin Allioli
+# Date de mise à jour : 13/03/2021
 
 # Variables d'environnement à déclarer :
 #     - SERVICE : nom du service (exemple : plex)
-#     - DATA_LOCATION : localisation des données (exemple /apps/"service")
-#     - URL_LOKI : lien du serveur loki (exemple : ndd/loki/api/v1/push)
-#     - NDD : lien du nom de domaine (exemple : papamica.fr)
-#     - DATA : localisation de vos fichiers à explorer
+#     - VERSION : version à déployée (exemple : latest)
+#     - PUID : uid de de l'utilisateur système (exemple : 1001)
+#     - GUID : Gid de du groupe système (exemple : 1001)
+#     - TZ : Timezone du service (exemple : Europe/Paris)
+#     - CONFIG_DATA_LOCATION : localisation des données de configuration 
+#     - MOVIES_DATA_LOCATION : localisation des films
+#     - TVSHOWS_DATA_LOCATION : localisation des séries
+#     - PHOTOS_DATA_LOCATION : localisation des photos
+#     - WEBINARS_DATA_LOCATION : localisation des webinars 
+#     - TRANSCODE_DATA_LOCATION : dossier temporaire pour le transcodage
+#     - TRANSCODE_DEVICE : périphérique utilisé pour le transcodage
 
 # Fonctionne avec Portainer
 
@@ -27,6 +34,7 @@ services:
       - $MOVIES_DATA_LOCATION:/data/movies
       - $TVSHOWS_DATA_LOCATION:/data/tvshows
       - $PHOTOS_DATA_LOCATION:/data/photos
+      - $WEBINARS_DATA_LOCATION:/data/webinars
       - $TRANSCODE_DATA_LOCATION:/transcode
     devices:
       - $TRANSCODE_DEVICE:/dev/dri
