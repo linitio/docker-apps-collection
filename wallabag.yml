@@ -1,0 +1,59 @@
+# Docker-compose mis à disposition par Kevin Allioli
+# Date de mise à jour : 13/03/2021
+
+# Variables d'environnement à déclarer :
+#     - SERVICE : nom du service (exemple : mariadb)
+#     - MYSQL_ROOT_PASSWORD : nom du conteneur MariaDB/MySQL
+#     - DATABASE_DRIVER : driver pour se connecter à la base de données (exemple : pdo_mysql)
+#     - DATABASE_HOST : nom du conteneur de base de données
+#     - DATABASE_PORT : port de la base de donnée
+#     - DATABASE_NAME : nom de la base de donnée
+#     - DATABASE_USER : nom d'utilisateur de la base de donnée
+#     - DATABASE_PASSWORD : mot de passe de l'utilisateur de la base de donnée
+#     - MAILER_HOST : serveur de courrier
+#     - FROM_EMAIL : adresse mail de l'expéditeur
+#     - DOMAIN_NAME : url complète de l'application
+#     - DATA_LOCATION : localisation des données (exemple /apps/"service")
+#     - NDD : Nom de domaine de l'application
+#     - NETWORK_APP : nom du réseau applicatif
+#     - NETWORK_DATA : nom du réseau data
+
+# Fonctionne avec Portainer
+
+version: '2'
+services:
+  wallabag:
+    image: wallabag/wallabag
+    container_name: $SERVICE
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - SYMFONY__ENV__DATABASE_DRIVER=$DATABASE_DRIVER
+      - SYMFONY__ENV__DATABASE_HOST=$DATABASE_HOST
+      - SYMFONY__ENV__DATABASE_PORT=$DATABASE_PORT
+      - SYMFONY__ENV__DATABASE_NAME=$DATABASE_NAME
+      - SYMFONY__ENV__DATABASE_USER=$DATABASE_USER
+      - SYMFONY__ENV__DATABASE_PASSWORD=$DATABASE_PASSWORD
+      - SYMFONY__ENV__DATABASE_CHARSET=utf8mb4
+      - SYMFONY__ENV__MAILER_HOST=$MAILER_HOST
+      - SYMFONY__ENV__FROM_EMAIL=$FROM_EMAIL
+      - SYMFONY__ENV__DOMAIN_NAME=$DOMAIN_NAME
+    volumes:
+      - $DATA_LOCATION:/var/www/wallabag/web/assets/images
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$NDD`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
+      - "traefik.docker.network=$NETWORK_APP"
+    networks:
+      - default
+      - default1
+
+networks:
+  default:
+    external:
+      name: NETWORK_APP
+  default1:
+    external:
+      name: NETWORK_DATA

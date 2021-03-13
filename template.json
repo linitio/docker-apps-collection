@@ -149,6 +149,83 @@
             "name": "TRANSCODE_DEVICE",
             "label": "Périphérique de transcodage"
         }]
+    },
+
+    {
+        "type": 3,
+        "title": "Wallabag",
+        "description": "Alternative à Pocket",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/wallabag.org\/\" target=\"_blank\" rel=\"noopener\">wallabag.org<\/a>",
+        "categories": [
+		    "SelfHosting",
+		    "LinIT"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/wallabag_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "wallabag.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "MYSQL_ROOT_PASSWORD",
+            "label": "Mot de passe root SGBD"
+        },
+        {
+            "name": "DATABASE_DRIVER",
+            "label": "Driver de connexion à la BDD"
+        },
+        {
+            "name": "DATABASE_HOST",
+            "label": "Conteneur du SGBD"
+        },
+        {
+            "name": "DATABASE_PORT",
+            "label": "Port du SGBD"
+        },
+        {
+            "name": "DATABASE_NAME",
+            "label": "Nom de la BDD"
+        },
+        {
+            "name": "DATABASE_USER",
+            "label": "Utilisateur de la BDD"
+        },
+        {
+            "name": "DATABASE_PASSWORD",
+            "label": "Mot de passe de la BDD"
+        },
+        {
+            "name": "MAILER_HOST",
+            "label": "Relai SMTP"
+        },
+        {
+            "name": "FROM_EMAIL",
+            "label": "E-mail d'envoi"
+        },
+        {
+            "name": "DOMAIN_NAME",
+            "label": "URL de l'application"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Dossier des données de l'application"
+        },
+        {
+            "name": "NDD",
+            "label": "Nom de domaine"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Nom du réseau applicatif"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Nom du réseau data"
+        }]
     }
 
     ]
