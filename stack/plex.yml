@@ -1,1 +1,32 @@
+# Docker-compose mis à disposition par Mickael "PAPAMICA" Asseline
+# Date de mise à jour : 27/10/2020
 
+# Variables d'environnement à déclarer :
+#     - SERVICE : nom du service (exemple : plex)
+#     - DATA_LOCATION : localisation des données (exemple /apps/"service")
+#     - URL_LOKI : lien du serveur loki (exemple : ndd/loki/api/v1/push)
+#     - NDD : lien du nom de domaine (exemple : papamica.fr)
+#     - DATA : localisation de vos fichiers à explorer
+
+# Fonctionne avec Portainer
+
+version: '2'
+services:
+  plex:
+    image: ghcr.io/linuxserver/plex
+    container_name: $SERVICE
+    restart: always
+    network_mode: host
+    environment:
+      - VERSION=$VERSION
+      - PUID=$PUID
+      - PGID=$GUID
+      - TZ=$TZ
+    volumes:
+      - $CONFIG_DATA_LOCATION:/config
+      - $MOVIES_DATA_LOCATION:/data/movies
+      - $TVSHOWS_DATA_LOCATION:/data/tvshows
+      - $PHOTOS_DATA_LOCATION:/data/photos
+      - $TRANSCODE_DATA_LOCATION:/transcode
+    devices:
+      - $TRANSCODE_DEVICE:/dev/dri
