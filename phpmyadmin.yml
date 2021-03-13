@@ -14,8 +14,6 @@
 version: "2"
 services:
   phpmyadmin:
-    depends_on:
-      - $DB_SERVER
     image: phpmyadmin
     container_name: $SERVICE
     environment:
