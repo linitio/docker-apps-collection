@@ -1,0 +1,31 @@
+# Docker-compose mis à disposition par Kevin Allioli
+# Date de mise à jour : 14/03/2021
+
+# Variables d'environnement à déclarer :
+#     - SERVICE : nom du service (exemple : jdownloader)
+#     - J_UID : uid de l'utilisateur système (exemple : 1001)
+#     - J_GID : gid du groupe système (exemple : 1001)
+#     - CONF_DATA_LOCATION : localisation des données de configuration (exemple /apps/"service")
+#     - DOWNLOADS_DATA_LOCATION: localisation des téléchargement (exemple /apps/"service")
+#     - NETWORK_FRONT : nom du réseau frontal
+
+# Fonctionne avec Portainer
+
+version: '2'
+services:
+  jdownloader:
+    image: linitio/jdownloader
+    container_name: $SERVICE
+    environment:
+      - JDOWNLOADER_UID=$J_UID
+      - JDOWNLOADER_GID=$J_GID
+    volumes:
+      - $CONF_DATA_LOCATION:/jdownloader/cfg
+      - $DOWNLOADS_DATA_LOCATION:/jdownloader/Downloads
+    restart: always
+    networks:
+      - default
+networks:
+  default:
+    external:
+      name: $NETWORK_FRONT

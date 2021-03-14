@@ -2,6 +2,47 @@
 	"version": "2",
 	"templates": [{
         "type": 3,
+        "title": "JDownloader",
+        "description": "Utilitaire de téléchargement",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/jdownloader.org\/\" target=\"_blank\" rel=\"noopener\">jdownloader.org<\/a>",
+        "categories": [
+		    "SelfHosting",
+		    "LinIT"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/jdownloader_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "jdownloader.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "J_UID",
+            "label": "Identifiant utilisateur JDownloader"
+        },
+        {
+            "name": "J_GID",
+            "label": "Identifiant du groupe JDownloader"
+        },
+        {
+            "name": "CONF_DATA_LOCATION",
+            "label": "Localisation des données de configuration"
+        },
+        {
+            "name": "DOWNLOADS_DATA_LOCATION",
+            "label": "Localisation des téléchargements"
+        },
+        {
+            "name": "NETWORK_FRONT",
+            "label": "Nom du réseau de déploiement"
+        }]
+    },
+    
+    {
+        "type": 3,
         "title": "Keycloak",
         "description": "Serveur d'authentification SSO",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/keycloak.org\/\" target=\"_blank\" rel=\"noopener\">keycloak.org<\/a>",
