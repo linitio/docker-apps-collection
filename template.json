@@ -2,6 +2,67 @@
 	"version": "2",
 	"templates": [{
         "type": 3,
+        "title": "Keycloak",
+        "description": "Serveur d'authentification SSO",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/keycloak.org\/\" target=\"_blank\" rel=\"noopener\">keycloak.org<\/a>",
+        "categories": [
+		    "SelfHosting",
+		    "LinIT"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/keycloak_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "keycloak.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "KC_USER",
+            "label": "Nom de l'utilisateur administrateur"
+        },
+        {
+            "name": "KC_PASSWORD",
+            "label": "Mot de passe administrateur"
+        },
+        {
+            "name": "FORWARDING",
+            "label": "Active ou non le forwarding HTTP"
+        },
+        {
+            "name": "KC_DB_HOST",
+            "label": "Serveur SGBD"
+        },
+        {
+            "name": "KC_DATABASE",
+            "label": "Nom de la BDD"
+        },
+        {
+            "name": "KC_DB_USER",
+            "label": "Utilisateur de la BDD"
+        },
+        {
+            "name": "KC_DB_PASSWORD",
+            "label": "Mot de passe de la BDD"
+        },
+        {
+            "name": "NDD",
+            "label": "Nom de domaine"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Nom du réseau applicatif"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Nom du réseau data"
+        }]
+    },
+    
+    {
+        "type": 3,
         "title": "MariaDB",
         "description": "Serveur SGBD",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/mariadb.org\/\" target=\"_blank\" rel=\"noopener\">mariadb.org<\/a>",
