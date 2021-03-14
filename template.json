@@ -255,6 +255,63 @@
 
     {
         "type": 3,
+        "title": "Syncthing",
+        "description": "Service de synchronisation de fichiers",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/syncthing.net\/\" target=\"_blank\" rel=\"noopener\">syncthing.net<\/a>",
+        "categories": [
+		    "SelfHosting",
+		    "LinIT"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/syncthing_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "syncthing.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "SERVERNAME",
+            "label": "Nom du serveur"
+        },
+        {
+            "name": "PUID",
+            "label": "Identifiant utilisateur syncthing"
+        },
+        {
+            "name": "GUID",
+            "label": "Identifiant du groupe syncthing"
+        },
+        {
+            "name": "TZ",
+            "label": "Timezone du service"
+        },
+        {
+            "name": "CONFIG_DATA_LOCATION",
+            "label": "Localisation des données de configuration"
+        },
+        {
+            "name": "DATA_LOCATION_SRV",
+            "label": "Localisation des données synchroninées sur le serveur"
+        },
+        {
+            "name": "DATA_LOCATION_CNT",
+            "label": "point de montage dans le conteneur"
+        },
+        {
+            "name": "NDD",
+            "label": "Nom de domaine de l'application"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Nom du réseau applicatif"
+        }]
+    },
+
+    {
+        "type": 3,
         "title": "Wallabag",
         "description": "Alternative à Pocket",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/wallabag.org\/\" target=\"_blank\" rel=\"noopener\">wallabag.org<\/a>",

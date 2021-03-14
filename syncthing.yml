@@ -1,0 +1,47 @@
+# Docker-compose mis à disposition par Kevin Allioli
+# Date de mise à jour : 14/03/2021
+
+# Variables d'environnement à déclarer :
+#     - SERVICE : nom du service (exemple : mariadb)
+#     - SERVERNAME : nom du conteneur MariaDB/MySQL
+#     - PUID : uid de l'utilisateur système (exemple : 1001)
+#     - PGID : gid du groupe système (exemple : 1001)
+#     - TZ : Timezone du service (exemple : Europe/Paris)
+#     - CONFIG_DATA_LOCATION : localisation des données (exemple /apps/"service")
+#     - DATA_LOCATION_SRV : localisation des données synchronisées
+#     - DATA_LOCATION_CNT : point de montage dans le conteneur
+#     - NDD : Nom de domaine de l'application
+#     - NETWORK_APP : nom du réseau applicatif
+
+# Fonctionne avec Portainer
+
+version: "2"
+services:
+  syncthing:
+    image: ghcr.io/linuxserver/syncthing
+    container_name: $SERVICE
+    hostname: $SERVERNAME
+    environment:
+      - PUID=$PUID
+      - PGID=$GUID
+      - TZ=$TZ
+    volumes:
+      - $CONFIG_DATA_LOCATION:/config
+      - $DATA_LOCATION_SRV:$DATA_LOCATION_CNT
+    ports:
+      - 22000:22000
+      - 21027:21027/udp
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.sync.entrypoints=https"
+      - "traefik.http.routers.sync.rule=Host(`$NDD`)"
+      - "traefik.http.services.sync.loadbalancer.server.port=8384"
+      - "traefik.docker.network=$NETWORK_APP"
+    restart: always
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: $NETWORK_APP
