@@ -296,6 +296,39 @@
 
     {
         "type": 3,
+        "title": "PostgreSQL",
+        "description": "Serveur SGBD",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/www.postgresql.org\/\" target=\"_blank\" rel=\"noopener\">postgresql.org<\/a>",
+        "categories": [
+		    "SelfHosting",
+		    "LinIT"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/postgresql_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "postgresql.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "DB_PASSWORD",
+            "label": "Mot de passe administrateur du serveur"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Localisation des données du service"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Nom du réseau data"
+        }]
+    },
+
+    {
+        "type": 3,
         "title": "Syncthing",
         "description": "Service de synchronisation de fichiers",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/syncthing.net\/\" target=\"_blank\" rel=\"noopener\">syncthing.net<\/a>",

@@ -1,0 +1,28 @@
+# Docker-compose mis à disposition par Kevin Allioli
+# Date de mise à jour : 14/03/2021
+
+# Variables d'environnement à déclarer :
+#     - SERVICE : nom du service (exemple : mariadb)
+#     - DB_PASSWORD : Mot de passe de l'utilisateur postgres
+#     - DATA_LOCATION : localisation des données (exemple /apps/"service")
+#     - NETWORK_DATA : nom du réseau du conteneur
+
+# Fonctionne avec Portainer
+
+version: "2"
+services:
+  postgresql: 
+    image: postgres:13-alpine
+    container_name: $SERVICE
+    environment:
+      POSTGRES_PASSWORD: $DB_PASSWORD
+    restart: always
+    volumes:
+      - $DATA_LOCATION:/var/lib/postgresql/data
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: $NETWORK_DATA
