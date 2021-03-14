@@ -2,6 +2,47 @@
 	"version": "2",
 	"templates": [{
         "type": 3,
+        "title": "Grafana",
+        "description": "Utilitaire de monitoring",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/grafana.com\/\" target=\"_blank\" rel=\"noopener\">grafana.com<\/a>",
+        "categories": [
+		    "SelfHosting",
+		    "LinIT"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/grafana_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "grafana.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "PUID",
+            "label": "Identifiant utilisateur Grafana"
+        },
+        {
+            "name": "CONF_DATA_LOCATION",
+            "label": "Localisation des données de configuration"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Localisation des données applicative"
+        },
+        {
+            "name": "$NDD",
+            "label": "Nom de domaine"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Nom du réseau de déploiement"
+        }]
+    },
+
+    {
+        "type": 3,
         "title": "JDownloader",
         "description": "Utilitaire de téléchargement",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/jdownloader.org\/\" target=\"_blank\" rel=\"noopener\">jdownloader.org<\/a>",
@@ -298,7 +339,7 @@
         },
         {
             "name": "DATA_LOCATION_CNT",
-            "label": "point de montage dans le conteneur"
+            "label": "Point de montage dans le conteneur"
         },
         {
             "name": "NDD",
