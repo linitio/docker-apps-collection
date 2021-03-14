@@ -190,6 +190,51 @@
 
     {
         "type": 3,
+        "title": "pgAdmin",
+        "description": "Application d'administration pour PostgreSQL",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/www.pgadmin.org\/\" target=\"_blank\" rel=\"noopener\">www.pgadmin.org<\/a>",
+        "categories": [
+		    "SelfHosting",
+		    "LinIT"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/pgadmin_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "pgadmin.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "EMAIL",
+            "label": "Email de l'administrateur"
+        },
+        {
+            "name": "PASSWORD",
+            "label": "Mot de passe de l'administrateur"
+        },
+        {
+            "name": "BANNER",
+            "label": "Texte de la bannière"
+        },
+        {
+            "name": "NDD",
+            "label": "Texte de la bannière"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Nom du réseau applicatif"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Nom du réseau data"
+        }]
+    },
+
+    {
+        "type": 3,
         "title": "phpMyAdmin",
         "description": "Application d'administration pour MariaDB et MySQL",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/www.phpmyadmin.net\/\" target=\"_blank\" rel=\"noopener\">www.phpmyadmin.net<\/a>",
