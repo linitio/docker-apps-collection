@@ -14,8 +14,6 @@ version: '2'
 services:
   grafana:
     image: grafana/grafana
-    depends_on:
-      - influxdb
     container_name: $SERVICE
     user: "$PUID"
     volumes:
