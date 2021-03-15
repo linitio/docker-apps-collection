@@ -22,7 +22,7 @@ services:
     container_name: $SERVICE
     restart: always
     environment:
-      - DB_TYPE: $DB_TYPE
+      - DB_TYPE: "$DB_TYPE"
       - DB_HOST: $DB_HOST
       - DB_PORT: $DB_PORT
       - DB_USER: $DB_USER
