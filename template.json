@@ -186,6 +186,83 @@
 
     {
         "type": 3,
+        "title": "Mattermost",
+        "description": "Alternative à Slack",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/mattermost.com\/\" target=\"_blank\" rel=\"noopener\">mattermost.com<\/a>",
+        "categories": [
+		    "SelfHosting",
+		    "LinIT"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/mattermost_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "mattermost.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "PUID",
+            "label": "Identifiant utilisateur mattermost"
+        },
+        {
+            "name": "GUID",
+            "label": "Identifiant du groupe mattermost"
+        },
+        {
+            "name": "DB_USERNAME",
+            "label": "Nom d'utilisateur de la BDD"
+        },
+        {
+            "name": "DB_PASSWORD",
+            "label": "Mot de passe de la BDD"
+        },
+        {
+            "name": "DB_NAME",
+            "label": "Nom de la BDD"
+        },
+        {
+            "name": "DB_SERVER",
+            "label": "Nom du serveur SGBD"
+        },
+        {
+            "name": "CONFIG_DATA_LOCATION",
+            "label": "Dossier des données de configuration"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Dossier des donnée de l'application"
+        },
+        {
+            "name": "LOG_DATA_LOCATION",
+            "label": "Dossier des logs"
+        },
+        {
+            "name": "PLUGINS_DATA_LOCATION",
+            "label": "Dossier des plugins"
+        },
+        {
+            "name": "CLIENT_PLUGINS_DATA_LOCATION",
+            "label": "Dossier des plugins client"
+        },
+        {
+            "name": "NDD",
+            "label": "Nom de domaine"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Nom du réseau applicatif"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Nom du réseau data"
+        }]
+    },
+
+    {
+        "type": 3,
         "title": "pgAdmin",
         "description": "Application d'administration pour PostgreSQL",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/www.pgadmin.org\/\" target=\"_blank\" rel=\"noopener\">www.pgadmin.org<\/a>",
@@ -194,7 +271,7 @@
 		    "LinIT"
         ],
         "platform": "linux",
-        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/pgadmin_logo.png",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/postgresql_logo.png",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
             "stackfile": "pgadmin.yml"

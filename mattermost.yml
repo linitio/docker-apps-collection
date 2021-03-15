@@ -1,0 +1,65 @@
+# Docker-compose mis à disposition par Kevin Allioli
+# Date de mise à jour : 15/03/2021
+
+# Variables d'environnement à déclarer :
+#     - SERVICE : nom du service (exemple : mariadb)
+#     - PUID : uid de l'utilisateur système (exemple : 1001)
+#     - GUID : gid du groupe système (exemple : 1001)
+#     - DB_USERNAME : utilisateur de la base de données
+#     - DB_PASSWORD : mot de passe de la base de données
+#     - DB_NAME : nom de la base de donnée
+#     - DB_SERVER : nom du conteur du SGBD
+#     - CONFIG_DATA_LOCATION : localisation des données de configuration
+#     - DATA_LOCATION : localisation des données (exemple /apps/"service")
+#     - LOG_DATA_LOCATION : localisation des logs
+#     - PLUGINS_DATA_LOCATION : localisation des plugins
+#     - CLIENT_PLUGINS_DATA_LOCATION : localisation des plugins client
+#     - NDD : nom de domaine de l'application
+#     - NETWORK_APP : nom du réseau applicatif
+#     - NETWORK_DATA : nom du réseau data
+
+# Fonctionne avec Portainer
+
+version: "2"
+services:
+  mattermost:
+    image: linitio/mattermost:latest
+    container_name: $SERVICE
+    restart: always
+    environment:
+      - PUID=$PUID
+      - PGID=$GUID
+      # set same as db credentials and dbname
+      - MM_USERNAME=$DB_USERNAME
+      - MM_PASSWORD=$DB_PASSWORD
+      - MM_DBNAME=$DB_NAME
+      - MM_SQLSETTINGS_DATASOURCE=postgres://$DB_USERNAME:$DB_PASSWORD@$DB_SERVER:5432/$DB_NAME?sslmode=disable&connect_timeout=10
+      # in case your config is not in default location
+      #- MM_CONFIG=/mattermost/config/config.json
+    volumes:
+      - $CONFIG_DATA_LOCATION:/mattermost/config:rw
+      - $DATA_LOCATION:/mattermost/data:rw
+      - $LOG_DATA_LOCATION:/mattermost/logs:rw
+      - $PLUGINS_DATA_LOCATION:/mattermost/plugins:rw
+      - $CLIENT_PLUGINS_DATA_LOCATION:/mattermost/client/plugins:rw
+      - /etc/localtime:/etc/localtime:ro
+      # When you want to use SSO with GitLab, you have to add the cert pki chain of GitLab inside Alpine
+      # to avoid Token request failed: certificate signed by unknown authority (link: https://github.com/mattermost/mattermost-server/issues/13059)
+      # - <path_to_your_gitlab_pki>/pki_chain.pem:/etc/ssl/certs/pki_chain.pem:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule: Host(`$NDD`)""
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=8000"
+      - "traefik.docker.network=$NETWORK_APP"
+    networks:
+      - default
+      - default1
+
+networks:
+  default:
+    external:
+      name: $NETWORK_APP
+  default:
+    external:
+      name: $NETWORK_DATA
