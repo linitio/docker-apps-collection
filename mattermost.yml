@@ -49,7 +49,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.$SERVICE.entrypoints=https"
-      - "traefik.http.routers.$SERVICE.rule: Host(`$NDD`)"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$NDD`)"
       - "traefik.http.services.$SERVICE.loadbalancer.server.port=8000"
       - "traefik.docker.network=$NETWORK_APP"
     networks:
