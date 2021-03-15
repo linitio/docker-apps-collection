@@ -1,0 +1,31 @@
+# Docker-compose mis à disposition par Kevin Allioli
+# Date de mise à jour : 15/03/2021
+
+# Variables d'environnement à déclarer :
+#     - SERVICE : nom du service (exemple : mariadb)
+#     - SMARTHOST : nom du serveur mail final (exemple : hostname:port)
+#     - PASSWORD : identifiants de connexion (exemple: hostname:user:password)
+#     - SENDERS : réseaux authorisés pour l'envoi (exemple : 172.16.0.0/24)
+#     - LIMIT : limite de taille des messages (exemple : 25m)
+#     - NETWORK : nom du réseau du conteneur
+
+# Fonctionne avec Portainer
+
+version: "2"
+services:
+  smtp-relay:
+    image: imixs/exim4
+    container_name: $SERVICE
+    environment:
+      - EXIM_SMARTHOST=$SMARTHOST
+      - EXIM_PASSWORD=$PASSWORD
+      - EXIM_ALLOWED_SENDERS=$SENDERS
+      - EXIM_MESSAGE_SIZE_LIMIT=$LIMIT
+    restart: always
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: $NETWORK

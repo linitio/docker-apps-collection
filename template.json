@@ -443,6 +443,47 @@
 
     {
         "type": 3,
+        "title": "SMTP Relay",
+        "description": "Relay SMTP",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/www.postgresql.org\/\" target=\"_blank\" rel=\"noopener\">postgresql.org<\/a>",
+        "categories": [
+		    "SelfHosting",
+		    "LinIT"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/smtp_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "smtp-relay.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "SMARTHOST",
+            "label": "Serveur relai"
+        },
+        {
+            "name": "PASSWORD",
+            "label": "Identifiants de connexion"
+        },
+        {
+            "name": "SENDERS",
+            "label": "Réseaux autorisés pour l'envoi"
+        },
+        {
+            "name": "LIMIT",
+            "label": "Limite de taille des messages"
+        },
+        {
+            "name": "NETWORK",
+            "label": "Nom du réseau du conteneur"
+        }]
+    },
+
+    {
+        "type": 3,
         "title": "Syncthing",
         "description": "Service de synchronisation de fichiers",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/syncthing.net\/\" target=\"_blank\" rel=\"noopener\">syncthing.net<\/a>",
