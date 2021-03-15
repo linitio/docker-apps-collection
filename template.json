@@ -444,8 +444,8 @@
     {
         "type": 3,
         "title": "SMTP Relay",
-        "description": "Relay SMTP",
-	    "note": "<p>Site de l'application : <a href=\"https:\/\/www.postgresql.org\/\" target=\"_blank\" rel=\"noopener\">postgresql.org<\/a>",
+        "description": "Serveur de relai SMTP",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/www.exim.org\/\" target=\"_blank\" rel=\"noopener\">exim.org<\/a>",
         "categories": [
 		    "SelfHosting",
 		    "LinIT"
