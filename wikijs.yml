@@ -3,7 +3,7 @@
 
 # Variables d'environnement à déclarer :
 #     - SERVICE : nom du service (exemple : wikijs)
-#     - DB_TYPE : type de SGBD (exemple : postres, mariadb)
+#     - DB_TYPE : type de SGBD (exemple : postgres, mariadb)
 #     - DB_HOST : nom du conteneur de base de données
 #     - DB_PORT : port de la base de donnée
 #     - DB_USER : utilisateur de la base de donnée
@@ -22,12 +22,12 @@ services:
     container_name: $SERVICE
     restart: always
     environment:
-      - DB_TYPE: "$DB_TYPE"
-      - DB_HOST: $DB_HOST
-      - DB_PORT: $DB_PORT
-      - DB_USER: $DB_USER
-      - DB_PASS: $DB_PASSWORD
-      - DB_NAME: $DB_NAME
+      - DB_TYPE=$DB_TYPE
+      - DB_HOST=$DB_HOST
+      - DB_PORT=$DB_PORT
+      - DB_USER=$DB_USER
+      - DB_PASS=$DB_PASSWORD
+      - DB_NAME=$DB_NAME
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.$SERVICE.entrypoints=https"

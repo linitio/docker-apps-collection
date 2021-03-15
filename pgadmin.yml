@@ -18,10 +18,10 @@ services:
     image: dpage/pgadmin4
     container_name: $SERVICE
     environment:
-      PGADMIN_DEFAULT_EMAIL: $EMAIL
-      PGADMIN_DEFAULT_PASSWORD: $PASSWORD
-      PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION: "True"
-      PGADMIN_CONFIG_CONSOLE_LOG_LEVEL: 10
+      - PGADMIN_DEFAULT_EMAIL=$EMAIL
+      - PGADMIN_DEFAULT_PASSWORD=$PASSWORD
+      - PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION="True"
+      - PGADMIN_CONFIG_CONSOLE_LOG_LEVEL=10
     restart: always
     labels:
     - "traefik.enable=true"

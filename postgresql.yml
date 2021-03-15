@@ -15,7 +15,7 @@ services:
     image: postgres:13-alpine
     container_name: $SERVICE
     environment:
-      POSTGRES_PASSWORD: $DB_PASSWORD
+      - POSTGRES_PASSWORD=$DB_PASSWORD
     restart: always
     volumes:
       - $DATA_LOCATION:/var/lib/postgresql/data
