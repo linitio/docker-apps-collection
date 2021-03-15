@@ -500,6 +500,63 @@
             "name": "NETWORK_DATA",
             "label": "Nom du réseau data"
         }]
+    },
+
+    {
+        "type": 3,
+        "title": "WikiJS",
+        "description": "Application de wiki",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/js.wiki\/\" target=\"_blank\" rel=\"noopener\">js.wiki<\/a>",
+        "categories": [
+		    "SelfHosting",
+		    "LinIT"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/wikijs_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "wikijs.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "DB_TYPE",
+            "label": "Type de SGBD"
+        },
+        {
+            "name": "DB_HOST",
+            "label": "Conteneur du SGBD"
+        },
+        {
+            "name": "DB_PORT",
+            "label": "Port du SGBD"
+        },
+        {
+            "name": "DB_USER",
+            "label": "Utilisateur de la BDD"
+        },
+        {
+            "name": "DB_PASSWORD",
+            "label": "Mot de passe de la BDD"
+        },
+        {
+            "name": "DB_NAME",
+            "label": "Nom de la BDD"
+        },
+        {
+            "name": "NDD",
+            "label": "Nom de domaine"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Nom du réseau applicatif"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Nom du réseau data"
+        }]
     }
 
     ]

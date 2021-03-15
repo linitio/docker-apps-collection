@@ -1,0 +1,47 @@
+# Docker-compose mis à disposition par Kevin Allioli
+# Date de mise à jour : 15/03/2021
+
+# Variables d'environnement à déclarer :
+#     - SERVICE : nom du service (exemple : wikijs)
+#     - DB_TYPE : type de SGBD (exemple : postres, mariadb)
+#     - DB_HOST : nom du conteneur de base de données
+#     - DB_PORT : port de la base de donnée
+#     - DB_USER : utilisateur de la base de donnée
+#     - DB_PASSWORD : Mot de passe de la base de donnée
+#     - DB_NAME : nom de la base de donnée
+#     - NDD : Nom de domaine de l'application
+#     - NETWORK_APP : nom du réseau applicatif
+#     - NETWORK_DATA : nom du réseau data
+
+# Fonctionne avec Portainer
+
+version: '2'
+services:
+  wallabag:
+    image: requarks/wiki:2
+    container_name: $SERVICE
+    restart: always
+    environment:
+      - DB_TYPE: $DB_TYPE
+      - DB_HOST: $DB_HOST
+      - DB_PORT: $DB_PORT
+      - DB_USER: $DB_USER
+      - DB_PASS: $DB_PASSWORD
+      - DB_NAME: $DB_NAME
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$NDD`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=3000"
+      - "traefik.docker.network=$NETWORK_APP"
+    networks:
+      - default
+      - default1
+
+networks:
+  default:
+    external:
+      name: $NETWORK_APP
+  default1:
+    external:
+      name: $NETWORK_DATA
