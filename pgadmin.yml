@@ -1,5 +1,5 @@
 # Docker-compose mis à disposition par Kevin Allioli
-# Date de mise à jour : 14/03/2021
+# Date de mise à jour : 15/03/2021
 
 # Variables d'environnement à déclarer :
 #     - SERVICE : nom du service (exemple : pgadmin)
@@ -20,8 +20,7 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: $EMAIL
       PGADMIN_DEFAULT_PASSWORD: $PASSWORD
-      PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION: "true"
-      PGADMIN_CONFIG_LOGIN_BANNER: "$BANNER"
+      PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION: "True"
       PGADMIN_CONFIG_CONSOLE_LOG_LEVEL: 10
     restart: always
     labels:

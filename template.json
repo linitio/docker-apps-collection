@@ -216,12 +216,8 @@
             "label": "Mot de passe de l'administrateur"
         },
         {
-            "name": "BANNER",
-            "label": "Texte de la bannière"
-        },
-        {
             "name": "NDD",
-            "label": "Texte de la bannière"
+            "label": "Nom de domaine"
         },
         {
             "name": "NETWORK_APP",
