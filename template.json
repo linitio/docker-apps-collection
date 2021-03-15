@@ -110,10 +110,6 @@
             "label": "Mot de passe administrateur"
         },
         {
-            "name": "FORWARDING",
-            "label": "Active ou non le forwarding HTTP"
-        },
-        {
             "name": "KC_DB_HOST",
             "label": "Serveur SGBD"
         },
