@@ -60,6 +60,6 @@ networks:
   default:
     external:
       name: $NETWORK_APP
-  default:
+  default1:
     external:
       name: $NETWORK_DATA
