@@ -17,6 +17,11 @@ services:
     image: filebrowser/filebrowser
     container_name: $SERVICE
     restart: always
+    healthcheck:
+      test: wget -nv -t1 --spider 'http://localhost:80'
+      interval: 1m
+      timeout: 30s
+      retries: 3
     volumes:
       - $DATA_LOCATION:/srv
       - $JSON_CONFIG_FILE:/config.json
