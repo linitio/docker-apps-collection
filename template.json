@@ -2,6 +2,47 @@
 	"version": "2",
 	"templates": [{
         "type": 3,
+        "title": "Filebrowser",
+        "description": "Utilitaire partage de fichiers",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/filebrowser.org\/\" target=\"_blank\" rel=\"noopener\">filebrowser.org<\/a>",
+        "categories": [
+		    "SelfHosting",
+		    "LinIT"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/filebrowser_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "filebrowser.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Identifiant utilisateur Grafana"
+        },
+        {
+            "name": "JSON_CONFIG_FILE",
+            "label": "Localisation des données de configuration"
+        },
+        {
+            "name": "DB_FILE",
+            "label": "Localisation des données applicative"
+        },
+        {
+            "name": "NDD",
+            "label": "Nom de domaine"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Nom du réseau de déploiement"
+        }]
+    },
+    
+    {
+        "type": 3,
         "title": "Grafana",
         "description": "Utilitaire de monitoring",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/grafana.com\/\" target=\"_blank\" rel=\"noopener\">grafana.com<\/a>",
@@ -205,11 +246,11 @@
         },
         {
             "name": "PUID",
-            "label": "Identifiant utilisateur mariadb"
+            "label": "Identifiant utilisateur openvpn"
         },
         {
             "name": "GUID",
-            "label": "Identifiant du groupe mariadb"
+            "label": "Identifiant du groupe openvpn"
         },
         {
             "name": "TZ",

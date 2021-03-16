@@ -33,9 +33,9 @@ services:
       - 21027:21027/udp
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.sync.entrypoints=https"
-      - "traefik.http.routers.sync.rule=Host(`$NDD`)"
-      - "traefik.http.services.sync.loadbalancer.server.port=8384"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$NDD`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=8384"
       - "traefik.docker.network=$NETWORK_APP"
     restart: always
     networks:

@@ -25,6 +25,11 @@ services:
       - PGID=$PGID
       - TZ=$TZ
       - INTERFACE=$INTERFACE
+    healthcheck:
+      test: curl --fail --insecure http://localhost:943 || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
     volumes:
       - $DATA_LOCATION:/config
     ports:
@@ -32,12 +37,12 @@ services:
       - 1194:1194/udp
     restart: always
     labels:
-      traefik.enable: true
-      traefik.http.routers.$SERVICE.entrypoints: https
-      traefik.http.routers.$SERVICE.rule: Host(`$NDD`)
-      traefik.http.services.$SERVICE.loadbalancer.server.port: 943
-      traefik.http.services.$SERVICE.loadbalancer.server.scheme: https
-      traefik.docker.network: $NETWORK_FRONT
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule"Host(`$NDD`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=943"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.scheme=https"
+      - "traefik.docker.network=$NETWORK_FRONT"
     networks:
       - default
 networks:
