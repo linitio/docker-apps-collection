@@ -22,6 +22,11 @@ services:
       - PGID=$GUID
       - MYSQL_ROOT_PASSWORD=$ROOT_PASSWORD
       - TZ=$TZ
+    healthcheck:
+      test: mysqladmin ping -h localhost -u root --password=$ROOT_PASSWORD
+      interval: 10s
+      timeout: 5s
+      retries: 5
     volumes:
       - $DATA_LOCATION:/config
     restart: always
