@@ -1,0 +1,46 @@
+# Docker-compose mis à disposition par Kevin Allioli
+# Date de mise à jour : 16/03/2021
+
+# Variables d'environnement à déclarer :
+#     - SERVICE : nom du service (exemple : pgadmin)
+#     - PUID : uid de l'utilisateur système (exemple : 1001)
+#     - GUID : gid du groupe système (exemple : 1001)
+#     - INTERFACE: nom de l'interface réseau
+#     - TZ : Timezone du service (exemple : Europe/Paris)
+#     - DATA_LOCATION : localisation des données (exemple /apps/"service")
+#     - NDD : nom de domaine de l'application
+#     - NETWORK_FRONT : nom du réseau frontal
+
+# Fonctionne avec Portainer
+
+version: "2"
+services:
+  openvpn-as:
+    image: linuxserver/openvpn-as
+    container_name: $SERVICE
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+      - INTERFACE=$INTERFACE
+    volumes:
+      - $DATA_LOCATION:/config
+    ports:
+      - 9443:9443
+      - 1194:1194/udp
+    restart: always
+    labels:
+      traefik.enable: true
+      traefik.http.routers.$SERVICE.entrypoints: https
+      traefik.http.routers.$SERVICE.rule: Host(`$NDD`)
+      traefik.http.services.$SERVICE.loadbalancer.server.port: 943
+      traefik.http.services.$SERVICE.loadbalancer.server.scheme: https
+      traefik.docker.network: $NETWORK_FRONT
+    networks:
+      - default
+networks:
+  default:
+    external:
+      name: $NETWORK_FRONT

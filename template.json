@@ -186,6 +186,55 @@
 
     {
         "type": 3,
+        "title": "OpenVPN AS",
+        "description": "Serveur VPN",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/openvpn.net\/\" target=\"_blank\" rel=\"noopener\">openvpn.net<\/a>",
+        "categories": [
+		    "SelfHosting",
+		    "LinIT"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/openvpn_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "openvpn.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "PUID",
+            "label": "Identifiant utilisateur mariadb"
+        },
+        {
+            "name": "GUID",
+            "label": "Identifiant du groupe mariadb"
+        },
+        {
+            "name": "TZ",
+            "label": "Timezone du service"
+        },
+        {
+            "name": "INTERFACE",
+            "label": "Nom de l'interface réseau"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Localisation des données du service"
+        },
+        {
+            "name": "NDD",
+            "label": "Nom de domaine"
+        },
+        {
+            "name": "NETWORK_FRONT",
+            "label": "Nom du réseau frontal"
+        }]
+    },
+
+    {
+        "type": 3,
         "title": "Mattermost",
         "description": "Alternative à Slack",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/mattermost.com\/\" target=\"_blank\" rel=\"noopener\">mattermost.com<\/a>",
