@@ -21,15 +21,15 @@
         },
         {
             "name": "DATA_LOCATION",
-            "label": "Identifiant utilisateur Grafana"
+            "label": "Localisation des données applicative"
         },
         {
             "name": "JSON_CONFIG_FILE",
-            "label": "Localisation des données de configuration"
+            "label": "Chemin du fichier config.json"
         },
         {
             "name": "DB_FILE",
-            "label": "Localisation des données applicative"
+            "label": "Chemin du fichier database.db"
         },
         {
             "name": "NDD",
