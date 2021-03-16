@@ -29,6 +29,11 @@ services:
       - PUID=$PUID
       - PGID=$GUID
       - TZ=$TZ
+    healthcheck:
+      test: curl --connect-timeout 15 --max-time 100 --silent --show-error --fail "http://localhost:32400/identity" > /dev/null
+      interval: 1m
+      timeout: 30s
+      retries: 3
     volumes:
       - $CONFIG_DATA_LOCATION:/config
       - $MOVIES_DATA_LOCATION:/data/movies

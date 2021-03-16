@@ -22,6 +22,11 @@ services:
       - PGADMIN_DEFAULT_PASSWORD=$PASSWORD
       - PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION="True"
       - PGADMIN_CONFIG_CONSOLE_LOG_LEVEL=10
+    healthcheck:
+      test: wget -nv -t1 --spider 'http://localhost:80/misc/ping'
+      interval: 1m
+      timeout: 30s
+      retries: 3
     restart: always
     labels:
     - "traefik.enable=true"

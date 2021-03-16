@@ -29,6 +29,11 @@ services:
       DB_DATABASE: $KC_DATABASE
       DB_USER: $KC_DB_USER
       DB_PASSWORD: $KC_DB_PASSWORD
+    healthcheck:
+      test: curl --fail http://localhost:8080/auth/realms/master
+      interval: 1m
+      timeout: 30s
+      retries: 3
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.$SERVICE.entrypoints=https"
