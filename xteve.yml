@@ -1,0 +1,38 @@
+# Docker-compose mis à disposition par Kevin Allioli
+# Date de mise à jour : 17/03/2021
+
+# Variables d'environnement à déclarer :
+#     - SERVICE : nom du service (exemple : plex)
+#     - TZ : Timezone du service (exemple : Europe/Paris)
+#     - DATA_LOCATION : localisation des données
+#     - NETWORK_APP : nom du réseau applicatif
+
+# Fonctionne avec Portainer
+
+version: '2'
+services:
+  xteve:
+    image: alturismo/xteve
+    container_name: $SERVICE
+    hostname: xteve
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:34400:34400"
+      - "1901:1900" #1900 used by Plex
+    environment:
+      TZ: $TZ
+    networks:
+      - $NETWORK_APP
+    healthcheck:
+      test: curl --fail http://localhost:3440 || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
+    volumes:
+      - $DATA_LOCATION:/config:rw
+      - /dev/shm:/tmp/xteve
+
+networks:
+  default:
+    external:
+      name: $NETWORK_APP
