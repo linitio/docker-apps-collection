@@ -14,13 +14,18 @@
 version: "2"
 services:
   smtp-relay:
-    image: imixs/exim4
+    image: linitio/mail-gateway
     container_name: $SERVICE
     environment:
       - EXIM_SMARTHOST=$SMARTHOST
       - EXIM_PASSWORD=$PASSWORD
       - EXIM_ALLOWED_SENDERS=$SENDERS
       - EXIM_MESSAGE_SIZE_LIMIT=$LIMIT
+    healthcheck:
+      test: echo -n "" | nc -q 1 127.0.0.1 25
+      interval: 1m
+      timeout: 30s
+      retries: 3
     restart: always
     networks:
       - default

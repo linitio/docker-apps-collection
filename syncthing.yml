@@ -25,6 +25,11 @@ services:
       - PUID=$PUID
       - PGID=$GUID
       - TZ=$TZ
+    healthcheck:
+      test: nc -z 127.0.0.1 8384 || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
     volumes:
       - $CONFIG_DATA_LOCATION:/config
       - $DATA_LOCATION_SRV:$DATA_LOCATION_CNT

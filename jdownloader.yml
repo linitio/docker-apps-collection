@@ -19,6 +19,11 @@ services:
     environment:
       - JDOWNLOADER_UID=$J_UID
       - JDOWNLOADER_GID=$J_GID
+    healthcheck:
+      test: jps -l | grep "JDownloader.jar" >/dev/null || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
     volumes:
       - $CONF_DATA_LOCATION:/jdownloader/cfg
       - $DOWNLOADS_DATA_LOCATION:/jdownloader/Downloads
