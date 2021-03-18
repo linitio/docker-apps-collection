@@ -184,7 +184,7 @@
         "type": 3,
         "title": "Loki",
         "description": "Utilitaire d'agrégation des logs",
-	    "note": "<p>Site de l'application : <a href=\"https:\/\/grafana.com\/\" target=\"_blank\" rel=\"noopener\">grafana.com<\/a>",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/grafana.com/oss/loki\/\" target=\"_blank\" rel=\"noopener\">grafana.com/oss/loki<\/a>",
         "categories": [
 		    "SelfHosting",
 		    "LinIT"
