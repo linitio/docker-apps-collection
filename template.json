@@ -592,6 +592,10 @@
             "label": "Limite de taille des messages"
         },
         {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
+        },
+        {
             "name": "NETWORK",
             "label": "Nom du réseau du conteneur"
         }]

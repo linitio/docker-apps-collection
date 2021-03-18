@@ -7,6 +7,7 @@
 #     - PASSWORD : identifiants de connexion (exemple: hostname:user:password)
 #     - SENDERS : réseaux authorisés pour l'envoi (exemple : 172.16.0.0/24)
 #     - LIMIT : limite de taille des messages (exemple : 25m)
+#     - URL_LOKI : url de loki (exemple : http://ip:3100/loki/api/v1/push)
 #     - NETWORK : nom du réseau du conteneur
 
 # Fonctionne avec Portainer
@@ -26,6 +27,11 @@ services:
       interval: 1m
       timeout: 30s
       retries: 3
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
     restart: always
     networks:
       - default
