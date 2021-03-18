@@ -3,8 +3,9 @@
 
 # Variables d'environnement à déclarer :
 #     - SERVICE : nom du service (exemple : mariadb)
-#     - LOG_DATA_LOCATION : localisation des logs
+#     - NDD : Nom de domaine de l'application
 #     - NETWORK_APP : nom du réseau applicatif
+#     - NETWORK_DATA : nom du réseau data
 
 # Fonctionne avec Portainer
 
@@ -14,15 +15,20 @@ services:
     image: grafana/loki:1.5.0
     container_name: $SERVICE
     restart: always
-    ports:
-      - "3100:3100"
     command: -config.file=/etc/loki/local-config.yaml
     networks:
       - default
+      - default1
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$NDD`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=3100"
+      - "traefik.docker.network=$NETWORK_APP"
 
   promtail:
     image: grafana/promtail:1.5.0
-    container_name: promtail
+    container_name: $SERVICE_PROMTAIL
     restart: always
     volumes:
       - /var/log:/var/log
@@ -34,3 +40,6 @@ networks:
   default:
     external:
       name: $NETWORK_APP
+  default1:
+    external:
+      name: $NETWORK_DATA

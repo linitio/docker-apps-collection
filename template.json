@@ -200,8 +200,20 @@
             "label": "Nom du service"
         },
         {
+            "name": "NDD",
+            "label": "Nom de domaine"
+        },
+        {
+            "name": "SERVICE_PROMTAIL",
+            "label": "Nom du service promtail"
+        },
+        {
             "name": "NETWORK_APP",
-            "label": "Nom du réseau de déploiement"
+            "label": "Nom du réseau applicatif"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Nom du réseau data"
         }]
     },
     
