@@ -895,6 +895,63 @@
             "name": "NETWORK_APP",
             "label": "Nom du réseau applicatif"
         }]
+    },
+
+    {
+        "type": 3,
+        "title": "Zabbix",
+        "description": "Service de monitoring Zabbix",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/zabbix.com\/\" target=\"_blank\" rel=\"noopener\">zabbix.com<\/a>",
+        "categories": [
+		    "SelfHosting",
+		    "LinIT"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/zabbix_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "zabbix.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "TZ",
+            "label": "Timezone du conteneur"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Dossier des données de l'application"
+        },
+        {
+            "name": "DB_NAME",
+            "label": "Nom de la base de données"
+        },
+        {
+            "name": "DB_USER",
+            "label": "Utilisateur de la base de données"
+        },
+        {
+            "name": "DB_PASSWORD",
+            "label": "Mot de passe de la base de données"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
+        },
+        {
+            "name": "NDD",
+            "label": "Nom de domaine"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Nom du réseau applicatif"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Nom du réseau data"
+        }]
     }
 
     ]
