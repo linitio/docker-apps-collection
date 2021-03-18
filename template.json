@@ -32,6 +32,10 @@
             "label": "Chemin du fichier database.db"
         },
         {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
+        },
+        {
             "name": "NDD",
             "label": "Nom de domaine"
         },
@@ -71,6 +75,10 @@
         {
             "name": "DATA_LOCATION",
             "label": "Localisation des données applicative"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
         },
         {
             "name": "NDD",
@@ -116,6 +124,10 @@
         {
             "name": "DOWNLOADS_DATA_LOCATION",
             "label": "Localisation des téléchargements"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
         },
         {
             "name": "NETWORK_FRONT",
@@ -165,6 +177,10 @@
         {
             "name": "KC_DB_PASSWORD",
             "label": "Mot de passe de la BDD"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
         },
         {
             "name": "NDD",
@@ -253,6 +269,10 @@
             "label": "Mot de passe administrateur du serveur"
         },
         {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
+        },
+        {
             "name": "DATA_LOCATION",
             "label": "Localisation des données du service"
         },
@@ -300,6 +320,10 @@
         {
             "name": "DATA_LOCATION",
             "label": "Localisation des données du service"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
         },
         {
             "name": "NDD",
@@ -375,6 +399,10 @@
             "label": "Dossier des plugins client"
         },
         {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
+        },
+        {
             "name": "NDD",
             "label": "Nom de domaine"
         },
@@ -416,6 +444,10 @@
             "label": "Mot de passe de l'administrateur"
         },
         {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
+        },
+        {
             "name": "NDD",
             "label": "Nom de domaine"
         },
@@ -455,6 +487,10 @@
         {
             "name": "DATA_LOCATION",
             "label": "Localisation des données du service"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
         },
         {
             "name": "NDD",
@@ -504,6 +540,10 @@
         {
             "name": "TZ",
             "label": "Timezone du service"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
         },
         {
             "name": "CONFIG_DATA_LOCATION",
@@ -561,6 +601,10 @@
         {
             "name": "DATA_LOCATION",
             "label": "Localisation des données du service"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
         },
         {
             "name": "NETWORK_DATA",
@@ -661,6 +705,10 @@
             "label": "Point de montage dans le conteneur"
         },
         {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
+        },
+        {
             "name": "NDD",
             "label": "Nom de domaine de l'application"
         },
@@ -730,6 +778,10 @@
             "label": "URL de l'application"
         },
         {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
+        },
+        {
             "name": "DATA_LOCATION",
             "label": "Dossier des données de l'application"
         },
@@ -791,6 +843,10 @@
             "label": "Nom de la BDD"
         },
         {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
+        },
+        {
             "name": "NDD",
             "label": "Nom de domaine"
         },
@@ -830,6 +886,10 @@
         {
             "name": "DATA_LOCATION",
             "label": "Dossier des données de l'application"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
         },
         {
             "name": "NETWORK_APP",
