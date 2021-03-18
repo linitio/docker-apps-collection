@@ -22,6 +22,11 @@ services:
       interval: 1m
       timeout: 30s
       retries: 3
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
     volumes:
       - $DATA_LOCATION:/srv
       - $JSON_CONFIG_FILE:/config.json

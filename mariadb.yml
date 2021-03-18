@@ -27,6 +27,11 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
     volumes:
       - $DATA_LOCATION:/config
     restart: always

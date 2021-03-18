@@ -36,6 +36,11 @@ services:
       - MM_SQLSETTINGS_DATASOURCE=postgres://$DB_USERNAME:$DB_PASSWORD@$DB_SERVER:5432/$DB_NAME?sslmode=disable&connect_timeout=10
       # in case your config is not in default location
       #- MM_CONFIG=/mattermost/config/config.json
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
     volumes:
       - $CONFIG_DATA_LOCATION:/mattermost/config:rw
       - $DATA_LOCATION:/mattermost/data:rw

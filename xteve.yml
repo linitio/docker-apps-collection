@@ -21,6 +21,11 @@ services:
       - "1901:1900" #1900 used by Plex
     environment:
       TZ: $TZ
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
     networks:
       - default
     healthcheck:
