@@ -1,0 +1,36 @@
+# Docker-compose mis à disposition par Kevin Allioli
+# Date de mise à jour : 18/03/2021
+
+# Variables d'environnement à déclarer :
+#     - SERVICE : nom du service (exemple : mariadb)
+#     - LOG_DATA_LOCATION : localisation des logs
+#     - NETWORK_APP : nom du réseau applicatif
+
+# Fonctionne avec Portainer
+
+version: "2"
+services:
+  loki:
+    image: grafana/loki:1.5.0
+    container_name: $SERVICE
+    restart: always
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+    networks:
+      - default
+
+  promtail:
+    image: grafana/promtail:1.5.0
+    container_name: promtail
+    restart: always
+    volumes:
+      - $LOG_DATA_LOCATION:/var/log
+    command: -config.file=/etc/promtail/docker-config.yaml
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: $NETWORK_APP

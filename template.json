@@ -179,6 +179,35 @@
             "label": "Nom du réseau data"
         }]
     },
+
+    {
+        "type": 3,
+        "title": "Loki",
+        "description": "Utilitaire d'agrégation des logs",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/grafana.com\/\" target=\"_blank\" rel=\"noopener\">grafana.com<\/a>",
+        "categories": [
+		    "SelfHosting",
+		    "LinIT"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/loki_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "loki.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "LOG_DATA_LOCATION",
+            "label": "Localisation des logs"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Nom du réseau de déploiement"
+        }]
+    },
     
     {
         "type": 3,
