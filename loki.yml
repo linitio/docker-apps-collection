@@ -25,7 +25,7 @@ services:
     container_name: promtail
     restart: always
     volumes:
-      - $LOG_DATA_LOCATION:/var/log
+      - /var/log:/var/log
     command: -config.file=/etc/promtail/docker-config.yaml
     networks:
       - default
