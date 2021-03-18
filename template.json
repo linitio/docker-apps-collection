@@ -200,10 +200,6 @@
             "label": "Nom du service"
         },
         {
-            "name": "LOG_DATA_LOCATION",
-            "label": "Localisation des logs"
-        },
-        {
             "name": "NETWORK_APP",
             "label": "Nom du réseau de déploiement"
         }]
