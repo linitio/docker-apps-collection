@@ -35,6 +35,11 @@ services:
     image: grafana/promtail:1.5.0
     container_name: $SERVICE_PROMTAIL
     restart: always
+    healthcheck:
+      test: grep -q "promtail" /proc/1/status || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
     volumes:
       - /var/log:/var/log
     command: -config.file=/etc/promtail/docker-config.yaml
