@@ -6,6 +6,8 @@
 #     - DATA_LOCATION : localisation des données (exemple /apps/"service")
 #     - URL_LOKI : lien du serveur loki (exemple : ndd/loki/api/v1/push)
 #     - NDD : lien du nom de domaine (exemple : papamica.fr)
+#     - DB_HOST : nom du conteneur SGBD
+#     - DB_PORT : port du SGBD
 #     - DB_NAME : nom de la base de données
 #     - DB_USER : nom d'utilisateur pour la base de données (exemple : papamica)
 #     - DB_PASSWORD : mot de passe pour la base de données
@@ -22,6 +24,8 @@ services:
     restart: always
     container_name: $SERVICE-server
     environment:   # The Postgres database value variable
+      DB_SERVER_HOST: $DB_HOST
+      DB_SERVER_PORT: $DB_PORT
       POSTGRES_USER: $DB_USER
       POSTGRES_PASSWORD: $DB_PASSWORD
       POSTGRES_DB: $DB_NAME
@@ -56,6 +60,8 @@ services:
     restart: always
     container_name: $SERVICE-web
     environment:  # Postgre database variables
+      DB_SERVER_HOST: $DB_HOST
+      DB_SERVER_PORT: $DB_PORT
       POSTGRES_USER: $DB_USER
       POSTGRES_PASSWORD: $DB_PASSWORD
       POSTGRES_DB: $DB_NAME

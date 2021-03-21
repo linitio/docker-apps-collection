@@ -284,59 +284,6 @@
 
     {
         "type": 3,
-        "title": "OpenVPN AS",
-        "description": "Serveur VPN",
-	    "note": "<p>Site de l'application : <a href=\"https:\/\/openvpn.net\/\" target=\"_blank\" rel=\"noopener\">openvpn.net<\/a>",
-        "categories": [
-		    "SelfHosting",
-		    "LinIT"
-        ],
-        "platform": "linux",
-        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/openvpn_logo.png",
-        "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
-            "stackfile": "openvpn.yml"
-        },
-        "env": [{
-            "name": "SERVICE",
-            "label": "Nom du service"
-        },
-        {
-            "name": "PUID",
-            "label": "Identifiant utilisateur openvpn"
-        },
-        {
-            "name": "GUID",
-            "label": "Identifiant du groupe openvpn"
-        },
-        {
-            "name": "TZ",
-            "label": "Timezone du service"
-        },
-        {
-            "name": "INTERFACE",
-            "label": "Nom de l'interface réseau"
-        },
-        {
-            "name": "DATA_LOCATION",
-            "label": "Localisation des données du service"
-        },
-        {
-            "name": "URL_LOKI",
-            "label": "Url du service loki"
-        },
-        {
-            "name": "NDD",
-            "label": "Nom de domaine"
-        },
-        {
-            "name": "NETWORK_FRONT",
-            "label": "Nom du réseau frontal"
-        }]
-    },
-
-    {
-        "type": 3,
         "title": "Mattermost",
         "description": "Alternative à Slack",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/mattermost.com\/\" target=\"_blank\" rel=\"noopener\">mattermost.com<\/a>",
@@ -413,6 +360,59 @@
         {
             "name": "NETWORK_DATA",
             "label": "Nom du réseau data"
+        }]
+    },
+
+    {
+        "type": 3,
+        "title": "OpenVPN AS",
+        "description": "Serveur VPN",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/openvpn.net\/\" target=\"_blank\" rel=\"noopener\">openvpn.net<\/a>",
+        "categories": [
+		    "SelfHosting",
+		    "LinIT"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/openvpn_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "openvpn.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "PUID",
+            "label": "Identifiant utilisateur openvpn"
+        },
+        {
+            "name": "PGID",
+            "label": "Identifiant du groupe openvpn"
+        },
+        {
+            "name": "TZ",
+            "label": "Timezone du service"
+        },
+        {
+            "name": "INTERFACE",
+            "label": "Nom de l'interface réseau"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Localisation des données du service"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
+        },
+        {
+            "name": "NDD",
+            "label": "Nom de domaine"
+        },
+        {
+            "name": "NETWORK_FRONT",
+            "label": "Nom du réseau frontal"
         }]
     },
 
@@ -1037,6 +1037,14 @@
         {
             "name": "DATA_LOCATION",
             "label": "Dossier des données de l'application"
+        },
+        {
+            "name": "DB_HOST",
+            "label": "Nom du conteneur SGBD"
+        },
+        {
+            "name": "DB_PORT",
+            "label": "Port du SGBD"
         },
         {
             "name": "DB_NAME",
