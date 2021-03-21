@@ -1,0 +1,61 @@
+# Docker-compose mis à disposition par Kevin Allioli
+# Date de mise à jour : 21/03/2021
+
+# Variables d'environnement à déclarer :
+#     - SERVICE : nom du service (exemple : plex)
+#     - PUID : uid de de l'utilisateur système (exemple : 1001)
+#     - GUID : Gid de du groupe système (exemple : 1001)
+#     - TZ : Timezone du service (exemple : Europe/Paris)
+#     - MAX_UPLOAD : taille maximum d'upload
+#     - URL_LOKI: addresse du serveur loki
+#     - CONFIG_DATA_LOCATION : localisation des données de configuration 
+#     - DATA_LOCATION : localisation des données applicatives
+#     - APP_DATA_LOCATION : localisation des binaires applicatifs
+#     - NDD : Nom de domaine de l'application
+#     - NETWORK_APP : nom du réseau applicatif
+#     - NETWORK_DATA : nom du réseau data
+
+# Fonctionne avec Portainer
+
+version: "2"
+services:
+  projectsend:
+    image: linuxserver/projectsend
+    container_name: $SERVICE
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+      - MAX_UPLOAD=$MAX_UPLOAD
+    healthcheck:
+      test: curl --fail http://localhost:80 || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    volumes:
+      - $CONFIG_DATA_LOCATION:/config
+      - $DATA_LOCATION:/data
+      - $APP_DATA_LOCATION:/var/www/localhost/htdocs
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=$NETWORK_APP"
+      - "traefik.http.routers.projectsend.entrypoints=https"
+      - "traefik.http.routers.projectsend.rule=Host(`$NDD`)"
+      - "traefik.http.services.projectsend.loadbalancer.server.port=80"
+    networks:
+      - default
+      - default1
+
+networks:
+  default:
+    external:
+      name: $NETWORK_APP
+  default1:
+    external:
+      name: $NETWORK_DATA
