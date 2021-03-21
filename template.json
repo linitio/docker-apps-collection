@@ -676,10 +676,6 @@
             "label": "Localisation des données applicatives"
         },
         {
-            "name": "APP_DATA_LOCATION",
-            "label": "Localisation des binaires applicatifs"
-        },
-        {
             "name": "NDD",
             "label": "Nom de domaine"
         },

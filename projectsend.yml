@@ -10,7 +10,6 @@
 #     - URL_LOKI: addresse du serveur loki
 #     - CONFIG_DATA_LOCATION : localisation des données de configuration 
 #     - DATA_LOCATION : localisation des données applicatives
-#     - APP_DATA_LOCATION : localisation des binaires applicatifs
 #     - NDD : Nom de domaine de l'application
 #     - NETWORK_APP : nom du réseau applicatif
 #     - NETWORK_DATA : nom du réseau data
@@ -40,7 +39,6 @@ services:
     volumes:
       - $CONFIG_DATA_LOCATION:/config
       - $DATA_LOCATION:/data
-      - $APP_DATA_LOCATION:/var/www/localhost/htdocs
     restart: always
     labels:
       - "traefik.enable=true"
