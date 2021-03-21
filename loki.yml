@@ -16,6 +16,11 @@ services:
     container_name: $SERVICE
     restart: always
     command: -config.file=/etc/loki/local-config.yaml
+    healthcheck:
+      test: nc -z 127.0.0.1 3100 || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
     networks:
       - default
       - default1

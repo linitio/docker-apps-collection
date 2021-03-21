@@ -26,7 +26,7 @@ services:
       - TZ=$TZ
       - INTERFACE=$INTERFACE
     healthcheck:
-      test: curl --fail --insecure http://localhost:943 || exit 1
+      test: curl --fail --insecure https://localhost:943 || exit 1
       interval: 1m
       timeout: 30s
       retries: 3
