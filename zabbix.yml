@@ -34,6 +34,11 @@ services:
       ZBX_VMWAREPERFFREQUENCY: 30
       ZBX_VMWARECACHESIZE: 16M
       ZBX_VMWARETIMEOUT: 10
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
     ports:
       - 10051:10051
     volumes:  # Volumes for scripts and related files you can add
@@ -57,6 +62,11 @@ services:
       ZBX_SERVER_HOST: zabbix-server  # Zabbix related and Php variables
       ZBX_POSTMAXSIZE: 64M
       PHP_TZ: "$TZ"
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
     depends_on:
       - zabbix-server
 #    ports:    # Port where Zabbix UI is available
