@@ -12,7 +12,7 @@
         "platform": "linux",
         "logo": "https://upload.wikimedia.org/wikipedia/commons/0/03/Bitwarden_Logo.png",
         "repository": {
-            "url": "https://github.com/PAPAMICA/docker-compose-collection",
+            "url": "https://gitlab.com/kallioli/docker-server-container",
             "stackfile": "bitwarden.yml"
         },
         "env": [{
