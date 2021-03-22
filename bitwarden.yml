@@ -1,0 +1,47 @@
+# Docker-compose mis à disposition par Kevin Allioli
+# Date de mise à jour : 22/03/2021
+
+# Variables d'environnement à déclarer :
+#     - SERVICE : nom du service (exemple : plex)
+#     - DATA_LOCATION : localisation des données (exemple /apps/"service")
+#     - URL_LOKI : lien du serveur loki (exemple : ndd/loki/api/v1/push)
+#     - NDD : lien du nom de domaine (exemple : papamica.fr)
+
+# Fonctionne avec Portainer
+
+version: "2"
+services:
+  # Bitwarden : https://bitwarden.com/
+  bitwarden:
+    image: bitwardenrs/server
+    container_name: $SERVICE
+    restart: always
+    volumes:
+      - $DATA_LOCATION/bw-data:/data
+    environment:
+      WEBSOCKET_ENABLED: 'true' # Required to use websockets
+      SIGNUPS_ALLOWED: 'false'   # set to false to disable signups
+      TZ: 'Europe/Paris'
+    ports:
+      - 3012:3012
+      #- 8080:80
+
+    # Facultatif  
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    networks:
+      - default
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.grafana.entrypoints=https"
+      - "traefik.http.routers.grafana.rule=Host(`$NDD`)"
+      - "traefik.http.services.grafana.loadbalancer.server.port=80"
+      - "traefik.docker.network=$NETWORK_APP"
+  
+networks:
+  default:
+    external:
+      name: $NETWORK_APP

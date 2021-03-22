@@ -2,6 +2,42 @@
 	"version": "2",
 	"templates": [{
         "type": 3,
+        "title": "Bitwarden",
+        "description": "Gestionnaire de mots de passe et de 2FA (Alternatice à Dashlane)",
+        "note": "<p>Site de l'application : <a href=\"https:\/\/bitwarden.com\/\" target=\"_blank\" rel=\"noopener\">Bitwarden.com<\/a>",
+        "categories": [
+            "SelfHosting",
+            "LinIT"
+        ],
+        "platform": "linux",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/0/03/Bitwarden_Logo.png",
+        "repository": {
+            "url": "https://github.com/PAPAMICA/docker-compose-collection",
+            "stackfile": "bitwarden.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+            },
+            {
+            "name": "DATA_LOCATION",
+            "label": "Localisation des données",
+            "description": "exemple /apps/'service'"
+            },
+            {
+            "name": "URL_LOKI",
+            "label": "Lien du serveur loki",
+            "description": "exemple : ndd/loki/api/v1/push"
+            },
+            {
+            "name": "NDD",
+            "label": "Lien du nom de domaine",
+            "description": "exemple : papamica.fr"
+        }]
+        },
+        
+        {
+        "type": 3,
         "title": "Filebrowser",
         "description": "Utilitaire partage de fichiers",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/filebrowser.org\/\" target=\"_blank\" rel=\"noopener\">filebrowser.org<\/a>",
