@@ -33,6 +33,10 @@
             "name": "NDD",
             "label": "Lien du nom de domaine",
             "description": "exemple : papamica.fr"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Nom du réseau de déploiement"
         }]
         },
         
