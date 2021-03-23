@@ -98,7 +98,7 @@
         {
             "name": "NETWORK_APP",
             "label": "Nom du réseau de déploiement"
-        }
+        },
         {
             "name": "NETWORK_DATA",
             "label": "Nom du réseau data"
