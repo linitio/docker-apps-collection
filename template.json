@@ -6,8 +6,7 @@
         "description": "Gestionnaire de mots de passe et de 2FA (Alternatice à Dashlane)",
         "note": "<p>Site de l'application : <a href=\"https:\/\/bitwarden.com\/\" target=\"_blank\" rel=\"noopener\">Bitwarden.com<\/a>",
         "categories": [
-            "SelfHosting",
-            "LinIT"
+            "Sécurité"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/bitwarden_logo.png",
@@ -111,8 +110,7 @@
         "description": "Utilitaire partage de fichiers",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/filebrowser.org\/\" target=\"_blank\" rel=\"noopener\">filebrowser.org<\/a>",
         "categories": [
-		    "SelfHosting",
-		    "LinIT"
+		    "Partage de fichiers"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/filebrowser_logo.png",
@@ -156,8 +154,7 @@
         "description": "Utilitaire de monitoring",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/grafana.com\/\" target=\"_blank\" rel=\"noopener\">grafana.com<\/a>",
         "categories": [
-		    "SelfHosting",
-		    "LinIT"
+		    "Surveillance"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/grafana_logo.png",
@@ -201,8 +198,7 @@
         "description": "Utilitaire de téléchargement",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/jdownloader.org\/\" target=\"_blank\" rel=\"noopener\">jdownloader.org<\/a>",
         "categories": [
-		    "SelfHosting",
-		    "LinIT"
+		    "Téléchargement"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/jdownloader_logo.png",
@@ -246,8 +242,7 @@
         "description": "Serveur d'authentification SSO",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/keycloak.org\/\" target=\"_blank\" rel=\"noopener\">keycloak.org<\/a>",
         "categories": [
-		    "SelfHosting",
-		    "LinIT"
+		    "Sécurité"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/keycloak_logo.png",
@@ -307,8 +302,7 @@
         "description": "Utilitaire d'agrégation des logs",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/grafana.com/oss/loki\/\" target=\"_blank\" rel=\"noopener\">grafana.com/oss/loki<\/a>",
         "categories": [
-		    "SelfHosting",
-		    "LinIT"
+		    "Surveillance"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/loki_logo.png",
@@ -344,8 +338,7 @@
         "description": "Serveur SGBD",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/mariadb.org\/\" target=\"_blank\" rel=\"noopener\">mariadb.org<\/a>",
         "categories": [
-		    "SelfHosting",
-		    "LinIT"
+		    "Base de données"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/mariadb_logo.png",
@@ -393,8 +386,7 @@
         "description": "Alternative à Slack",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/mattermost.com\/\" target=\"_blank\" rel=\"noopener\">mattermost.com<\/a>",
         "categories": [
-		    "SelfHosting",
-		    "LinIT"
+		    "Communication"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/mattermost_logo.png",
@@ -474,8 +466,7 @@
         "description": "Serveur VPN",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/openvpn.net\/\" target=\"_blank\" rel=\"noopener\">openvpn.net<\/a>",
         "categories": [
-		    "SelfHosting",
-		    "LinIT"
+		    "Sécurité"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/openvpn_logo.png",
@@ -527,8 +518,7 @@
         "description": "Application de mise à jour automatique de conteneurs",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/github.com/pyouroboros/ouroboros\/\" target=\"_blank\" rel=\"noopener\">https://github.com/pyouroboros/ouroboros<\/a>",
         "categories": [
-		    "SelfHosting",
-		    "LinIT"
+		    "Utilitaire"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/ouroboros_logo.png",
@@ -580,8 +570,7 @@
         "description": "Application d'administration pour PostgreSQL",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/www.pgadmin.org\/\" target=\"_blank\" rel=\"noopener\">www.pgadmin.org<\/a>",
         "categories": [
-		    "SelfHosting",
-		    "LinIT"
+		    "Utilitaire"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/postgresql_logo.png",
@@ -625,8 +614,7 @@
         "description": "Application d'administration pour MariaDB et MySQL",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/www.phpmyadmin.net\/\" target=\"_blank\" rel=\"noopener\">www.phpmyadmin.net<\/a>",
         "categories": [
-		    "SelfHosting",
-		    "LinIT"
+		    "Utilitaire"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/phpmyadmin_logo.png",
@@ -670,8 +658,7 @@
         "description": "Serveur Multimédia",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/plex.tv\/\" target=\"_blank\" rel=\"noopener\">plex.tv<\/a>",
         "categories": [
-		    "SelfHosting",
-		    "LinIT"
+		    "Gestion de médias"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/plex_logo.png",
@@ -739,8 +726,7 @@
         "description": "Application de partage de fichiers",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/plex.tv\/\" target=\"_blank\" rel=\"noopener\">plex.tv<\/a>",
         "categories": [
-		    "SelfHosting",
-		    "LinIT"
+		    "Partage de fichiers"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/projectsend_logo.png",
@@ -800,8 +786,7 @@
         "description": "Serveur SGBD",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/www.postgresql.org\/\" target=\"_blank\" rel=\"noopener\">postgresql.org<\/a>",
         "categories": [
-		    "SelfHosting",
-		    "LinIT"
+		    "Base de données"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/postgresql_logo.png",
@@ -837,8 +822,7 @@
         "description": "Serveur de relai SMTP",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/www.exim.org\/\" target=\"_blank\" rel=\"noopener\">exim.org<\/a>",
         "categories": [
-		    "SelfHosting",
-		    "LinIT"
+		    "Utilitaire"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/smtp_logo.png",
@@ -882,8 +866,7 @@
         "description": "Service de synchronisation de fichiers",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/syncthing.net\/\" target=\"_blank\" rel=\"noopener\">syncthing.net<\/a>",
         "categories": [
-		    "SelfHosting",
-		    "LinIT"
+		    "Partage de fichiers"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/syncthing_logo.png",
@@ -943,8 +926,7 @@
         "description": "Alternative à Pocket",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/wallabag.org\/\" target=\"_blank\" rel=\"noopener\">wallabag.org<\/a>",
         "categories": [
-		    "SelfHosting",
-		    "LinIT"
+		    "Utilitaire"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/wallabag_logo.png",
@@ -1024,8 +1006,7 @@
         "description": "Application de wiki",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/js.wiki\/\" target=\"_blank\" rel=\"noopener\">js.wiki<\/a>",
         "categories": [
-		    "SelfHosting",
-		    "LinIT"
+		    "Web"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/wikijs_logo.png",
@@ -1085,8 +1066,7 @@
         "description": "Proxy IPTV",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/github.com/xteve-project\/\" target=\"_blank\" rel=\"noopener\">github.com/xteve-project<\/a>",
         "categories": [
-		    "SelfHosting",
-		    "LinIT"
+		    "Gestion de médias"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/xteve_logo.png",
@@ -1122,8 +1102,7 @@
         "description": "Service de monitoring Zabbix",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/zabbix.com\/\" target=\"_blank\" rel=\"noopener\">zabbix.com<\/a>",
         "categories": [
-		    "SelfHosting",
-		    "LinIT"
+		    "Surveillance"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/zabbix_logo.png",
