@@ -10,7 +10,7 @@
             "LinIT"
         ],
         "platform": "linux",
-        "logo": "https://upload.wikimedia.org/wikipedia/commons/0/03/Bitwarden_Logo.png",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/bitwarden_logo.png",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
             "stackfile": "bitwarden.yml"
