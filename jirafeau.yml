@@ -14,7 +14,7 @@ services:
   jirafeau:
     image: jgeusebroek/jirafeau
     container_name: $SERVICE
-    restart: restart
+    restart: always
     volumes:
       - $DATA_LOCATION/cfg:/cfg
       - $DATA_LOCATION/data:/data
