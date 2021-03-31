@@ -248,7 +248,7 @@
         "platform": "linux",
         "logo": "https://framalibre.org/sites/default/files/leslogos/JirafeauLogo.jpeg",
         "repository": {
-            "url": "https://github.com/PAPAMICA/docker-compose-collection",
+            "url": "https://gitlab.com/kallioli/docker-server-container",
             "stackfile": "jirafeau.yml"
         },
         "env": [{
