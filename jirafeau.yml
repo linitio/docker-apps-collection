@@ -15,6 +15,9 @@ services:
     image: jgeusebroek/jirafeau
     container_name: $SERVICE
     restart: always
+    environment:
+      - UID: $UID
+      - GID: $GID
     volumes:
       - $DATA_LOCATION/cfg:/cfg
       - $DATA_LOCATION/data:/data

@@ -242,8 +242,7 @@
         "description": "Partages de fichiers (alternative à WeTransfert)",
         "note": "<p>Site de l'application : <a href=\"https:\/\/gitlab.com\/mojo42\/Jirafeau\" target=\"_blank\" rel=\"noopener\">Gitlab.com<\/a>",
         "categories": [
-            "SelfHosted",
-            "PAPAMICA"
+            ""
         ],
         "platform": "linux",
         "logo": "https://framalibre.org/sites/default/files/leslogos/JirafeauLogo.jpeg",
@@ -254,6 +253,14 @@
         "env": [{
             "name": "SERVICE",
             "label": "Nom du service"
+        },
+        {
+            "name": "UID",
+            "label": "Identifiant utilisateur Jirafeau"
+        },
+        {
+            "name": "GID",
+            "label": "Identifiant du groupe Jirafeau"
         },
         {
             "name": "DATA_LOCATION",
