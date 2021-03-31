@@ -1,0 +1,39 @@
+# Docker-compose mis à disposition par Kevin Allioli
+# Date de mise à jour : 31/03/2021
+
+# Variables d'environnement à déclarer :
+#     - SERVICE : nom du service (exemple : plex)
+#     - DATA_LOCATION : localisation des données (exemple /apps/"service")
+#     - URL_LOKI : lien du serveur loki (exemple : ndd/loki/api/v1/push)
+#     - NDD : lien du nom de domaine (exemple : papamica.fr)
+
+# Fonctionne avec Portainer
+version: '2'
+
+services:
+  jirafeau:
+    image: jgeusebroek/jirafeau
+    container_name: $SERVICE
+    restart: restart
+    volumes:
+      - $DATA_LOCATION/cfg:/cfg
+      - $DATA_LOCATION/data:/data
+      - $DATA_LOCATION/media:/jirafeau/media
+    networks:
+      - default
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$NDD`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=8080"
+      - "traefik.docker.network=$NETWORK_APP"
+      
+networks:
+  default:
+    external:
+      name: $NETWORK_APP
