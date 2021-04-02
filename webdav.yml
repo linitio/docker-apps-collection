@@ -25,6 +25,11 @@ services:
     environment:
       - PUID=$PUID
       - PGID=$GUID
+    healthcheck:
+      test: wget -nv -t1 --spider 'http://localhost:80'
+      interval: 1m
+      timeout: 30s
+      retries: 3
     logging:
       driver: loki
       options:
