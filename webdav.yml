@@ -26,7 +26,7 @@ services:
       - PUID=$PUID
       - PGID=$GUID
     healthcheck:
-      test: grep -q "nginx" /proc/197/status || exit 1
+      test: grep -q "nginx" /proc/*/status || exit 1
       interval: 1m
       timeout: 30s
       retries: 3
