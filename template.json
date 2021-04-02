@@ -1049,6 +1049,50 @@
 
     {
         "type": 3,
+        "title": "WebDav",
+        "description": "Utilitaire de partage de fichiers",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/hub.docker.com\/r\/linitio\/nginx-webdav/\" target=\"_blank\" rel=\"noopener\">linitio/nginx-webdav<\/a>",
+        "categories": [
+		    "Partage de fichiers"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/jdownloader_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "webdav.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "J_UID",
+            "label": "Identifiant utilisateur JDownloader"
+        },
+        {
+            "name": "J_GID",
+            "label": "Identifiant du groupe JDownloader"
+        },
+        {
+            "name": "CONF_DATA_LOCATION",
+            "label": "Localisation des données de configuration"
+        },
+        {
+            "name": "DOWNLOADS_DATA_LOCATION",
+            "label": "Localisation des téléchargements"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
+        },
+        {
+            "name": "NETWORK_FRONT",
+            "label": "Nom du réseau de déploiement"
+        }]
+    },
+
+    {
+        "type": 3,
         "title": "WikiJS",
         "description": "Application de wiki",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/js.wiki\/\" target=\"_blank\" rel=\"noopener\">js.wiki<\/a>",

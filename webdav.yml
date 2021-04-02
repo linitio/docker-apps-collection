@@ -1,0 +1,40 @@
+# Docker-compose mis à disposition par Kevin Allioli
+# Date de mise à jour : 02/04/2021
+
+# Variables d'environnement à déclarer :
+#     - SERVICE : nom du service (exemple : jdownloader)
+#     - PUID : uid de l'utilisateur système (exemple : 1001)
+#     - GUID : gid du groupe système (exemple : 1001)
+#     - CONF_DATA_LOCATION : localisation des données de configuration (exemple /apps/"service")
+#     - DATA_LOCATION: localisation des téléchargement (exemple /apps/"service")
+#     - NDD : nom de domaine de l'application
+#     - NETWORK_APP : nom du réseau applicatif
+
+# Fonctionne avec Portainer
+
+version: '2'
+services:
+  webdav:
+    image: linitio/nginx-webdav
+    container_name: $SERVICE
+    volumes:
+      - $CONF_DATA_LOCATION/sites-enabled:/etc/nginx/sites-enabled
+      - $CONF_DATA_LOCATION/security:/etc/nginx/security/
+      - $CONF_DATA_LOCATION/log:/var/log/nginx
+      - $DATA_LOCATION:/srv/data
+    environment:
+      - PUID=$PUID
+      - PGID=$GUID
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$NDD`)""
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
+      - "traefik.docker.network=$NETWORK_APP"
+    restart: always
+    networks:
+      - default
+networks:
+  default:
+    external:
+      name: $NETWORK_APP
