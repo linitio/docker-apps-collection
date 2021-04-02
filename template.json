@@ -242,10 +242,10 @@
         "description": "Partages de fichiers (alternative à WeTransfert)",
         "note": "<p>Site de l'application : <a href=\"https:\/\/gitlab.com\/mojo42\/Jirafeau\" target=\"_blank\" rel=\"noopener\">Gitlab.com<\/a>",
         "categories": [
-            ""
+            "Partage de fichiers"
         ],
         "platform": "linux",
-        "logo": "https://framalibre.org/sites/default/files/leslogos/JirafeauLogo.jpeg",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/jirafeau_logo.png",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
             "stackfile": "jirafeau.yml"
@@ -1056,7 +1056,7 @@
 		    "Partage de fichiers"
         ],
         "platform": "linux",
-        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/jdownloader_logo.png",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/webdav_logo.png",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
             "stackfile": "webdav.yml"
@@ -1066,19 +1066,19 @@
             "label": "Nom du service"
         },
         {
-            "name": "J_UID",
-            "label": "Identifiant utilisateur JDownloader"
+            "name": "PUID",
+            "label": "Identifiant utilisateur"
         },
         {
-            "name": "J_GID",
-            "label": "Identifiant du groupe JDownloader"
+            "name": "GUID",
+            "label": "Identifiant du groupe"
         },
         {
             "name": "CONF_DATA_LOCATION",
             "label": "Localisation des données de configuration"
         },
         {
-            "name": "DOWNLOADS_DATA_LOCATION",
+            "name": "DATA_LOCATION",
             "label": "Localisation des téléchargements"
         },
         {
@@ -1086,7 +1086,7 @@
             "label": "Url du service loki"
         },
         {
-            "name": "NETWORK_FRONT",
+            "name": "NETWORK_APP",
             "label": "Nom du réseau de déploiement"
         }]
     },

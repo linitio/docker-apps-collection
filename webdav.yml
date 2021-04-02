@@ -25,6 +25,11 @@ services:
     environment:
       - PUID=$PUID
       - PGID=$GUID
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.$SERVICE.entrypoints=https"
