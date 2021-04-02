@@ -1079,7 +1079,11 @@
         },
         {
             "name": "DATA_LOCATION",
-            "label": "Localisation des téléchargements"
+            "label": "Localisation des données"
+        },
+        {
+            "name": "NDD",
+            "label": "Nom de domaine de l'application"
         },
         {
             "name": "URL_LOKI",
