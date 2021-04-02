@@ -38,6 +38,11 @@ services:
       ZBX_VMWAREPERFFREQUENCY: 30
       ZBX_VMWARECACHESIZE: 16M
       ZBX_VMWARETIMEOUT: 10
+    healthcheck:
+      test: grep -qr "zabbix_server" /proc/*/status || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
     logging:
       driver: loki
       options:
@@ -68,6 +73,11 @@ services:
       ZBX_SERVER_HOST: zabbix-server  # Zabbix related and Php variables
       ZBX_POSTMAXSIZE: 64M
       PHP_TZ: "$TZ"
+    healthcheck:
+      test: curl --fail http://localhost:8080 || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
     logging:
       driver: loki
       options:
