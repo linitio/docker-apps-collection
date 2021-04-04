@@ -56,4 +56,4 @@ services:
 networks:
   default:
     external:
-      name: $NETWORK_FRONT
+      name: $NETWORK_APP

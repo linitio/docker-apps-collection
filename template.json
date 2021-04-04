@@ -554,8 +554,8 @@
             "label": "Nom de domaine"
         },
         {
-            "name": "NETWORK_FRONT",
-            "label": "Nom du réseau frontal"
+            "name": "NETWORK_APP",
+            "label": "Nom du réseau applicatif"
         }]
     },
 
