@@ -50,6 +50,7 @@ services:
       - "traefik.udp.services.$SERVICE-udp.loadbalancer.server.port=1194"
       - "traefik.tcp.routers.$SERVICE-tcp.entrypoints=openvpn-tcp"
       - "traefik.tcp.routers.$SERVICE-tcp.service=$SERVICE-tcp"
+      - "traefik.tcp.routers.$SERVICE-tcp.rule=HostSNI(`*`)"
       - "traefik.tcp.services.$SERVICE-tcp.loadbalancer.server.port=9443"
     networks:
       - default

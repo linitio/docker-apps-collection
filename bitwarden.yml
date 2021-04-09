@@ -48,6 +48,8 @@ services:
       SMTP_TIMEOUT: $SMTP_TIMEOUT
       DOMAIN: https://$NDD
       TZ: '$TZ'
+      YUBICO_CLIENT_ID: 63520
+      YUBICO_SECRET_KEY: qKFoF/J6axSj9OBt1MWTYS6WPHA=
 
     # Facultatif  
     logging:
