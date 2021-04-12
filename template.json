@@ -103,6 +103,58 @@
             "label": "Nom du réseau data"
         }]
     },
+
+    {
+        "type": 3,
+        "title": "OpenVPN AS",
+        "description": "Serveur VPN",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/openvpn.net\/\" target=\"_blank\" rel=\"noopener\">openvpn.net<\/a>",
+        "categories": [
+		    "Sécurité"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/duplicati_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "duplicati.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "PUID",
+            "label": "Identifiant utilisateur duplicati"
+        },
+        {
+            "name": "PGID",
+            "label": "Identifiant du groupe duplicati"
+        },
+        {
+            "name": "TZ",
+            "label": "Timezone du service"
+        },
+        {
+            "name": "CLI_ARGS",
+            "label": "Arguments supplémentaires en CLI"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Localisation des données du service"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
+        },
+        {
+            "name": "NDD",
+            "label": "Nom de domaine"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Nom du réseau applicatif"
+        }]
+    },
         
     {
         "type": 3,

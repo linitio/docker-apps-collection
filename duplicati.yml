@@ -1,0 +1,55 @@
+# Docker-compose mis à disposition par Kevin Allioli
+# Date de mise à jour : 12/04/2021
+
+# Variables d'environnement à déclarer :
+#     - SERVICE : nom du service (exemple : duplicati)
+#     - PUID
+#     - GUID
+#     - TZ
+#     - CLI_ARGS
+#     - URL_LOKI
+#     - DATA_LOCATION
+#     - NDD
+#     - NETWORK_APP
+
+# Fonctionne avec Portainer
+
+---
+version: "2.1"
+services:
+  duplicati:
+    image: ghcr.io/linuxserver/duplicati
+    container_name: $SERVICE
+    restart: always
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+      - CLI_ARGS=$CLI_ARGS
+    healthcheck:
+      test: curl --fail http://localhost:8200 || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    volumes:
+      - $DATA_LOCATION/config:/config
+      - $DATA_LOCATION/backups:/backups
+      - $DATA_LOCATION/source:/source
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$NDD`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=8200"
+      - "traefik.docker.network=$NETWORK_APP"
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: $NETWORK_APP
