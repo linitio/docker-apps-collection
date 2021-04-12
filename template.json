@@ -106,11 +106,11 @@
 
     {
         "type": 3,
-        "title": "OpenVPN AS",
-        "description": "Serveur VPN",
-	    "note": "<p>Site de l'application : <a href=\"https:\/\/openvpn.net\/\" target=\"_blank\" rel=\"noopener\">openvpn.net<\/a>",
+        "title": "Duplicati",
+        "description": "Utilitaire de sauvegarde",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/www.duplicati.com\/\" target=\"_blank\" rel=\"noopener\">www.duplicati.com<\/a>",
         "categories": [
-		    "Sécurité"
+		    "Sauvegarde"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/duplicati_logo.png",
