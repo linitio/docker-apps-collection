@@ -58,6 +58,11 @@ services:
   service.mercury:
     image: wangqiru/mercury-parser-api:latest
     container_name: mercury
+    healthcheck:
+      test: wget -nv -t1 --spider 'http://localhost:3000'
+      interval: 1m
+      timeout: 30s
+      retries: 3
     networks:
       - default
     restart: always
