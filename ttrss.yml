@@ -1,0 +1,66 @@
+# Docker-compose mis à disposition par Kevin Allioli
+# Date de mise à jour : 21/04/2021
+
+# Variables d'environnement à déclarer :
+#     - SERVICE : nom du service (exemple : mariadb)
+#     - SELF_URL_PATH : URL du service TT-RSS complète
+#     - DB_HOST : nom du conteneur PostgreSQL
+#     - DB_NAME : nom de la base de donnée 
+#     - DB_USER : nom de l'utilisateur 
+#     - DB_PASS : Mot de passe de la base de donnée
+#     - PUID : identifiant de l'utilisateur TT-RSS
+#     - PGID : identifiant du groupe TT-RSS
+#     - ICONS_DATA_LOCATION : localisation des données icones
+#     - NDD : Nom de domaine de l'application
+#     - NETWORK_APP : nom du réseau applicatif
+#     - NETWORK_DATA : nom du réseau data
+
+# Fonctionne avec Portainer
+
+version: "3"
+services:
+  ttrss:
+    image: wangqiru/ttrss:latest
+    container_name: $SERVICE
+    environment:
+      - SELF_URL_PATH=$SELF_URL_PATH
+      - DB_HOST=$DB_HOST
+      - DB_NAME=$DB_NAME
+      - DB_USER=$DB_USER
+      - DB_PASS=$DB_PASS
+      - PUID=$PUID
+      - PGID=$PGID
+    healthcheck:
+      test: curl --fail http://$NDD:80 || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
+    labels:
+    - "traefik.enable=true"
+    - "traefik.http.routers.$SERVICE.entrypoints=https"
+    - "traefik.http.routers.$SERVICE.rule=Host(`$NDD`)"
+    - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
+    - "traefik.docker.network=$NETWORK_APP"
+    volumes:
+      - $ICONS_DATA_LOCATION:/var/www/feed-icons/
+    networks:
+      - default
+      - default1
+    stdin_open: true
+    tty: true
+    restart: always
+
+  service.mercury:
+    image: wangqiru/mercury-parser-api:latest
+    container_name: mercury
+    networks:
+      - default
+    restart: always
+
+networks:
+  default:
+    external:
+      name: $NETWORK_APP
+  default1:
+    external:
+      name: $NETWORK_DATA
