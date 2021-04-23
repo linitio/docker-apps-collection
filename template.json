@@ -883,7 +883,7 @@
         "type": 3,
         "title": "PostgreSQL",
         "description": "Serveur SGBD",
-	    "note": "<p>Site de l'application : <a href=\"https:\/\/www.postgresql.org\/\" target=\"_blank\" rel=\"noopener\">postgresql.org<\/a>",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/https://tt-rss.org\/\" target=\"_blank\" rel=\"noopener\">tt-rss.org<\/a>",
         "categories": [
 		    "Base de données"
         ],
@@ -921,7 +921,7 @@
         "description": "Aggrégateur de flux RSS",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/www.postgresql.org\/\" target=\"_blank\" rel=\"noopener\">postgresql.org<\/a>",
         "categories": [
-		    "Base de données"
+		    "Utilitaire"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/tt-rss_logo.png",
