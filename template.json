@@ -963,6 +963,30 @@
             "label": "Identifiant du groupe tt-rss"
         },
         {
+            "name": "ENABLE_PLUGINS",
+            "label": "Liste des plugins actifs"
+        },
+        {
+            "name": "SMTP_SERVER",
+            "label": "Adresse du serveurs SMTP"
+        },
+        {
+            "name": "SMTP_LOGIN",
+            "label": "Identifiant du serveur SMTP"
+        },
+        {
+            "name": "SMTP_PASSWORD",
+            "label": "Mot de passe du serveur SMTP"
+        },
+        {
+            "name": "SMTP_SECURE",
+            "label": "Type de connexion au serveur SMTP"
+        },
+        {
+            "name": "SMTP_FROM_ADDRESS",
+            "label": "Adresse d'envoi de TT-RSS"
+        },
+        {
             "name": "NDD",
             "label": "Nom de domaine de l'application"
         },

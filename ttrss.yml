@@ -10,6 +10,12 @@
 #     - DB_PASS : Mot de passe de la base de donnée
 #     - PUID : identifiant de l'utilisateur TT-RSS
 #     - PGID : identifiant du groupe TT-RSS
+#     - ENABLE_PLUGINS : liste des plugins actifs
+#     - SMTP_SERVER : serveur SMTP
+#     - SMTP_LOGIN : login SMTP
+#     - SMTP_PASSWORD : mot de passe SMTP
+#     - SMTP_SECURE : type de connexion au serveur SMTP
+#     - SMTP_FROM_ADDRESS : adresse mail d'envoi de TT-RSS
 #     - ICONS_DATA_LOCATION : localisation des données icones
 #     - NDD : Nom de domaine de l'application
 #     - NETWORK_APP : nom du réseau applicatif
@@ -30,6 +36,12 @@ services:
       - DB_PASS=$DB_PASS
       - PUID=$PUID
       - PGID=$PGID
+      - ENABLE_PLUGINS=$ENABLE_PLUGINS
+      - SMTP_SERVER=$SMTP_SERVER
+      - SMTP_LOGIN=$SMTP_LOGIN
+      - SMTP_PASSWORD=$SMTP_PASSWORD
+      - SMTP_SECURE=$SMTP_SECURE
+      - SMTP_FROM_ADDRESS=$SMTP_FROM_ADDRESS
     healthcheck:
       test: curl --fail http://$NDD:80 || exit 1
       interval: 1m
