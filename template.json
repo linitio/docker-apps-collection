@@ -924,7 +924,7 @@
 		    "Base de données"
         ],
         "platform": "linux",
-        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/ttrss_logo.png",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/tt-rss_logo.png",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
             "stackfile": "ttrss.yml"
