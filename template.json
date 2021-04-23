@@ -794,19 +794,7 @@
             "label": "Localisation des données de configuration"
         },
         {
-            "name": "MOVIES_DATA_LOCATION",
-            "label": "Localisation des films"
-        },
-        {
-            "name": "TVSHOWS_DATA_LOCATION",
-            "label": "Localisation des séries"
-        },
-        {
-            "name": "PHOTOS_DATA_LOCATION",
-            "label": "Localisation des photos"
-        },
-        {
-            "name": "WEBINARS_DATA_LOCATION",
+            "name": "DATA_LOCATION",
             "label": "Localisation des webinars"
         },
         {

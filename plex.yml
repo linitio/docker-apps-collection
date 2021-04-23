@@ -41,10 +41,7 @@ services:
         loki-external-labels: service={{.Name}}
     volumes:
       - $CONFIG_DATA_LOCATION:/config
-      - $MOVIES_DATA_LOCATION:/data/movies
-      - $TVSHOWS_DATA_LOCATION:/data/tvshows
-      - $PHOTOS_DATA_LOCATION:/data/photos
-      - $WEBINARS_DATA_LOCATION:/data/webinars
+      - $DATA_LOCATION:/data
       - $TRANSCODE_DATA_LOCATION:/transcode
     devices:
       - $TRANSCODE_DEVICE:/dev/dri
