@@ -1,5 +1,5 @@
 # Docker-compose mis à disposition par Kevin Allioli
-# Date de mise à jour : 13/03/2021
+# Date de mise à jour : 23/04/2021
 
 # Variables d'environnement à déclarer :
 #     - SERVICE : nom du service (exemple : plex)
@@ -8,10 +8,7 @@
 #     - GUID : Gid de du groupe système (exemple : 1001)
 #     - TZ : Timezone du service (exemple : Europe/Paris)
 #     - CONFIG_DATA_LOCATION : localisation des données de configuration 
-#     - MOVIES_DATA_LOCATION : localisation des films
-#     - TVSHOWS_DATA_LOCATION : localisation des séries
-#     - PHOTOS_DATA_LOCATION : localisation des photos
-#     - WEBINARS_DATA_LOCATION : localisation des webinars 
+#     - DATA_LOCATION : localisation des bibliotèque medias
 #     - TRANSCODE_DATA_LOCATION : dossier temporaire pour le transcodage
 #     - TRANSCODE_DEVICE : périphérique utilisé pour le transcodage
 
