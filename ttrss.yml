@@ -26,7 +26,7 @@
 version: "3"
 services:
   ttrss:
-    image: wangqiru/ttrss:latest
+    image: linitio/ttrss
     container_name: $SERVICE
     environment:
       - SELF_URL_PATH=$SELF_URL_PATH
