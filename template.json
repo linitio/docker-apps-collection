@@ -561,6 +561,74 @@
 
     {
         "type": 3,
+        "title": "Nextcloud",
+        "description": "Cloud personel",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/nextcloud.com\/\" target=\"_blank\" rel=\"noopener\">nextcloud.com<\/a>",
+        "categories": [
+		    "Utilitaires"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/nextcloud_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "nextcloud.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "POSTGRES_HOST",
+            "label": "Nom du conteneur PostgreSQL"
+        },
+        {
+            "name": "POSTGRES_DB",
+            "label": "Nom de la base de données"
+        },
+        {
+            "name": "POSTGRES_USER",
+            "label": "Nom d'utilisateur de la BDD"
+        },
+        {
+            "name": "POSTGRES_PASSWORD",
+            "label": "Mot de passe de la BDD"
+        },
+        {
+            "name": "NEXTCLOUD_ADMIN_USER",
+            "label": "Utilisateur administrateur de Nextcloud"
+        },
+        {
+            "name": "NEXTCLOUD_ADMIN_PASSWORD",
+            "label": "Mot de passe administrateur Nextcloud"
+        },
+        {
+            "name": "NETXCLOUD_TRUSTED_DOMAINS",
+            "label": "Noms de domaines autorisés dans Nextcloud"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Dossier des donnée de l'application"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
+        },
+        {
+            "name": "NDD",
+            "label": "Nom de domaine"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Nom du réseau applicatif"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Nom du réseau data"
+        }]
+    },
+
+    {
+        "type": 3,
         "title": "OpenVPN AS",
         "description": "Serveur VPN",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/openvpn.net\/\" target=\"_blank\" rel=\"noopener\">openvpn.net<\/a>",
