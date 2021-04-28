@@ -17,6 +17,11 @@ services:
     restart: always
     environment:
       STORAGE_TYPE: file
+    healthcheck:
+      test: wget -s 'http://localhost:7777'
+      interval: 1m
+      timeout: 30s
+      retries: 3
     volumes:
       - $DATA_LOCATION/data:/data  
     networks:
