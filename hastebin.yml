@@ -23,7 +23,7 @@ services:
       timeout: 30s
       retries: 3
     volumes:
-      - $DATA_LOCATION/data:/data  
+      - $DATA_LOCATION/data:/app/data  
     networks:
       - default
     logging:
