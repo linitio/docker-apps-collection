@@ -246,6 +246,43 @@
 
     {
         "type": 3,
+        "title": "Hastebin",
+        "description": "Utilitaire de partage de code",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/hastebin.com\/\" target=\"_blank\" rel=\"noopener\">hastebin.com<\/a>",
+        "categories": [
+		    "Utilitaire"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/hastebin_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "hastebin.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Localisation des données applicative"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
+        },
+        {
+            "name": "NDD",
+            "label": "Nom de domaine"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Nom du réseau de déploiement"
+        }]
+    },
+
+
+    {
+        "type": 3,
         "title": "JDownloader",
         "description": "Utilitaire de téléchargement",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/jdownloader.org\/\" target=\"_blank\" rel=\"noopener\">jdownloader.org<\/a>",
