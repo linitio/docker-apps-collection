@@ -28,9 +28,9 @@ services:
         loki-external-labels: service={{.Name}}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.grafana.entrypoints=https"
-      - "traefik.http.routers.grafana.rule=Host(`$NDD`)"
-      - "traefik.http.services.grafana.loadbalancer.server.port=80"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$NDD`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=7777"
       - "traefik.docker.network=$NETWORK_APP"
       
 networks:
