@@ -1,0 +1,52 @@
+# Docker-compose mis à disposition par Kevin Allioli
+# Date de mise à jour : 28/04/2021
+
+# Variables d'environnement à déclarer :
+#     - SERVICE : nom du service (exemple : wordpress)
+#     - DB_HOST : nom du conteneur de la BDD
+#     - DB_NAME : nom de la BDD
+#     - DB_USER : nom utilisateur de la BDD
+#     - DB_PASSWORD : mot de passe de la BDD
+#     - DATA_LOCATION : localisation des données (exemple /apps/"service")
+#     - NDD : nom de domaine de l'application
+#     - URL_LOKI : url du service loki
+#     - NETWORK_APP : nom du réseau applicatif
+#     - NETWORK_DATA : nom du réseau de donnée
+
+# Fonctionne avec Portainer
+
+version: "2"
+services:
+  wordpress:
+    image: wordpress
+    container_name: $SERVICE
+    environment:
+      - WORDPRESS_DB_HOST=$DB_HOST
+      - WORDPRESS_DB_NAME=$DB_NAME
+      - WORDPRESS_DB_USER=$DB_USER
+      - WORDPRESS_DB_PASSWORD=$DB_PASSWORD
+    volumes:
+      - $DATA_LOCATION:/var/www/html
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.grafana.entrypoints=https"
+      - "traefik.http.routers.grafana.rule=Host(`$NDD`)"
+      - "traefik.http.services.grafana.loadbalancer.server.port=80"
+      - "traefik.docker.network=$NETWORK_APP"
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    restart: always
+    networks:
+      - default
+      - default1
+
+networks:
+  default:
+    external:
+      name: $NETWORK_APP
+  default1:
+    external:
+      name: $NETWORK_DATA

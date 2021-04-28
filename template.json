@@ -1357,6 +1357,67 @@
 
     {
         "type": 3,
+        "title": "Wordpress",
+        "description": "Application de blogging",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/wordpress.org\/\" target=\"_blank\" rel=\"noopener\">wordpress.org<\/a>",
+        "categories": [
+		    "Web"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/wordpress_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "wordpress.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "DB_HOST",
+            "label": "Conteneur du SGBD",
+            "description": "exemple : mariadb, postgresql"
+        },
+        {
+            "name": "DB_NAME",
+            "label": "Nom de la BDD",
+            "description": "exemple : wordpress"
+        },
+        {
+            "name": "DB_USER",
+            "label": "Utilisateur de la BDD",
+            "description": "exemple : wordpress"
+        },
+        {
+            "name": "DB_PASSWORD",
+            "label": "Mot de passe de la BDD"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Localisation des données",
+            "description": "exemple : /chemin/complet/vers/dossier "
+        },
+        {
+            "name": "NDD",
+            "label": "Nom de domaine de l'application",
+            "description": "exemple : wordpress.domain.tld"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "URL du service loki"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Nom du réseau applicatif"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Nom du réseau data"
+        }]
+    },
+
+    {
+        "type": 3,
         "title": "xTeVe",
         "description": "Proxy IPTV",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/github.com/xteve-project\/\" target=\"_blank\" rel=\"noopener\">github.com/xteve-project<\/a>",
