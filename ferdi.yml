@@ -6,7 +6,7 @@ services:
     container_name: $SERVICE
     environment:
       - NODE_ENV=$NODE_ENV
-      - EXTERNAL_DOMAIN=$NDD	 
+      - EXTERNAL_DOMAIN=$NDD
       - DB_CONNECTION=$DB_DRIVER
       - DB_HOST=$DB_HOST
       - DB_PORT=$DB_PORT
