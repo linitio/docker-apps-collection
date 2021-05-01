@@ -1103,10 +1103,10 @@
     {
         "type": 3,
         "title": "SMTP Relay",
-        "description": "Serveur de relai SMTP",
-	    "note": "<p>Site de l'application : <a href=\"https:\/\/www.exim.org\/\" target=\"_blank\" rel=\"noopener\">exim.org<\/a>",
+        "description": "SMTP relay server",
+	    "note": "<p>Application website : <a href=\"https:\/\/www.exim.org\/\" target=\"_blank\" rel=\"noopener\">exim.org<\/a>",
         "categories": [
-		    "Utilitaire"
+		    "Utility"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/smtp_logo.png",
@@ -1116,31 +1116,38 @@
         },
         "env": [{
             "name": "SERVICE",
-            "label": "Nom du service"
+            "label": "Service name",
+            "description": "example: smtp-relay"
         },
         {
             "name": "SMARTHOST",
-            "label": "Serveur relai"
+            "label": "FQDN of mail server",
+            "description": "example : mail.hostname.tld:port"
         },
         {
-            "name": "PASSWORD",
-            "label": "Identifiants de connexion"
+            "name": "STRING_CON",
+            "label": "Connection string to authenticate smtp relay on mail server",
+            "description": "example: hostname:user:password"
         },
         {
-            "name": "SENDERS",
-            "label": "Réseaux autorisés pour l'envoi"
+            "name": "ALLOWED_SENDERS",
+            "label": "Authorized networks for sending",
+            "description": "example : 172.16.0.0/24"
         },
         {
-            "name": "LIMIT",
-            "label": "Limite de taille des messages"
+            "name": "LIMIT_SIZE",
+            "label": "Message limit size",
+            "description": "example : 25m"
         },
         {
             "name": "URL_LOKI",
-            "label": "Url du service loki"
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
         },
         {
-            "name": "NETWORK",
-            "label": "Nom du réseau du conteneur"
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example: app-network"
         }]
     },
 

@@ -1,16 +1,16 @@
-# Docker-compose mis à disposition par Kevin Allioli
-# Date de mise à jour : 15/03/2021
+# Docker-compose provided by Kevin Allioli
+# Update date : 15/03/2021
 
-# Variables d'environnement à déclarer :
-#     - SERVICE : nom du service (exemple : mariadb)
-#     - SMARTHOST : nom du serveur mail final (exemple : hostname:port)
-#     - PASSWORD : identifiants de connexion (exemple: hostname:user:password)
-#     - SENDERS : réseaux authorisés pour l'envoi (exemple : 172.16.0.0/24)
-#     - LIMIT : limite de taille des messages (exemple : 25m)
-#     - URL_LOKI : url de loki (exemple : http://ip:3100/loki/api/v1/push)
-#     - NETWORK : nom du réseau du conteneur
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : mariadb)
+#     - SMARTHOST : fqdn of the final mail server (example : mail.hostname.tld:port)
+#     - STRING_CON: connection string to authenticate smtp relay on the final mail server  (example: hostname:user:password)
+#     - ALLOWED_SENDERS : authorized networks for sending (example : 172.16.0.0/24)
+#     - LIMIT_SIZE : message limit size (example : 25m)
+#     - URL_LOKI : Loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - NETWORK_APP : name of the applications network
 
-# Fonctionne avec Portainer
+# Work with Portainer
 
 version: "2"
 services:
@@ -19,9 +19,9 @@ services:
     container_name: $SERVICE
     environment:
       - EXIM_SMARTHOST=$SMARTHOST
-      - EXIM_PASSWORD=$PASSWORD
-      - EXIM_ALLOWED_SENDERS=$SENDERS
-      - EXIM_MESSAGE_SIZE_LIMIT=$LIMIT
+      - EXIM_PASSWORD=$STRING_CON
+      - EXIM_ALLOWED_SENDERS=$ALLOWED_SENDER
+      - EXIM_MESSAGE_SIZE_LIMIT=$LIMIT_SIZE
     healthcheck:
       test: echo -n "" | nc -q 1 127.0.0.1 25
       interval: 1m
@@ -39,4 +39,4 @@ services:
 networks:
   default:
     external:
-      name: $NETWORK
+      name: $NETWORK_APP
