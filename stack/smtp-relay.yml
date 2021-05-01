@@ -17,6 +17,7 @@ services:
   smtp-relay:
     image: linitio/mail-gateway
     container_name: $SERVICE
+    restart: always
     environment:
       - EXIM_SMARTHOST=$SMARTHOST
       - EXIM_PASSWORD=$STRING_CON
@@ -32,7 +33,6 @@ services:
       options:
         loki-url: "$URL_LOKI"
         loki-external-labels: service={{.Name}}
-    restart: always
     networks:
       - default
 
