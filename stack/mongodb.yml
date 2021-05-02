@@ -16,8 +16,8 @@ services:
     restart: always
     command: mongod --smallfiles --oplogSize 128
     volumes:
-      - DATA_LOCATION/data:/data/db
-      - DATA_LOCATION/dump:/dump
+      - $DATA_LOCATION/data:/data/db
+      - $DATA_LOCATION/dump:/dump
     networks:
       - default
 
