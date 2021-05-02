@@ -3,6 +3,8 @@
 
 # Environment variables to declare :
 #     - SERVICE : name of the service (example : mariadb)
+#     - DB_ROOT_USER : root username
+#     - DB_ROOT_PASS : root password
 #     - DATA_LOCATION : Location of service data (example /app/"service")
 #     - NETWORK_DATA : data network name
 
