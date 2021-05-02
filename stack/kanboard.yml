@@ -22,11 +22,6 @@ services:
     container_name: $SERVICE
     environment:
       - DATABASE_URL=mysql://$DB_USER:$DB_PASS@$DB_HOST/$DB_NAME
-    healthcheck:
-      test: curl --fail http://localhost:80 || exit 1
-      interval: 1m
-      timeout: 30s
-      retries: 3
     logging:
       driver: loki
       options:
