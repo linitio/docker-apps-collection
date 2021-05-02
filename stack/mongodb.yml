@@ -14,9 +14,12 @@ services:
     image: mongo:latest
     container_name: $SERVICE
     restart: always
-    command: mongod --smallfiles --oplogSize 128
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=$DB_ROOT_USER
+      - MONGO_INITDB_ROOT_PASSWORD=$DB_ROOT_PASS
     volumes:
       - $DATA_LOCATION/data:/data/db
+      - $DATA_LOCATION/config:/data/configdb
       - $DATA_LOCATION/dump:/dump
     networks:
       - default
