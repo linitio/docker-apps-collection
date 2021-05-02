@@ -1,0 +1,27 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 02/05/2021
+
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : mariadb)
+#     - DATA_LOCATION : Location of service data (example /app/"service")
+#     - NETWORK_DATA : data network name
+
+# Work with Portainer
+
+version: '3'
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: $SERVICE
+    restart: always
+    command: mongod --smallfiles --oplogSize 128
+    volumes:
+      - DATA_LOCATION/data:/data/db
+      - DATA_LOCATION/dump:/dump
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: $NETWORK_DATA

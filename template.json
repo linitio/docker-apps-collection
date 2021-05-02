@@ -598,6 +598,42 @@
 
     {
         "type": 3,
+        "title": "MongoDB",
+        "description": "NOSQL Server",
+	    "note": "<p>Application website : <a href=\"https:\/\/www.mongodb.com\/\" target=\"_blank\" rel=\"noopener\">www.mongodb.com<\/a>",
+        "categories": [
+		    "Database"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/mongo_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "stack/mongodb.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "example: mongodb"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Loki service URL",
+            "description":"example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Service data location",
+            "description":"example /app/service"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Data network name",
+            "description": "example: data-network"
+        }]
+    },
+
+    {
+        "type": 3,
         "title": "Nextcloud",
         "description": "Cloud personel",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/nextcloud.com\/\" target=\"_blank\" rel=\"noopener\">nextcloud.com<\/a>",
