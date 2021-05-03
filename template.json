@@ -1188,25 +1188,27 @@
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/bitwarden_logo.png",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
-            "stackfile": "stack/bitwarden.yml"
+            "stackfile": "stack/vaulwarden.yml"
         },
         "env": [{
             "name": "SERVICE",
-            "label": "Nom du service"
+            "label": "Service name",
+            "description": "example: vaultwarden"
         },
         {
             "name": "DATA_LOCATION",
             "label": "Localisation des données",
-            "description": "exemple /apps/'service'"
+            "description": "example: /apps/'service'"
         },
         {
             "name": "WS_ENABLED",
-            "label": "Activer les web-socket"
+            "label": "Enable web-socket",
+            "description": "example: true/false"
         },
         {
             "name": "DB_USER",
-            "label": "Nom d'utilisateur de la base de données"
-        
+            "label": "database username",
+            "description":"example: vaultwarden"
         },
         {
             "name": "DB_PASS",
@@ -1214,69 +1216,83 @@
         },
         {
             "name": "DB_HOST",
-            "label": "Serveur de base de données"
+            "label": "Database hostname server",
+            "description": "example: mariadb"
         },
         {
             "name": "DB_NAME",
-            "label": "Nom de la base de données"
+            "label": "Database name",
+            "description": "example: vaultwarden"
         },
         {
             "name": "SIGN_ALLOW",
-            "label": "Autoriser l'enregistrement utilisateur"
+            "label": "Allow user signup",
+            "description": "example: true/false"
         },
         {
             "name": "DOMAINS_WHITELIST",
-            "label": "Noms de domaines autorisés"
+            "label": "Whitelisted domains name",
+            "description": "example: domain.tld"
         },
         {
             "name": "SIGN_VERIFY",
-            "label": "Validation e-mail des inscriptions"
+            "label": "E-mail validation of registrations",
+            "description": "example: true/false"
         },
         {
             "name": "SMTP_HOST",
-            "label": "Serveur SMTP"
+            "label": "SMTP server hostname",
+            "description": "example: smtp.domain.tld"
         },
         {
             "name": "SMTP_FROM",
-            "label": "Adresse d'envoi"
+            "label": "Sender e-mail address",
+            "description":"example: vaultwarden@linit.io"
         },
         {
             "name": "SMTP_FROM_NAME",
-            "label": "Nom d'envoi"
+            "label": "Sender name",
+            "description": "example: Vaultwarden"
         },
         {
             "name": "SMTP_PORT",
-            "label": "Port du serveur SMTP"
+            "label": "SMTP server port",
+            "description": "example: 25, 465, 587"
         },
         {
             "name": "SMTP_SSL",
-            "label": "Active le SSL pour le serveur SMTP"
+            "label": "Enable SSL conection on SMTP server",
+            "description": "example: true/false"
         },
         {
             "name": "SMTP_TIMEOUT",
-            "label": "Temps maximum de connexion au SMTP"
+            "label": "SMTP timeout",
+            "description": "example: 15"
         },
         {
             "name": "TZ",
-            "label": "Timezone du conteneur"
+            "label": "Application timezone",
+            "description": "example: Europe/Paris"
         },
         {
             "name": "URL_LOKI",
             "label": "Lien du serveur loki",
-            "description": "exemple : ndd/loki/api/v1/push"
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
         },
         {
             "name": "FQDN",
-            "label": "Lien du nom de domaine",
-            "description": "exemple : papamica.fr"
+            "label": "Fully qualified domain name",
+            "description": "example : vaultwarden.domain.tld"
         },
         {
             "name": "NETWORK_APP",
-            "label": "Nom du réseau de déploiement"
+            "label": "Application network name",
+            "description": "example: app-network"
         },
         {
             "name": "NETWORK_DATA",
-            "label": "Nom du réseau data"
+            "label": "Data network name",
+            "description": "example: data-network"
         }]
     },
 
