@@ -1,9 +1,10 @@
 # Docker-compose provided by Kevin Allioli
-# Last update : 14/03/2021
+# Last update : 03/05/2021
 
 # Environment variables to declare :
 #     - SERVICE : name of the service (example : mariadb)
 #     - DB_ROOT_PASS : passord of postgres user
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
 #     - DATA_LOCATION : location of service data (example /app/"service")
 #     - NETWORK_DATA : data network name
 
@@ -14,6 +15,7 @@ services:
   postgresql: 
     image: postgres:13-alpine
     container_name: $SERVICE
+    restart: always
     environment:
       - POSTGRES_PASSWORD=$DB_ROOT_PASS
     healthcheck:
@@ -26,7 +28,6 @@ services:
       options:
         loki-url: "$URL_LOKI"
         loki-external-labels: service={{.Name}}
-    restart: always
     volumes:
       - $DATA_LOCATION:/var/lib/postgresql/data
     networks:

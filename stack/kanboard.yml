@@ -7,9 +7,9 @@
 #     - DB_PASS : database password
 #     - DB_HOST : database hostname (example : mariadb)
 #     - DB_NAME : database name (example : kanboard)
-#     - URL_LOKI : Loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
 #     - FQDN : fully qualified domain name (example : kanboard.domain.tld)
-#     - DATA_LOCATION : Location of service data (example /app/"service")
+#     - DATA_LOCATION : location of service data (example /app/"service")
 #     - NETWORK_APP : application network name
 #     - NETWORK_DATA : data network name
 
@@ -20,6 +20,7 @@ services:
   kanboard:
     image: kanboard/kanboard:latest
     container_name: $SERVICE
+    restart: always
     environment:
       - DATABASE_URL=mysql://$DB_USER:$DB_PASS@$DB_HOST/$DB_NAME
     logging:
