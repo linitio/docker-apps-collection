@@ -1,14 +1,15 @@
-# Docker-compose mis à disposition par Kevin Allioli
-# Date de mise à jour : 28/04/2021
+# Docker-compose provided by Kevin Allioli
+# Last update : 02/05/2021
 
-# Variables d'environnement à déclarer :
-#     - SERVICE : nom du service (exemple : hastebin)
-#     - DATA_LOCATION : localisation des données (exemple /apps/"service")
-#     - URL_LOKI : lien du serveur loki (exemple : ndd/loki/api/v1/push)
-#     - NDD : lien du nom de domaine
-#     - NETWORK_APP : nom du réseau applicatif
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : hastebin)
+#     - DATA_LOCATION : location of service data (example /app/"service")
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - FQDN : fully qualified domain name (example : hastebin.domain.tld)
+#     - NETWORK_APP : application network name
 
-# Fonctionne avec Portainer
+# Work with Portainer
+
 version: "2"
 services:
   hastebin:
@@ -22,10 +23,6 @@ services:
       interval: 1m
       timeout: 30s
       retries: 3
-    volumes:
-      - $DATA_LOCATION/data:/app/data  
-    networks:
-      - default
     logging:
       driver: loki
       options:
@@ -34,10 +31,14 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.$SERVICE.entrypoints=https"
-      - "traefik.http.routers.$SERVICE.rule=Host(`$NDD`)"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
       - "traefik.http.services.$SERVICE.loadbalancer.server.port=7777"
       - "traefik.docker.network=$NETWORK_APP"
-      
+    volumes:
+      - $DATA_LOCATION/data:/app/data  
+    networks:
+      - default
+
 networks:
   default:
     external:
