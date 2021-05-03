@@ -47,8 +47,6 @@ services:
       SMTP_TIMEOUT: $SMTP_TIMEOUT
       DOMAIN: https://$FQDN
       TZ: '$TZ'
-      YUBICO_CLIENT_ID: 63520
-      YUBICO_SECRET_KEY: qKFoF/J6axSj9OBt1MWTYS6WPHA=
     logging:
       driver: loki
       options:
