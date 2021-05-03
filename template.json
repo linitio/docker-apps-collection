@@ -2,17 +2,17 @@
 	"version": "2",
 	"templates": [{
         "type": 3,
-        "title": "Bitwarden",
-        "description": "Gestionnaire de mots de passe et de 2FA (Alternatice à Dashlane)",
-        "note": "<p>Site de l'application : <a href=\"https:\/\/bitwarden.com\/\" target=\"_blank\" rel=\"noopener\">Bitwarden.com<\/a>",
+        "title": "Vaultwarden",
+        "description": "Password and 2FA manager (Dashlane alternative)",
+        "note": "<p>Application website : <a href=\"https:\/\/bitwarden.com\/\" target=\"_blank\" rel=\"noopener\">Bitwarden.com<\/a>",
         "categories": [
-            "Sécurité"
+            "Utility"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/bitwarden_logo.png",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
-            "stackfile": "bitwarden.yml"
+            "stackfile": "stack/bitwarden.yml"
         },
         "env": [{
             "name": "SERVICE",
@@ -33,7 +33,7 @@
         
         },
         {
-            "name": "DB_PASSWORD",
+            "name": "DB_PASS",
             "label": "Mot de passe de la base de données"
         },
         {
@@ -90,7 +90,7 @@
             "description": "exemple : ndd/loki/api/v1/push"
         },
         {
-            "name": "NDD",
+            "name": "FQDN",
             "label": "Lien du nom de domaine",
             "description": "exemple : papamica.fr"
         },
