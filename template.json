@@ -1220,7 +1220,7 @@
         },
         {
             "name": "DB_PASS",
-            "label": "Mot de passe de la base de données"
+            "label": "Database password"
         },
         {
             "name": "DB_HOST",
