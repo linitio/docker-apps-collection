@@ -2,110 +2,6 @@
 	"version": "2",
 	"templates": [{
         "type": 3,
-        "title": "Vaultwarden",
-        "description": "Password and 2FA manager (Dashlane alternative)",
-        "note": "<p>Application website : <a href=\"https:\/\/bitwarden.com\/\" target=\"_blank\" rel=\"noopener\">Bitwarden.com<\/a>",
-        "categories": [
-            "Utility"
-        ],
-        "platform": "linux",
-        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/bitwarden_logo.png",
-        "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
-            "stackfile": "stack/bitwarden.yml"
-        },
-        "env": [{
-            "name": "SERVICE",
-            "label": "Nom du service"
-        },
-        {
-            "name": "DATA_LOCATION",
-            "label": "Localisation des données",
-            "description": "exemple /apps/'service'"
-        },
-        {
-            "name": "WS_ENABLED",
-            "label": "Activer les web-socket"
-        },
-        {
-            "name": "DB_USER",
-            "label": "Nom d'utilisateur de la base de données"
-        
-        },
-        {
-            "name": "DB_PASS",
-            "label": "Mot de passe de la base de données"
-        },
-        {
-            "name": "DB_HOST",
-            "label": "Serveur de base de données"
-        },
-        {
-            "name": "DB_NAME",
-            "label": "Nom de la base de données"
-        },
-        {
-            "name": "SIGN_ALLOW",
-            "label": "Autoriser l'enregistrement utilisateur"
-        },
-        {
-            "name": "DOMAINS_WHITELIST",
-            "label": "Noms de domaines autorisés"
-        },
-        {
-            "name": "SIGN_VERIFY",
-            "label": "Validation e-mail des inscriptions"
-        },
-        {
-            "name": "SMTP_HOST",
-            "label": "Serveur SMTP"
-        },
-        {
-            "name": "SMTP_FROM",
-            "label": "Adresse d'envoi"
-        },
-        {
-            "name": "SMTP_FROM_NAME",
-            "label": "Nom d'envoi"
-        },
-        {
-            "name": "SMTP_PORT",
-            "label": "Port du serveur SMTP"
-        },
-        {
-            "name": "SMTP_SSL",
-            "label": "Active le SSL pour le serveur SMTP"
-        },
-        {
-            "name": "SMTP_TIMEOUT",
-            "label": "Temps maximum de connexion au SMTP"
-        },
-        {
-            "name": "TZ",
-            "label": "Timezone du conteneur"
-        },
-        {
-            "name": "URL_LOKI",
-            "label": "Lien du serveur loki",
-            "description": "exemple : ndd/loki/api/v1/push"
-        },
-        {
-            "name": "FQDN",
-            "label": "Lien du nom de domaine",
-            "description": "exemple : papamica.fr"
-        },
-        {
-            "name": "NETWORK_APP",
-            "label": "Nom du réseau de déploiement"
-        },
-        {
-            "name": "NETWORK_DATA",
-            "label": "Nom du réseau data"
-        }]
-    },
-
-    {
-        "type": 3,
         "title": "Duplicati",
         "description": "Utilitaire de sauvegarde",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/www.duplicati.com\/\" target=\"_blank\" rel=\"noopener\">www.duplicati.com<\/a>",
@@ -1277,6 +1173,110 @@
         {
             "name": "NETWORK_APP",
             "label": "Nom du réseau applicatif"
+        }]
+    },
+
+    {
+        "type": 3,
+        "title": "Vaultwarden",
+        "description": "Password and 2FA manager (Dashlane alternative)",
+        "note": "<p>Application website : <a href=\"https:\/\/bitwarden.com\/\" target=\"_blank\" rel=\"noopener\">Bitwarden.com<\/a>",
+        "categories": [
+            "Utility"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/bitwarden_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "stack/bitwarden.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Localisation des données",
+            "description": "exemple /apps/'service'"
+        },
+        {
+            "name": "WS_ENABLED",
+            "label": "Activer les web-socket"
+        },
+        {
+            "name": "DB_USER",
+            "label": "Nom d'utilisateur de la base de données"
+        
+        },
+        {
+            "name": "DB_PASS",
+            "label": "Mot de passe de la base de données"
+        },
+        {
+            "name": "DB_HOST",
+            "label": "Serveur de base de données"
+        },
+        {
+            "name": "DB_NAME",
+            "label": "Nom de la base de données"
+        },
+        {
+            "name": "SIGN_ALLOW",
+            "label": "Autoriser l'enregistrement utilisateur"
+        },
+        {
+            "name": "DOMAINS_WHITELIST",
+            "label": "Noms de domaines autorisés"
+        },
+        {
+            "name": "SIGN_VERIFY",
+            "label": "Validation e-mail des inscriptions"
+        },
+        {
+            "name": "SMTP_HOST",
+            "label": "Serveur SMTP"
+        },
+        {
+            "name": "SMTP_FROM",
+            "label": "Adresse d'envoi"
+        },
+        {
+            "name": "SMTP_FROM_NAME",
+            "label": "Nom d'envoi"
+        },
+        {
+            "name": "SMTP_PORT",
+            "label": "Port du serveur SMTP"
+        },
+        {
+            "name": "SMTP_SSL",
+            "label": "Active le SSL pour le serveur SMTP"
+        },
+        {
+            "name": "SMTP_TIMEOUT",
+            "label": "Temps maximum de connexion au SMTP"
+        },
+        {
+            "name": "TZ",
+            "label": "Timezone du conteneur"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Lien du serveur loki",
+            "description": "exemple : ndd/loki/api/v1/push"
+        },
+        {
+            "name": "FQDN",
+            "label": "Lien du nom de domaine",
+            "description": "exemple : papamica.fr"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Nom du réseau de déploiement"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Nom du réseau data"
         }]
     },
 
