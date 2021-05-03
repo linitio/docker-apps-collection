@@ -143,10 +143,10 @@
     {
         "type": 3,
         "title": "Hastebin",
-        "description": "Utilitaire de partage de code",
-	    "note": "<p>Site de l'application : <a href=\"https:\/\/hastebin.com\/\" target=\"_blank\" rel=\"noopener\">hastebin.com<\/a>",
+        "description": "Code sharing utility",
+	    "note": "<p>Application website : <a href=\"https:\/\/hastebin.com\/\" target=\"_blank\" rel=\"noopener\">hastebin.com<\/a>",
         "categories": [
-		    "Utilitaire"
+		    "Utility"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/hastebin_logo.png",
