@@ -1205,6 +1205,10 @@
             "description": "example: /apps/'service'"
         },
         {
+            "name": "ADM_TOKEN",
+            "label": "Admin token"
+        },
+        {
             "name": "WS_ENABLED",
             "label": "Enable web-socket",
             "description": "example: true/false"
