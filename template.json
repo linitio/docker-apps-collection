@@ -2,6 +2,86 @@
 	"version": "2",
 	"templates": [{
         "type": 3,
+        "title": "CachetHQ",
+        "description": "Open source status page system.",
+        "note": "<p>Application website : <a href=\"https:\/\/cachethq.io/\" target=\"_blank\" rel=\"noopener\">cachethq.io<\/a>",
+        "categories": [
+            "Utility"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/kanboard_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "stack/cachethq.yml.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "example: kanboard"
+        },
+        {
+            "name": "TZ",
+            "label": "Application timezone",
+            "description": "example: Europe/Paris"
+        },
+        {
+            "name": "DB_DRV",
+            "label": "Database driver",
+            "description": "example: pgsql"
+        },
+        {
+            "name": "DB_HOST",
+            "label": "Database hostname server",
+            "description": "exemple : mariadb, postgresql"
+        },
+        {
+            "name": "DB_PORT",
+            "label": "Database server port",
+            "description": "exemple : 3306, 5432"
+        },
+        {
+            "name": "DB_NAME",
+            "label": "Database name",
+            "description": "exemple : cachethq"
+        },
+        {
+            "name": "DB_USER",
+            "label": "Database username",
+            "description": "example: cachethq"
+        },
+        {
+            "name": "DB_PASS",
+            "label": "Database password"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "FQDN",
+            "label": "Fully qualified domain name",
+            "description": "example : kanboard.domain.tld"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Location of service data",
+            "description": "example : /apps/'service'"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example: app-network"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Data network name",
+            "description": "example: data-network"
+        }]
+    },
+    
+    {
+        "type": 3,
         "title": "Duplicati",
         "description": "Utilitaire de sauvegarde",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/www.duplicati.com\/\" target=\"_blank\" rel=\"noopener\">www.duplicati.com<\/a>",
@@ -1215,7 +1295,7 @@
         },
         {
             "name": "DB_USER",
-            "label": "database username",
+            "label": "Database username",
             "description":"example: vaultwarden"
         },
         {

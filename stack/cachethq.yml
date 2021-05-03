@@ -1,0 +1,57 @@
+# Docker-compose mis à disposition par Mickael "PAPAMICA" Asseline
+# Date de mise à jour : 27/10/2020
+
+# Variables d'environnement à déclarer :
+#     - SERVICE : nom du service (exemple : plex)
+#     - DATA_LOCATION : localisation des données (exemple /apps/"service")
+#     - URL_LOKI : lien du serveur loki (exemple : ndd/loki/api/v1/push)
+#     - NDD : lien du nom de domaine (exemple : papamica.fr)
+#     - DB_USER : nom d'utilisateur pour la base de données (exemple : papamica)
+#     - DB_PASSWORD : mot de passe pour la base de données
+
+# Fonctionne avec Portainer
+
+version: "2"
+services:
+  cachet:
+    image: cachethq/docker
+    container_name: $SERVICE
+    restart: always
+    environment:
+      - TZ=$TZ
+      - DB_DRIVER=$DB_DRV
+      - DB_HOST=$DB_HOST
+      - DB_PORT=$DB_PORT
+      - DB_DATABASE=$DB_NAME
+      - DB_USERNAME=$DB_USER
+      - DB_PASSWORD=$DB_PASS
+      - DB_PREFIX=chq_
+      - APP_KEY=
+      - APP_LOG=errorlog
+#      - APP_ENV=${APP_ENV:-production}
+      - APP_DEBUG=false
+      - DEBUG=false
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=8000"
+      - "traefik.docker.network=$NETWORK_APP"
+    volumes:
+      - $DATA_LOCATION/data:/var/www/html/
+    networks:
+      - default
+      - default1
+
+networks:
+  default:
+    external:
+      name: $NETWORK_APP
+  default:
+    external:
+      name: $NETWORK_DATA
