@@ -9,7 +9,7 @@
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/kanboard_logo.png",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/cachethq_logo.png",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
             "stackfile": "stack/cachethq.yml"
@@ -52,6 +52,10 @@
         {
             "name": "DB_PASS",
             "label": "Database password"
+        },
+        {
+            "name": "APP_KEY",
+            "label": "Application Key"
         },
         {
             "name": "URL_LOKI",

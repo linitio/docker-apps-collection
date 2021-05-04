@@ -25,10 +25,9 @@ services:
       - DB_DATABASE=$DB_NAME
       - DB_USERNAME=$DB_USER
       - DB_PASSWORD=$DB_PASS
-      - DB_PREFIX=chq_
-      - APP_KEY=
+      - APP_KEY=$APP_KEY
       - APP_LOG=errorlog
-#      - APP_ENV=${APP_ENV:-production}
+      - APP_ENV=${APP_ENV:-production}
       - APP_DEBUG=false
       - DEBUG=false
     logging:
@@ -42,8 +41,8 @@ services:
       - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
       - "traefik.http.services.$SERVICE.loadbalancer.server.port=8000"
       - "traefik.docker.network=$NETWORK_APP"
-    volumes:
-      - $DATA_LOCATION/data:/var/www/html/
+#    volumes:
+#      - $DATA_LOCATION/data:/var/www/html/
     networks:
       - default
       - default1
