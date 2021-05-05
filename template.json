@@ -908,10 +908,10 @@
     {
         "type": 3,
         "title": "Plex",
-        "description": "Serveur Multimédia",
-	    "note": "<p>Site de l'application : <a href=\"https:\/\/plex.tv\/\" target=\"_blank\" rel=\"noopener\">plex.tv<\/a>",
+        "description": "Media server",
+	    "note": "<p>application website : <a href=\"https:\/\/plex.tv\/\" target=\"_blank\" rel=\"noopener\">plex.tv<\/a>",
         "categories": [
-		    "Gestion de médias"
+		    "Media management"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/plex_logo.png",
@@ -921,43 +921,53 @@
         },
         "env": [{
             "name": "SERVICE",
-            "label": "Nom du service"
+            "label": "Service name",
+            "description": "example: plex"
         },
         {
             "name": "VERSION",
-            "label": "Choix de la version"
+            "label": "Select version",
+            "description": "example: latest"
         },
         {
             "name": "PUID",
-            "label": "Identifiant utilisateur plex"
+            "label": "User plex id",
+            "description": "1001"
         },
         {
             "name": "PGID",
-            "label": "Identifiant du groupe plex"
+            "label": "User group plex id",
+            "description": "1001"
         },
         {
             "name": "TZ",
-            "label": "Timezone du service"
+            "label": "Service time zone",
+            "description": "(example : Europe/Paris)"
         },
         {
             "name": "URL_LOKI",
-            "label": "Url du service loki"
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
         },
         {
             "name": "CONFIG_DATA_LOCATION",
-            "label": "Localisation des données de configuration"
+            "label": "Service config data location",
+            "description": "example /app/ service"
         },
         {
             "name": "DATA_LOCATION",
-            "label": "Localisation des bibliotèques"
+            "label": "Service data location",
+            "description": "example /app/ service"
         },
         {
             "name": "TRANSCODE_DATA_LOCATION",
-            "label": "Dossier pour le transcodage"
+            "label": "Data transcode location",
+            "description": "/app "
         },
         {
             "name": "TRANSCODE_DEVICE",
-            "label": "Périphérique de transcodage"
+            "label": "transcode device",
+            "description": "example /dev/dri"
         }]
     },
 

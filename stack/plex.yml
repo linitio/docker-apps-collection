@@ -1,18 +1,18 @@
-# Docker-compose mis à disposition par Kevin Allioli
-# Date de mise à jour : 23/04/2021
+# Docker-compose provided by Kevin Allioli
+# Last update : 05/05/2021
 
-# Variables d'environnement à déclarer :
-#     - SERVICE : nom du service (exemple : plex)
-#     - VERSION : version à déployée (exemple : latest)
-#     - PUID : uid de de l'utilisateur système (exemple : 1001)
-#     - GUID : Gid de du groupe système (exemple : 1001)
-#     - TZ : Timezone du service (exemple : Europe/Paris)
-#     - CONFIG_DATA_LOCATION : localisation des données de configuration 
-#     - DATA_LOCATION : localisation des bibliotèque medias
-#     - TRANSCODE_DATA_LOCATION : dossier temporaire pour le transcodage
-#     - TRANSCODE_DEVICE : périphérique utilisé pour le transcodage
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : plex)
+#     - VERSION : deployed version (example : latest)
+#     - PUID : system user uid (example : 1001)
+#     - PGID : system group gid (example : 1001)
+#     - TZ : Container time zone (example : Europe/Paris)
+#     - CONFIG_DATA_LOCATION : location of configuration service data (example /app/"service")
+#     - DATA_LOCATION : location of service data (example /app/"service")
+#     - TRANSCODE_DATA_LOCATION : data transcode location 
+#     - TRANSCODE_DEVICE : device used for transcoding
 
-# Fonctionne avec Portainer
+# Work with Portainer
 
 version: '2'
 services:

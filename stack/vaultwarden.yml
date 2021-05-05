@@ -18,7 +18,7 @@
 #     - SMTP_PORT : smtp port
 #     - SMTP_SSL : enable ssl on smtp connection (example: true/false)
 #     - SMTP_TIMEOUT : maximum waiting time of the smtp server
-#     - TZ : Container time zone
+#     - TZ : Container time zone (example : Europe/Paris)
 #     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
 #     - FQDN : fully qualified domain name (example : vault.domain.tld)
 #     - NETWORK_APP : application network name
