@@ -909,7 +909,7 @@
         "type": 3,
         "title": "Plex",
         "description": "Media server",
-	    "note": "<p>application website : <a href=\"https:\/\/plex.tv\/\" target=\"_blank\" rel=\"noopener\">plex.tv<\/a>",
+	    "note": "<p>Application website : <a href=\"https:\/\/plex.tv\/\" target=\"_blank\" rel=\"noopener\">plex.tv<\/a>",
         "categories": [
 		    "Media management"
         ],
@@ -966,7 +966,7 @@
         },
         {
             "name": "TRANSCODE_DEVICE",
-            "label": "transcode device",
+            "label": "Transcode device",
             "description": "example /dev/dri"
         }]
     },

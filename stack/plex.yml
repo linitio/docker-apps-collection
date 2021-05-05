@@ -4,9 +4,9 @@
 # Environment variables to declare :
 #     - SERVICE : name of the service (example : plex)
 #     - VERSION : deployed version (example : latest)
-#     - PUID : system user uid (example : 1001)
-#     - PGID : system group gid (example : 1001)
-#     - TZ : Container time zone (example : Europe/Paris)
+#     - PUID : system user id (example : 1001)
+#     - PGID : system group id (example : 1001)
+#     - TZ : container time zone (example : Europe/Paris)
 #     - CONFIG_DATA_LOCATION : location of configuration service data (example /app/"service")
 #     - DATA_LOCATION : location of service data (example /app/"service")
 #     - TRANSCODE_DATA_LOCATION : data transcode location 
