@@ -20,11 +20,10 @@ services:
     image: ghcr.io/linuxserver/plex
     container_name: $SERVICE
     restart: always
-    network_mode: host
     environment:
       - VERSION=$VERSION
       - PUID=$PUID
-      - PGID=$GUID
+      - PGID=$PGID
       - TZ=$TZ
     healthcheck:
       test: curl --connect-timeout 15 --max-time 100 --silent --show-error --fail "http://localhost:32400/identity" > /dev/null
@@ -40,5 +39,6 @@ services:
       - $CONFIG_DATA_LOCATION:/config
       - $DATA_LOCATION:/data
       - $TRANSCODE_DATA_LOCATION:/transcode
+    network_mode: host
     devices:
       - $TRANSCODE_DEVICE:/dev/dri

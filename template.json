@@ -917,7 +917,7 @@
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/plex_logo.png",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
-            "stackfile": "plex.yml"
+            "stackfile": "stack/plex.yml"
         },
         "env": [{
             "name": "SERVICE",
@@ -932,7 +932,7 @@
             "label": "Identifiant utilisateur plex"
         },
         {
-            "name": "GUID",
+            "name": "PGID",
             "label": "Identifiant du groupe plex"
         },
         {
