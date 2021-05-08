@@ -1295,7 +1295,7 @@
         },
         {
             "name": "DATA_LOCATION",
-            "label": "Localisation des données",
+            "label": "Data location",
             "description": "example: /apps/'service'"
         },
         {
@@ -1744,6 +1744,42 @@
         {
             "name": "NETWORK_DATA",
             "label": "Nom du réseau data"
+        }]
+    },
+
+    {
+        "type": 3,
+        "title": "Zabbix-CachetHQ",
+        "description": "Zabbix plugin for CachetHQ",
+	    "note": "<p>Application website : <a href=\"https:\/\/github.com\/qk4l\/\/zabbix-cachet\" target=\"_blank\" rel=\"noopener\">github.com/qk4l/zabbix-cachet<\/a>",
+        "categories": [
+		    "Monitoring"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/cachethq_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "stack/zabbix-cachethq.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "example : zabbiz-cachethq"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Data location",
+            "description": "example /app/ service"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example: app-network"
         }]
     }
 
