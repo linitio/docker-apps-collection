@@ -7,6 +7,7 @@
 #     - PUID : system user id (example : 1001)
 #     - PGID : system group id (example : 1001)
 #     - TZ : container time zone (example : Europe/Paris)
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
 #     - CONFIG_DATA_LOCATION : location of configuration service data (example /app/"service")
 #     - DATA_LOCATION : location of service data (example /app/"service")
 #     - TRANSCODE_DATA_LOCATION : data transcode location 
