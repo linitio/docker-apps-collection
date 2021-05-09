@@ -37,6 +37,11 @@ services:
       - APP_ENV=${APP_ENV:-production}
       - APP_DEBUG=false
       - DEBUG=false
+    healthcheck:
+      test: curl --fail http://localhost:8000 || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
     logging:
       driver: loki
       options:
