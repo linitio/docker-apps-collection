@@ -9,7 +9,7 @@
 
 # Work with Portainer
 
-version: "2"
+version: "3"
 services:
   # zabbix-cachet script : https://github.com/qk4l/zabbix-cachet
   zabbix-cachet:
