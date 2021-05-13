@@ -16,6 +16,11 @@ services:
     image: qk4l/zabbix-cachet
     container_name: $SERVICE
     restart: always
+    healthcheck:
+      test: grep -qr "python" /proc/*/status || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
     logging:
       driver: loki
       options:
