@@ -1047,7 +1047,7 @@
         },
         "env": [{
             "name": "SERVICE",
-            "label": "Nom du service",
+            "label": "Service name",
             "description": "postgresql"
         },
         {
@@ -1068,6 +1068,62 @@
             "name": "NETWORK_DATA",
             "label": "Data network name",
             "description": "example: data-network"
+        }]
+    },
+
+    {
+        "type": 3,
+        "title": "qBittorrent",
+        "description": "Bittorrent Client",
+	    "note": "<p>Application website : <a href=\"https:\/\/www.qbittorrent.org\/\" target=\"_blank\" rel=\"noopener\">www.qbittorrent.org<\/a>",
+        "categories": [
+		    "Database"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/qbittorrent_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "stack/qbittorrent.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "qbittorent"
+        },
+        {
+            "name": "PUID",
+            "label": "User qbittorent id",
+            "description": "1001"
+        },
+        {
+            "name": "PGID",
+            "label": "User group qbittorent id",
+            "description": "1001"
+        },
+        {
+            "name": "TZ",
+            "label": "Service time zone",
+            "description": "(example : Europe/Paris)"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "FQDN",
+            "label": "Fully qualified domain name",
+            "description": "example : qbittorent.domain.tld"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Location of service data",
+            "description": "example /app/service"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example: app-network"
         }]
     },
 
