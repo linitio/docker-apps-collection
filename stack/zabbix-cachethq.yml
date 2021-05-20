@@ -9,13 +9,18 @@
 
 # Work with Portainer
 
-version: "2"
+version: "3"
 services:
   # zabbix-cachet script : https://github.com/qk4l/zabbix-cachet
   zabbix-cachet:
     image: qk4l/zabbix-cachet
     container_name: $SERVICE
-        restart: always
+    restart: always
+    healthcheck:
+      test: grep -qr "python" /proc/*/status || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
     logging:
       driver: loki
       options:
