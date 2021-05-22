@@ -15,7 +15,7 @@ services:
   zabbix-cachet:
     image: qk4l/zabbix-cachet
     container_name: $SERVICE
-    restart: always
+    restart: unless-stopped
     healthcheck:
       test: grep -qr "python" /proc/*/status || exit 1
       interval: 1m

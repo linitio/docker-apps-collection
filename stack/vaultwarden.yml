@@ -31,7 +31,7 @@ services:
   vaultwarden:
     image: vaultwarden/server
     container_name: $SERVICE
-    restart: always
+    restart: unless-stopped
     environment:
       ADMIN_TOKEN: $ADM_TOKEN
       WEBSOCKET_ENABLED: '$WS_ENABLED'

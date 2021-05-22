@@ -17,7 +17,7 @@ services:
   smtp-relay:
     image: linitio/mail-gateway
     container_name: $SERVICE
-    restart: always
+    restart: unless-stopped
     environment:
       - EXIM_SMARTHOST=$SMARTHOST
       - EXIM_PASSWORD=$STRING_CON

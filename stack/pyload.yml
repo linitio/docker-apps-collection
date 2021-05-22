@@ -19,7 +19,7 @@ services:
   pyload:
     image: ghcr.io/linuxserver/pyload
     container_name: $SERVICE
-    restart: always
+    restart: unless-stopped
     environment:
       - PUID=$PUID
       - PGID=$PGID
