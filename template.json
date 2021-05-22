@@ -244,9 +244,9 @@
             "description": "example: hastebin"
         },
         {
-            "name": "DATA_LOCATION",
-            "label": "Location of service data",
-            "description": "example : /apps/'service'"
+            "name": "REDIS_SERVER",
+            "label": "Redis server address",
+            "description": "redis"
         },
         {
             "name": "URL_LOKI",

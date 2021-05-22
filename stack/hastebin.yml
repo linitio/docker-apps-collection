@@ -17,7 +17,8 @@ services:
     container_name: $SERVICE
     restart: unless-stopped
     environment:
-      STORAGE_TYPE: file
+      STORAGE_TYPE: redis
+      STORAGE_HOST: $REDIS_SERVER
     healthcheck:
       test: wget -s 'http://localhost:7777'
       interval: 1m
@@ -33,13 +34,15 @@ services:
       - "traefik.http.routers.$SERVICE.entrypoints=https"
       - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
       - "traefik.http.services.$SERVICE.loadbalancer.server.port=7777"
-      - "traefik.docker.network=$NETWORK_APP"
-    volumes:
-      - $DATA_LOCATION/data:/app/data  
+      - "traefik.docker.network=$NETWORK_APP" 
     networks:
       - default
+      - default1
 
 networks:
   default:
     external:
       name: $NETWORK_APP
+  default1:
+    external:
+      name: $NETWORK_DATA
