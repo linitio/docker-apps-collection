@@ -1035,7 +1035,7 @@
         "type": 3,
         "title": "PostgreSQL",
         "description": "PostgreSQL server",
-	    "note": "<p>Application website : <a href=\"https:\/\/https://www.postgresql.org\/\" target=\"_blank\" rel=\"noopener\">postgresql.org<\/a>",
+	    "note": "<p>Application website : <a href=\"https:\/\/www.postgresql.org\/\" target=\"_blank\" rel=\"noopener\">postgresql.org<\/a>",
         "categories": [
 		    "Database"
         ],
@@ -1073,11 +1073,11 @@
 
     {
         "type": 3,
-        "title": "Pyload",
-        "description": "Pyload server",
-	    "note": "<p>Application website : <a href=\"https:\/\/https://www.postgresql.org\/\" target=\"_blank\" rel=\"noopener\">postgresql.org<\/a>",
+        "title": "pyLoad",
+        "description": "pyLoad Dopwnload Server",
+	    "note": "<p>Application website : <a href=\"https:\/\/pyload.net\/\" target=\"_blank\" rel=\"noopener\">pyload.net<\/a>",
         "categories": [
-		    "Database"
+		    "Utility"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/pyload_logo.png",
@@ -1138,7 +1138,7 @@
         "description": "Bittorrent Client",
 	    "note": "<p>Application website : <a href=\"https:\/\/www.qbittorrent.org\/\" target=\"_blank\" rel=\"noopener\">www.qbittorrent.org<\/a>",
         "categories": [
-		    "Database"
+		    "Utility"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/qbittorrent_logo.png",
