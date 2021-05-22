@@ -1,0 +1,32 @@
+
+version: "2.1"
+services:
+  pyload:
+    image: ghcr.io/linuxserver/pyload
+    container_name: $SERVICE
+    restart: unless-stopped
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=8000"
+      - "traefik.docker.network=$NETWORK_APP"
+    volumes:
+      - $CONFIG_DATA_LOCATION:/config
+      - $DOWNLOAD_DATA_LOCATION:/downloads
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: $NETWORK_APP
