@@ -15,6 +15,11 @@ services:
     image: redis:latest
     container_name: $SERVICE
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 1s
+      timeout: 3s
+      retries: 30
     logging:
       driver: loki
       options:

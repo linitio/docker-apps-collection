@@ -1074,7 +1074,7 @@
     {
         "type": 3,
         "title": "pyLoad",
-        "description": "pyLoad Dopwnload Server",
+        "description": "pyLoad Download Server",
 	    "note": "<p>Application website : <a href=\"https:\/\/pyload.net\/\" target=\"_blank\" rel=\"noopener\">pyload.net<\/a>",
         "categories": [
 		    "Utility"
@@ -1437,7 +1437,7 @@
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/bitwarden_logo.png",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/vaultwarden_logo.png",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
             "stackfile": "stack/vaultwarden.yml"
