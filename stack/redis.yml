@@ -1,0 +1,31 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 22/05/2021
+
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : redis)
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - DATA_LOCATION : location of service data (example /app/"service")
+#     - NETWORK_DATA : Data network name
+
+# Work with Portainer
+
+version: '3'
+services:
+  redis:
+    image: redis:latest
+    container_name: $SERVICE
+    restart: unless-stopped
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    volumes:
+      - $DATA_LOCATION/data:/data
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: $NETWORK_DATA
