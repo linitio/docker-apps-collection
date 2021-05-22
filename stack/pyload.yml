@@ -1,3 +1,18 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 22/05/2021
+
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : pyload)
+#     - PUID : database user (example : kanboard)
+#     - PGID : database password
+#     - TZ : database hostname (example : mariadb)
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - FQDN : fully qualified domain name (example : kanboard.domain.tld)
+#     - CONFIG_DATA_LOCATION : location of service data (example /app/"service")
+#     - DOWNLOAD_DATA_LOCATION : location of service data (example /app/"service")
+#     - NETWORK_APP : application network name
+
+# Work with Portainer
 
 version: "2.1"
 services:
@@ -9,6 +24,11 @@ services:
       - PUID=$PUID
       - PGID=$PGID
       - TZ=$TZ
+    healthcheck:
+      test: curl --fail http://localhost:8000 || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
     logging:
       driver: loki
       options:
@@ -23,6 +43,8 @@ services:
     volumes:
       - $CONFIG_DATA_LOCATION:/config
       - $DOWNLOAD_DATA_LOCATION:/downloads
+    ports:
+      - 7227:7227
     networks:
       - default
 
