@@ -37,21 +37,13 @@ services:
         loki-external-labels: service={{.Name}}
     volumes:
       - $DATA_LOCATION:/config
-    restart: always
+    restart: unless-stopped
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=$NETWORK_APP"
-      - "traefik.http.routers.$SERVICE-ui.service=$SERVICE-ui"
-      - "traefik.http.routers.$SERVICE-ui.rule=Host(`$NDD`)"
-      - "traefik.http.routers.$SERVICE-ui.entrypoints=https"
-      - "traefik.http.services.$SERVICE-ui.loadbalancer.server.port=943"
-      - "traefik.udp.routers.$SERVICE-udp.entrypoints=openvpn-udp"
-      - "traefik.udp.routers.$SERVICE-udp.service=$SERVICE-udp"
-      - "traefik.udp.services.$SERVICE-udp.loadbalancer.server.port=1194"
-      - "traefik.tcp.routers.$SERVICE-tcp.entrypoints=openvpn-tcp"
-      - "traefik.tcp.routers.$SERVICE-tcp.service=$SERVICE-tcp"
-      - "traefik.tcp.routers.$SERVICE-tcp.rule=HostSNI(`*`)"
-      - "traefik.tcp.services.$SERVICE-tcp.loadbalancer.server.port=9443"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$NDD`)"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=943"
     networks:
       - default
 networks:

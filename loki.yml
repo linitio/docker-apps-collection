@@ -14,7 +14,7 @@ services:
   loki:
     image: grafana/loki:1.5.0
     container_name: $SERVICE
-    restart: always
+    restart: unless-stopped
     command: -config.file=/etc/loki/local-config.yaml
     healthcheck:
       test: nc -z 127.0.0.1 3100 || exit 1

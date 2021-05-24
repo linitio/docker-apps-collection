@@ -23,7 +23,7 @@ services:
   nextcloud:
     container_name: $SERVICE
     image: nextcloud
-    restart: always
+    restart: unless-stopped
     environment:
       - POSTGRES_HOST=$POSTGRES_HOST
       - POSTGRES_DB=$POSTGRES_DB

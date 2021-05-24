@@ -39,7 +39,7 @@ services:
     volumes:
       - $CONFIG_DATA_LOCATION:/config
       - $DATA_LOCATION:/data
-    restart: always
+    restart: unless-stopped
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=$NETWORK_APP"

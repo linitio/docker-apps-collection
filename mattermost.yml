@@ -25,7 +25,7 @@ services:
   mattermost:
     image: linitio/mattermost:latest
     container_name: $SERVICE
-    restart: always
+    restart: unless-stopped
     environment:
       - PUID=$PUID
       - PGID=$GUID

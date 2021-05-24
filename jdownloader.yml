@@ -32,7 +32,7 @@ services:
     volumes:
       - $CONF_DATA_LOCATION:/jdownloader/cfg
       - $DOWNLOADS_DATA_LOCATION:/jdownloader/Downloads
-    restart: always
+    restart: unless-stopped
     networks:
       - default
 networks:

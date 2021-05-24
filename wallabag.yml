@@ -25,7 +25,7 @@ services:
   wallabag:
     image: wallabag/wallabag
     container_name: $SERVICE
-    restart: always
+    restart: unless-stopped
     environment:
       - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
       - SYMFONY__ENV__DATABASE_DRIVER=$DATABASE_DRIVER

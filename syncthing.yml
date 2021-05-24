@@ -47,7 +47,7 @@ services:
       - "traefik.http.routers.$SERVICE.rule=Host(`$NDD`)"
       - "traefik.http.services.$SERVICE.loadbalancer.server.port=8384"
       - "traefik.docker.network=$NETWORK_APP"
-    restart: always
+    restart: unless-stopped
     networks:
       - default
 
