@@ -262,6 +262,11 @@
             "name": "NETWORK_APP",
             "label": "Application network name",
             "description": "example : app-network"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Data network name",
+            "description": "example : data-network"
         }]
     },
 
