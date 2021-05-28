@@ -56,9 +56,9 @@ services:
     # Facultatif  
     networks:
       default:
-        ipv4_address: "172.19.0.15"
+        ipv4_address: "172.20.0.15"
       default1:
-        ipv4_address: "172.20.0.12"
+        ipv4_address: "172.23.0.12"
 
   zabbix-web:    # The main Zabbix web UI or interface
     image: zabbix/zabbix-web-nginx-pgsql:ubuntu-5.2-latest
