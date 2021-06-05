@@ -1,0 +1,49 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 22/05/2021
+
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : pyload)
+#     - PUID : system user id (example : 1001)
+#     - PGID : system group id (example : 1001)
+#     - TZ : container time zone (example : Europe/Paris)
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - FQDN : fully qualified domain name (example : kanboard.domain.tld)
+#     - CONFIG_DATA_LOCATION : location of service configuration data (example /app/"service")
+#     - DOWNLOAD_DATA_LOCATION : files downloaded location (example /app/"service")
+#     - NETWORK_APP : application network name
+
+# Work with Portainer
+
+version: "3"
+services:
+   synapse:
+     image: "matrixdotorg/synapse:latest"
+     container_name: "$SERVICE"
+     restart: unless-stopped
+     environment:
+       - SYNAPSE_SERVER_NAME=$MATRIX_FQDN
+       - SYNAPSE_REPORT_STATS=$REPORT_STATS
+       - TZ=$TZ
+       - UID=$PUID
+       - GID=$PGID
+       - SYNAPSE_CONFIG_DIR=/config
+     labels:
+       - "traefik.enable=true"
+       - "traefik.http.routers.$SERVICE.entrypoints=https"
+       - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
+       - "traefik.http.services.$SERVICE.loadbalancer.server.port=8008"
+       - "traefik.docker.network=$NETWORK_APP"
+     volumes:
+       - "/srv/docker-data/matrix/synapse/config:/config"
+       - "/srv/docker-data/matrix/synapse/data:/data"
+     networks: 
+       - default
+       - default1
+
+networks:
+  default:
+    external:
+      name: $NETWORK_APP
+  default1:
+    external:
+      name: $NETWORK_DATA
