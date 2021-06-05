@@ -39,6 +39,7 @@ services:
     networks: 
       - default
       - default1
+
   nginx:
     image: "nginx:latest"
     container_name: "nginx" 
@@ -57,8 +58,8 @@ services:
       - "traefik.http.routers.matrix.rule=Host(`$MATRIX_FQDN`)"
       - "traefik.http.services.matrix.loadbalancer.server.port=80"
       - "traefik.docker.network=$NETWORK_APP"
-     networks:
-       - default 
+    networks:
+      - default 
 
 networks:
   default:
