@@ -17,28 +17,28 @@
 version: "3"
 services:
   synapse:
-     image: "matrixdotorg/synapse:latest"
-     container_name: "$SERVICE"
-     restart: unless-stopped
-     environment:
-       - SYNAPSE_SERVER_NAME=$MATRIX_FQDN
-       - SYNAPSE_REPORT_STATS=$REPORT_STATS
-       - TZ=$TZ
-       - UID=$PUID
-       - GID=$PGID
-       - SYNAPSE_CONFIG_DIR=/config
-     labels:
-       - "traefik.enable=true"
-       - "traefik.http.routers.$SERVICE.entrypoints=https"
-       - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
-       - "traefik.http.services.$SERVICE.loadbalancer.server.port=8008"
-       - "traefik.docker.network=$NETWORK_APP"
-     volumes:
-       - "/srv/docker-data/matrix/synapse/config:/config"
-       - "/srv/docker-data/matrix/synapse/data:/data"
-     networks: 
-       - default
-       - default1
+    image: "matrixdotorg/synapse:latest"
+    container_name: "$SERVICE"
+    restart: unless-stopped
+    environment:
+      - SYNAPSE_SERVER_NAME=$MATRIX_FQDN
+      - SYNAPSE_REPORT_STATS=$REPORT_STATS
+      - TZ=$TZ
+      - UID=$PUID
+      - GID=$PGID
+      - SYNAPSE_CONFIG_DIR=/config
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=8008"
+      - "traefik.docker.network=$NETWORK_APP"
+    volumes:
+      - "/srv/docker-data/matrix/synapse/config:/config"
+      - "/srv/docker-data/matrix/synapse/data:/data"
+    networks: 
+      - default
+      - default1
   nginx:
     image: "nginx:latest"
     container_name: "nginx" 
