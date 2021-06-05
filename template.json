@@ -244,9 +244,9 @@
             "description": "example: hastebin"
         },
         {
-            "name": "DATA_LOCATION",
-            "label": "Location of service data",
-            "description": "example : /apps/'service'"
+            "name": "REDIS_SERVER",
+            "label": "Redis server address",
+            "description": "redis"
         },
         {
             "name": "URL_LOKI",
@@ -262,6 +262,11 @@
             "name": "NETWORK_APP",
             "label": "Application network name",
             "description": "example : app-network"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Data network name",
+            "description": "example : data-network"
         }]
     },
 
@@ -1040,7 +1045,7 @@
         "type": 3,
         "title": "PostgreSQL",
         "description": "PostgreSQL server",
-	    "note": "<p>Application website : <a href=\"https:\/\/https://www.postgresql.org\/\" target=\"_blank\" rel=\"noopener\">postgresql.org<\/a>",
+	    "note": "<p>Application website : <a href=\"https:\/\/www.postgresql.org\/\" target=\"_blank\" rel=\"noopener\">postgresql.org<\/a>",
         "categories": [
 		    "Database"
         ],
@@ -1078,11 +1083,11 @@
 
     {
         "type": 3,
-        "title": "Pyload",
-        "description": "Pyload server",
-	    "note": "<p>Application website : <a href=\"https:\/\/https://www.postgresql.org\/\" target=\"_blank\" rel=\"noopener\">postgresql.org<\/a>",
+        "title": "pyLoad",
+        "description": "pyLoad Download Server",
+	    "note": "<p>Application website : <a href=\"https:\/\/pyload.net\/\" target=\"_blank\" rel=\"noopener\">pyload.net<\/a>",
         "categories": [
-		    "Database"
+		    "Utility"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/pyload_logo.png",
@@ -1143,7 +1148,7 @@
         "description": "Bittorrent Client",
 	    "note": "<p>Application website : <a href=\"https:\/\/www.qbittorrent.org\/\" target=\"_blank\" rel=\"noopener\">www.qbittorrent.org<\/a>",
         "categories": [
-		    "Database"
+		    "Utility"
         ],
         "platform": "linux",
         "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/qbittorrent_logo.png",
@@ -1195,96 +1200,40 @@
 
     {
         "type": 3,
-        "title": "TT-RSS",
-        "description": "Aggrégateur de flux RSS",
-	    "note": "<p>Site de l'application : <a href=\"https:\/\/tt-rss.org\/\" target=\"_blank\" rel=\"noopener\">tt-rss.org<\/a>",
+        "title": "Redis",
+        "description": "Redis Server",
+	    "note": "<p>Application website : <a href=\"https:\/\/redis.io\/\" target=\"_blank\" rel=\"noopener\">redis.io<\/a>",
         "categories": [
-		    "Utilitaire"
+		    "Database"
         ],
         "platform": "linux",
-        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/tt-rss_logo.png",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/redis_logo.png",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
-            "stackfile": "ttrss.yml"
+            "stackfile": "stack/redis.yml"
         },
         "env": [{
             "name": "SERVICE",
-            "label": "Nom du service"
+            "label": "Service name",
+            "description": "redis"
         },
         {
-            "name": "SELF_URL_PATH",
-            "label": "URL complète du service",
-            "description": "http(s)://url-ttrss-complete/(tt-rss)"
+            "name": "DATA_LOCATION",
+            "label": "Location of service data",
+            "description": "example /app/service"
         },
-        {
-            "name": "DB_HOST",
-            "label": "Nom du conteneur PostgreSQL"
-        },
-        {
-            "name": "DB_NAME",
-            "label": "Nom de la base de données"
-        },
-        {
-            "name": "DB_USER",
-            "label": "Nom d'utilisateur de la base de données"
-        },
-        {
-            "name": "DB_PASS",
-            "label": "Mot de passe de la base de données"
-        },
-        {
-            "name": "PUID",
-            "label": "Identifiant de l'utilisateur tt-rss"
-        },
-        {
-            "name": "PGID",
-            "label": "Identifiant du groupe tt-rss"
-        },
-        {
-            "name": "ENABLE_PLUGINS",
-            "label": "Liste des plugins actifs"
-        },
-        {
-            "name": "SMTP_SERVER",
-            "label": "Adresse du serveurs SMTP"
-        },
-        {
-            "name": "SMTP_LOGIN",
-            "label": "Identifiant du serveur SMTP"
-        },
-        {
-            "name": "SMTP_PASSWORD",
-            "label": "Mot de passe du serveur SMTP"
-        },
-        {
-            "name": "SMTP_SECURE",
-            "label": "Type de connexion au serveur SMTP"
-        },
-        {
-            "name": "SMTP_FROM_ADDRESS",
-            "label": "Adresse d'envoi de TT-RSS"
-        },
-        {
-            "name": "NDD",
-            "label": "Nom de domaine de l'application"
-        },
-        {
-            "name": "ICONS_DATA_LOCATION",
-            "label": "Localisation des données d'icones"
-        },        
         {
             "name": "URL_LOKI",
-            "label": "Url du service loki"
-        },
-        {
-            "name": "NETWORK_APP",
-            "label": "Nom du réseau applicatif"
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
         },
         {
             "name": "NETWORK_DATA",
-            "label": "Nom du réseau data"
+            "label": "Data network name",
+            "description": "example: data-network"
         }]
     },
+
     {
         "type": 3,
         "title": "SMTP Relay",
@@ -1398,6 +1347,99 @@
 
     {
         "type": 3,
+        "title": "TT-RSS",
+        "description": "Aggrégateur de flux RSS",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/tt-rss.org\/\" target=\"_blank\" rel=\"noopener\">tt-rss.org<\/a>",
+        "categories": [
+		    "Utilitaire"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/tt-rss_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "ttrss.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Nom du service"
+        },
+        {
+            "name": "SELF_URL_PATH",
+            "label": "URL complète du service",
+            "description": "http(s)://url-ttrss-complete/(tt-rss)"
+        },
+        {
+            "name": "DB_HOST",
+            "label": "Nom du conteneur PostgreSQL"
+        },
+        {
+            "name": "DB_NAME",
+            "label": "Nom de la base de données"
+        },
+        {
+            "name": "DB_USER",
+            "label": "Nom d'utilisateur de la base de données"
+        },
+        {
+            "name": "DB_PASS",
+            "label": "Mot de passe de la base de données"
+        },
+        {
+            "name": "PUID",
+            "label": "Identifiant de l'utilisateur tt-rss"
+        },
+        {
+            "name": "PGID",
+            "label": "Identifiant du groupe tt-rss"
+        },
+        {
+            "name": "ENABLE_PLUGINS",
+            "label": "Liste des plugins actifs"
+        },
+        {
+            "name": "SMTP_SERVER",
+            "label": "Adresse du serveurs SMTP"
+        },
+        {
+            "name": "SMTP_LOGIN",
+            "label": "Identifiant du serveur SMTP"
+        },
+        {
+            "name": "SMTP_PASSWORD",
+            "label": "Mot de passe du serveur SMTP"
+        },
+        {
+            "name": "SMTP_SECURE",
+            "label": "Type de connexion au serveur SMTP"
+        },
+        {
+            "name": "SMTP_FROM_ADDRESS",
+            "label": "Adresse d'envoi de TT-RSS"
+        },
+        {
+            "name": "NDD",
+            "label": "Nom de domaine de l'application"
+        },
+        {
+            "name": "ICONS_DATA_LOCATION",
+            "label": "Localisation des données d'icones"
+        },        
+        {
+            "name": "URL_LOKI",
+            "label": "Url du service loki"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Nom du réseau applicatif"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Nom du réseau data"
+        }]
+    },
+
+    {
+        "type": 3,
         "title": "Vaultwarden",
         "description": "Password and 2FA manager (Dashlane alternative)",
         "note": "<p>Application website : <a href=\"https:\/\/bitwarden.com\/\" target=\"_blank\" rel=\"noopener\">Bitwarden.com<\/a>",
@@ -1405,7 +1447,7 @@
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/bitwarden_logo.png",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/vaultwarden_logo.png",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
             "stackfile": "stack/vaultwarden.yml"

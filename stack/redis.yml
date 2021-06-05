@@ -1,37 +1,36 @@
 # Docker-compose provided by Kevin Allioli
-# Last update : 08/05/2021
+# Last update : 22/05/2021
 
 # Environment variables to declare :
-#     - SERVICE : name of the service (example : zabbix-cachethq)
+#     - SERVICE : name of the service (example : redis)
 #     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
 #     - DATA_LOCATION : location of service data (example /app/"service")
-#     - NETWORK_APP : application network name
+#     - NETWORK_DATA : Data network name
 
 # Work with Portainer
 
-version: "3"
+version: '3'
 services:
-  # zabbix-cachet script : https://github.com/qk4l/zabbix-cachet
-  zabbix-cachet:
-    image: qk4l/zabbix-cachet
+  redis:
+    image: redis:latest
     container_name: $SERVICE
     restart: unless-stopped
     healthcheck:
-      test: grep -qr "python" /proc/*/status || exit 1
-      interval: 1m
-      timeout: 30s
-      retries: 3
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 1s
+      timeout: 3s
+      retries: 30
     logging:
       driver: loki
       options:
         loki-url: "$URL_LOKI"
         loki-external-labels: service={{.Name}}
     volumes:
-      - $DATA_LOCATION/config/config.yml:/config.yml
+      - $DATA_LOCATION/data:/data
     networks:
       - default
-      
+
 networks:
   default:
     external:
-      name: app-network
+      name: $NETWORK_DATA

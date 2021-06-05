@@ -34,7 +34,7 @@ services:
         loki-external-labels: service={{.Name}}
     volumes:
       - $DATA_LOCATION:/config
-    restart: always
+    restart: unless-stopped
     networks:
       - default
 

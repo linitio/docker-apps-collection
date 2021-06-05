@@ -20,7 +20,7 @@ services:
   kanboard:
     image: kanboard/kanboard:latest
     container_name: $SERVICE
-    restart: always
+    restart: unless-stopped
     environment:
       - DATABASE_URL=mysql://$DB_USER:$DB_PASS@$DB_HOST/$DB_NAME
     logging:

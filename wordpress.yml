@@ -43,7 +43,7 @@ services:
       options:
         loki-url: "$URL_LOKI"
         loki-external-labels: service={{.Name}}
-    restart: always
+    restart: unless-stopped
     networks:
       - default
       - default1

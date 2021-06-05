@@ -3,13 +3,13 @@
 
 # Environment variables to declare :
 #     - SERVICE : name of the service (example : pyload)
-#     - PUID : database user (example : kanboard)
-#     - PGID : database password
-#     - TZ : database hostname (example : mariadb)
+#     - PUID : system user id (example : 1001)
+#     - PGID : system group id (example : 1001)
+#     - TZ : container time zone (example : Europe/Paris)
 #     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
 #     - FQDN : fully qualified domain name (example : kanboard.domain.tld)
-#     - CONFIG_DATA_LOCATION : location of service data (example /app/"service")
-#     - DOWNLOAD_DATA_LOCATION : location of service data (example /app/"service")
+#     - CONFIG_DATA_LOCATION : location of service configuration data (example /app/"service")
+#     - DOWNLOAD_DATA_LOCATION : files downloaded location (example /app/"service")
 #     - NETWORK_APP : application network name
 
 # Work with Portainer

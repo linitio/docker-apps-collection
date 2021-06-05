@@ -65,7 +65,7 @@ services:
       - default1
     stdin_open: true
     tty: true
-    restart: always
+    restart: unless-stopped
 
   service.mercury:
     image: wangqiru/mercury-parser-api:latest

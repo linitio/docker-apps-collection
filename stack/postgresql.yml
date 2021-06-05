@@ -15,7 +15,7 @@ services:
   postgresql: 
     image: postgres:13-alpine
     container_name: $SERVICE
-    restart: always
+    restart: unless-stopped
     environment:
       - POSTGRES_PASSWORD=$DB_ROOT_PASS
     healthcheck:

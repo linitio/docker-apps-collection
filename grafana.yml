@@ -36,7 +36,7 @@ services:
       options:
         loki-url: "$URL_LOKI"
         loki-external-labels: service={{.Name}}
-    restart: always
+    restart: unless-stopped
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.grafana.entrypoints=https"
