@@ -1,5 +1,5 @@
 # Docker-compose provided by Kevin Allioli
-# Last update : 22/05/2021
+# Last update : 06/06/2021
 
 # Environment variables to declare :
 #     - SERVICE : name of the service (example : pyload)
@@ -59,7 +59,20 @@ services:
       - "traefik.http.services.matrix.loadbalancer.server.port=80"
       - "traefik.docker.network=$NETWORK_APP"
     networks:
-      - default 
+      - default
+
+  coturn:
+    image: "instrumentisto/coturn:latest"
+    container_name: "coturn"
+    restart: "unless-stopped"
+    volumes:
+      - "/srv/docker-data/matrix/coturn/config/turnserver.conf:/etc/coturn/turnserver.conf"
+    ports:
+      - "49160-49200:49160-49200/udp"
+      - "3478:3478"
+      - "5349:5349" 
+    networks:
+      - default
 
 networks:
   default:
