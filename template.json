@@ -1284,6 +1284,72 @@
             "description": "example: app-network"
         }]
     },
+    
+    {
+        "type": 3,
+        "title": "Synapse",
+        "description": "Synapse server",
+	    "note": "<p>Application website : <a href=\"https:\/\/www.exim.org\/\" target=\"_blank\" rel=\"noopener\">exim.org<\/a>",
+        "categories": [
+		    "Utility"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/smtp_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "stack/synapse.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "example: synapse"
+        },
+        {
+            "name": "MATRIX_FQDN",
+            "label": "Matrix server FQDN",
+            "description": "example : matrix.domain.tld"
+        },
+        {
+            "name": "REPORT_STATS",
+            "label": "Enable stats",
+            "description": "example: yes/no"
+        },
+        {
+            "name": "TZ",
+            "label": "Server timezone",
+            "description": "example : Europe/Paris"
+        },
+        {
+            "name": "PUID",
+            "label": "Synapse user uid",
+            "description": "example : 1001"
+        },
+        {
+            "name": "PGID",
+            "label": "Synapse user uid",
+            "description": "example : 1001"
+        },
+        {
+            "name": "FQDN",
+            "label": "Synapse server FQDN",
+            "description": "example : synapse.domain.tld"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example: app-network"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Data network name",
+            "description": "example: data-network"
+        }]
+    },
 
     {
         "type": 3,
