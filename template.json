@@ -960,6 +960,11 @@
             "description": "example /app/ service"
         },
         {
+            "name": "PRIVATE_DATA_LOCATION",
+            "label": "Private data location",
+            "description": "example /app/ service"
+        },
+        {
             "name": "TRANSCODE_DATA_LOCATION",
             "label": "Data transcode location",
             "description": "/app "

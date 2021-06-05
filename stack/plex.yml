@@ -10,6 +10,7 @@
 #     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
 #     - CONFIG_DATA_LOCATION : location of configuration service data (example /app/"service")
 #     - DATA_LOCATION : location of service data (example /app/"service")
+#     - PRIVATE_DATA_LOCATION : location of private data (example /app/"service")
 #     - TRANSCODE_DATA_LOCATION : data transcode location 
 #     - TRANSCODE_DEVICE : device used for transcoding
 
@@ -39,6 +40,7 @@ services:
     volumes:
       - $CONFIG_DATA_LOCATION:/config
       - $DATA_LOCATION:/data
+      - $PRIVATE_DATA_LOCATION:/private
       - $TRANSCODE_DATA_LOCATION:/transcode
     network_mode: host
     devices:
