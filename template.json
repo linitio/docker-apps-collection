@@ -1287,8 +1287,8 @@
     
     {
         "type": 3,
-        "title": "Synapse",
-        "description": "Synapse server",
+        "title": "Matrix",
+        "description": "Matrix Stack",
 	    "note": "<p>Application website : <a href=\"https:\/\/www.exim.org\/\" target=\"_blank\" rel=\"noopener\">exim.org<\/a>",
         "categories": [
 		    "Utility"
