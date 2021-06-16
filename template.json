@@ -1294,17 +1294,12 @@
 		    "Utility"
         ],
         "platform": "linux",
-        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/smtp_logo.png",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/matrix_logo.png",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
             "stackfile": "stack/synapse.yml"
         },
         "env": [{
-            "name": "SERVICE",
-            "label": "Service name",
-            "description": "example: synapse"
-        },
-        {
             "name": "MATRIX_FQDN",
             "label": "Matrix server FQDN",
             "description": "example : matrix.domain.tld"
@@ -1330,7 +1325,7 @@
             "description": "example : 1001"
         },
         {
-            "name": "FQDN",
+            "name": "SYN_FQDN",
             "label": "Synapse server FQDN",
             "description": "example : synapse.domain.tld"
         },
@@ -1338,6 +1333,11 @@
             "name": "URL_LOKI",
             "label": "Loki service URL",
             "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "ELEM_FQDN",
+            "label": "Element FQDN",
+            "description": "example : element.domain.tld"
         },
         {
             "name": "NETWORK_APP",
