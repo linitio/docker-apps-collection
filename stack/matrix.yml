@@ -34,7 +34,7 @@ services:
         loki-external-labels: service={{.Name}}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.synpase.entrypoints=https"
+      - "traefik.http.routers.synapse.entrypoints=https"
       - "traefik.http.routers.synapse.rule=Host(`$SYN_FQDN`)"
       - "traefik.http.services.synapse.loadbalancer.server.port=8008"
       - "traefik.docker.network=$NETWORK_APP"
