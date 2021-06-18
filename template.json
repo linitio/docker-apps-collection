@@ -1994,7 +1994,7 @@
         "env": [{
             "name": "SERVICE",
             "label": "Service name",
-            "description": "example : zabbiz-cachethq"
+            "description": "example : zabbiz-proxy"
         },
         {
             "name": "DATA_LOCATION",
@@ -2005,6 +2005,62 @@
             "name": "URL_LOKI",
             "label": "Loki service URL",
             "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example: app-network"
+        }]
+    },
+
+    {
+        "type": 3,
+        "title": "Zabbix-Proxy",
+        "description": "Zabbix Proxy for Zabbix server",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/zabbix.com\/\" target=\"_blank\" rel=\"noopener\">zabbix.com<\/a>",
+        "categories": [
+		    "Monitoring"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/zabbix_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "stack/zabbix-proxy.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "example : zabbix-proxy"
+        },
+        {
+            "name": "HOSTNAME",
+            "label": "Name of Zabbix proxy",
+            "description": "example : zabbix-proxy"
+        },
+        {
+            "name": "ZABBIX_SERVER",
+            "label": "Zabbix server FQDN",
+            "description": "example : zabbix.domain.tld"
+        },
+        {
+            "name": "TLSPSKIDENTITY",
+            "label": "PSK id in Zabbix server",
+            "description": "example : PSK001"
+        },
+        {
+            "name": "TLSPSKFILE",
+            "label": "PSK file",
+            "description": "example : zabbix_agentd.psk"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Data location",
+            "description": "example /app/ service"
         },
         {
             "name": "NETWORK_APP",
