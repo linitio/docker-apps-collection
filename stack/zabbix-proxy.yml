@@ -21,7 +21,7 @@ services:
     container_name: $SERVICE
     environment:
       ZBX_PROXYMODE: 0
-      ZBX_HOSTNAME: $HOSTNAME
+      ZBX_HOSTNAME: $PROXY_HOSTNAME
       ZBX_SERVER_HOST: $ZABBIX_SERVER
       ZBX_ENABLEREMOTECOMMANDS: 1
       ZBX_STARTPINGERS: 1

@@ -2033,7 +2033,7 @@
             "description": "example : zabbix-proxy"
         },
         {
-            "name": "HOSTNAME",
+            "name": "PROXY_HOSTNAME",
             "label": "Name of Zabbix proxy",
             "description": "example : zabbix-proxy"
         },
