@@ -1,5 +1,5 @@
 # Docker-compose provided by Kevin Allioli
-# Last update : 02/05/2021
+# Last update : 06/08/2021
 
 # Environment variables to declare :
 #     - SERVICE : name of the service (example : kanboard)
@@ -17,12 +17,19 @@
 
 version: '2'
 services:
-  kanboard:
-    image: kanboard/kanboard:latest
+  joplin:
+    image: joplin/server:latest
     container_name: $SERVICE
     restart: unless-stopped
     environment:
-      - DATABASE_URL=mysql://$DB_USER:$DB_PASS@$DB_HOST/$DB_NAME
+      - APP_PORT=22300
+      - APP_BASE_URL=$FQDN
+      - DB_CLIENT=pg
+      - POSTGRES_PASSWORD=$DB_PASSWORD
+      - POSTGRES_DATABASE=$DB_NAME
+      - POSTGRES_USER=$DB_USER
+      - POSTGRES_PORT=$DB_PORT
+      - POSTGRES_HOST=$DB_HOST
     logging:
       driver: loki
       options:
@@ -32,11 +39,8 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.$SERVICE.entrypoints=https"
       - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
-      - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=22300"
       - "traefik.docker.network=$NETWORK_APP"
-    volumes:
-      - $DATA_LOCATION/data:/var/www/app/data
-      - $DATA_LOCATION/plugins:/var/www/app/plugins
     networks:
       - default
       - default1
@@ -48,3 +52,4 @@ networks:
   default1:
     external:
       name: $NETWORK_DATA
+
