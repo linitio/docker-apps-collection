@@ -381,9 +381,14 @@
             "description": "example: joplin"
         },
         {
+            "name": "APP_BASE_URL",
+            "label": "Full application base url",
+            "description": "example : https://joplin.domain.tld"
+        },
+        {
             "name": "DB_USER",
             "label": "Database username",
-            "description": "example: joplin"
+            "description": "example : joplin"
         },
         {
             "name": "DB_PASS",
