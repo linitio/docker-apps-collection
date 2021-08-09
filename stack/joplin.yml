@@ -1,15 +1,16 @@
 # Docker-compose provided by Kevin Allioli
-# Last update : 06/08/2021
+# Last update : 09/08/2021
 
 # Environment variables to declare :
-#     - SERVICE : name of the service (example : kanboard)
-#     - DB_USER : database user (example : kanboard)
+#     - SERVICE : name of the service (example : joplin)
+#     - APP_BASE_URL : full URL of service (example : https://joplin.domain.tld)
+#     - DB_USER : database user (example : joplin)
 #     - DB_PASS : database password
-#     - DB_HOST : database hostname (example : mariadb)
-#     - DB_NAME : database name (example : kanboard)
+#     - DB_HOST : database hostname (example : postgresql)
+#     - DB_NAME : database name (example : joplin)
+#     - DB_PORT : database serve port (example : 5432)
 #     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
-#     - FQDN : fully qualified domain name (example : kanboard.domain.tld)
-#     - DATA_LOCATION : location of service data (example /app/"service")
+#     - FQDN : fully qualified domain name (example : joplin.domain.tld)
 #     - NETWORK_APP : application network name
 #     - NETWORK_DATA : data network name
 
@@ -23,13 +24,13 @@ services:
     restart: unless-stopped
     environment:
       - APP_PORT=22300
-      - APP_BASE_URL=$FQDN
+      - APP_BASE_URL=$APP_BASE_URL
       - DB_CLIENT=pg
-      - POSTGRES_PASSWORD=$DB_PASSWORD
-      - POSTGRES_DATABASE=$DB_NAME
-      - POSTGRES_USER=$DB_USER
-      - POSTGRES_PORT=$DB_PORT
+      - POSTGRES_USER=$DB_USER      
+      - POSTGRES_PASSWORD=$DB_PASS
       - POSTGRES_HOST=$DB_HOST
+      - POSTGRES_DATABASE=$DB_NAME
+      - POSTGRES_PORT=$DB_PORT 
     logging:
       driver: loki
       options:
