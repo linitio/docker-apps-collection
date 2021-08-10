@@ -32,7 +32,7 @@ services:
       - POSTGRES_DATABASE=$DB_NAME
       - POSTGRES_PORT=$DB_PORT 
     healthcheck:
-      test: curl --fail http://localhost:22300 || exit 1
+      test: grep -qr "node" /proc/*/status || exit 1
       interval: 1m
       timeout: 30s
       retries: 3
