@@ -199,8 +199,39 @@
             "label": "Service name"
         },
         {
-            "name": "DATA_LOCATION",
-            "label": "Localisation des données applicative"
+            "name": "PUBLIC_URL",
+            "label": "Public URL of service",
+            "description": "example : https://sync.domain.tld"
+        },
+        {
+            "name": "SECRET",
+            "label": "Data encryption key"
+        },
+        {
+            "name": "DB_USER",
+            "label": "Database username"
+        },
+        {
+            "name": "DB_PASS",
+            "label": "Database password"
+        },
+        {
+            "name": "DB_HOST",
+            "label": "Database server hostname"
+        },
+        {
+            "name": "DB_NAME",
+            "label": "Database name"
+        },
+        {
+            "name": "BATCH_UPLOAD",
+            "label": "Enable batch upload",
+            "description": "example : true / false"
+        },
+        {
+            "name": "WSGI_ENV",
+            "label": "Enable WSGI environment",
+            "description": "example : true / false"
         },
         {
             "name": "URL_LOKI",
@@ -210,7 +241,12 @@
         {
             "name": "FQDN",
             "label": "Fully qualified domain name",
-            "description": "example : hastebin.domain.tld"
+            "description": "example : sync.domain.tld"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Apllication data location",
+            "description": "example : /apps/'service'"
         },
         {
             "name": "NETWORK_APP",
