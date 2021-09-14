@@ -1,0 +1,49 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 14/09/2021
+
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : ff-sync)
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - DATA_LOCATION : location of service data (example /app/"service")
+#     - NETWORK_DATA : Data network name
+
+# Work with Portainer
+
+
+version: '3'
+services:
+  syncserver:
+    image: mozilla/syncserver:latest
+    container_name: $SERVICE
+    restart: unless-stopped
+    environment:
+      SYNCSERVER_PUBLIC_URL: '$PUBLIC_URL'
+      SYNCSERVER_SECRET: '$SECRET'
+      SYNCSERVER_SQLURI: 'pymysql://$DB_USER:$DB_PASS@$DB_HOST/$DB_NAME'
+      SYNCSERVER_BATCH_UPLOAD_ENABLED: '$BATCH_UPLOAD'
+      SYNCSERVER_FORCE_WSGI_ENVIRON: '$WSGI_ENV'
+      PORT: '5000'
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=5000"
+      - "traefik.docker.network=$NETWORK_APP"
+    volumes:
+      - $DATA_LOCATION/data:/data
+    networks:
+      - default
+      - default1
+
+networks:
+  default:
+    external:
+      name: $NETWORK_APP
+  default1:
+    external:
+      name: $NETWORK_DATA
