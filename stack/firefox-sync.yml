@@ -3,8 +3,18 @@
 
 # Environment variables to declare :
 #     - SERVICE : name of the service (example : ff-sync)
+#     - PUBLIC_URL : public url of service (example : https://domain.tld)
+#     - SECRET : data encryption key
+#     - DB_USER : database username
+#     - DB_PASS : database password
+#     - DB_HOST : database server hostname
+#     - DB_NAME : database name
+#     - BATCH_UPLOAD : enable batch upload (example : true/false)
+#     - WSGI_ENV : enable WSGI environnement (example : true/false)
 #     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - FQDN : fully qualified domain name (example : sync.domain.tld)
 #     - DATA_LOCATION : location of service data (example /app/"service")
+#     - NETWORK_APP : Application network name
 #     - NETWORK_DATA : Data network name
 
 # Work with Portainer
