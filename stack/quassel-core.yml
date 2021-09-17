@@ -1,0 +1,58 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 17/09/2021
+
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : quassel-core)
+#     - PUID : system user id (example : 1001)
+#     - PGID : system group id (example : 1001)
+#     - TZ : container time zone (example : Europe/Paris)
+#     - DB_USER : database username
+#     - DB_PASS : database password
+#     - DB_HOST : database server hostname
+#     - DB_PORT : database port
+#     - AUTH_SYSTEM : authentication system
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - DATA_LOCATION : location of service data (example /app/"service")
+#     - NETWORK_APP : Application network name
+#     - NETWORK_DATA : Data network name
+
+# Work with Portainer
+
+version: "3"
+services:
+  quassel-core:
+    image: ghcr.io/linuxserver/quassel-core
+    container_name: $SERVICE
+    restart: unless-stopped
+    environment:
+      - PUID=$PUID
+      - PGID=$PGIG
+      - TZ=$TZ
+      - DB_BACKEND=$DB_TYPE
+      - DB_PGSQL_USERNAME=$DB_USER
+      - DB_PGSQL_PASSWORD=$DB_PASS
+      - DB_PGSQL_HOSTNAME=$DB_HOST
+      - DB_PGSQL_PORT=$DB_PORT
+      - AUTH_AUTHENTICATOR=$AUTH_SYSTEM
+      - RUN_OPTS=--config-from-environment #optional
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    volumes:
+      - $DATA_LOCATION:/config
+    ports:
+      - 4242:4242
+      - 113:10113 #optional
+    networks:
+      - default
+      - default1
+
+networks:
+  default:
+    external:
+      name: $NETWORK_APP
+  default1:
+    external:
+      name: $NETWORK_DATA

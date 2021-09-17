@@ -1416,6 +1416,81 @@
 
     {
         "type": 3,
+        "title": "Quassel Core",
+        "description": "IRC Client core",
+	    "note": "<p>Application website : <a href=\"https:\/\/plex.tv\/\" target=\"_blank\" rel=\"noopener\">plex.tv<\/a>",
+        "categories": [
+		    "Media management"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/plex_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "stack/quassel-core.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "example: quassel-core"
+        },
+        {
+            "name": "PUID",
+            "label": "User quassel id",
+            "description": "1001"
+        },
+        {
+            "name": "PGID",
+            "label": "User group quassel id",
+            "description": "1001"
+        },
+        {
+            "name": "TZ",
+            "label": "Service time zone",
+            "description": "(example : Europe/Paris)"
+        },
+        {
+            "name": "DB_TYPE",
+            "label": "Database type",
+            "description": "example : SQLite or PostgreSQL"
+        },
+        {
+            "name": "DB_HOST",
+            "label": "Database hostname server",
+            "description": "exemple : mariadb, postgresql"
+        },
+        {
+            "name": "DB_PORT",
+            "label": "Database server port",
+            "description": "exemple : 3306, 5432"
+        },
+        {
+            "name": "DB_USER",
+            "label": "Database username",
+            "description": "example: cachethq"
+        },
+        {
+            "name": "DB_PASS",
+            "label": "Database password"
+        },
+        {
+            "name": "AUTH_SYSTEM",
+            "label": "Authentication backend",
+            "description": "Database or LDAP"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example: app-network"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Database network name",
+            "description": "example: data-network"
+        }]
+    },
+
+    {
+        "type": 3,
         "title": "Redis",
         "description": "Redis Server",
 	    "note": "<p>Application website : <a href=\"https:\/\/redis.io\/\" target=\"_blank\" rel=\"noopener\">redis.io<\/a>",
