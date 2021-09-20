@@ -40,6 +40,13 @@ services:
       options:
         loki-url: "$URL_LOKI"
         loki-external-labels: service={{.Name}}
+    labels:
+      - traefik.enable=true
+      - traefik.tcp.routers.quassel.rule=HostSNI(`*`)
+      - traefik.tcp.routers.quassel.entrypoints=irc
+      - traefik.tcp.routers.quassel.service=quassel-svc
+      #- traefik.tcp.routers.quassel.tls=true
+      - traefik.tcp.services.quassel-svc.loadbalancer.server.port=4242
     volumes:
       - $DATA_LOCATION:/config
     ports:
