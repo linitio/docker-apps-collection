@@ -183,7 +183,7 @@
     {
         "type": 3,
         "title": "Firefox Sync Server",
-        "description": "Firefox Sync Server",
+        "description": "Personal sync server for Firefox data",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/github.com\/mozilla-services\/syncserver\/\" target=\"_blank\" rel=\"noopener\">github.com/mozilla-services/syncserver<\/a>",
         "categories": [
 		    "Utility"
@@ -1736,6 +1736,52 @@
         {
             "name": "NETWORK_DATA",
             "label": "Nom du réseau data"
+        }]
+    },
+
+    {
+        "type": 3,
+        "title": "UNMS",
+        "description": "Unify Network Management System",
+        "note": "<p>Application website : <a href=\"https:\/\/uisp.ui.com\/\" target=\"_blank\" rel=\"noopener\">uisp.ui.com<\/a>",
+        "categories": [
+            "Utility"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/unms_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "stack/unms.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "example: unms"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Data location",
+            "description": "example: /apps/'service'"
+        },
+        {
+            "name": "TZ",
+            "label": "Application timezone",
+            "description": "example: Europe/Paris"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Lien du serveur loki",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "FQDN",
+            "label": "Fully qualified domain name",
+            "description": "example : vaultwarden.domain.tld"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example: app-network"
         }]
     },
 
