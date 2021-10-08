@@ -20,7 +20,7 @@ services:
     environment:
       - TZ=$TZ
     healthcheck:
-      test: wget -s 'http://localhost:443'
+      test: wget --spider 'https://localhost:443' --no-check-certificate
       interval: 1m
       timeout: 30s
       retries: 3
