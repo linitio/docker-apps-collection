@@ -1748,7 +1748,7 @@
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/unms_logo.png",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/unms_logo.jpg",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
             "stackfile": "stack/unms.yml"
