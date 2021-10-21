@@ -352,6 +352,57 @@
 
     {
         "type": 3,
+        "title": "Homer",
+        "description": "Homepage for your server",
+	    "note": "<p>Application website : <a href=\"https:\/\/github.com\/bastienwirtz\/homer\/\" target=\"_blank\" rel=\"noopener\">github.com/bastienwirtz/homer<\/a>",
+        "categories": [
+		    "Utility"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/homer_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "stack/homer.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "example: homer"
+        },
+        {
+            "name": "PUID",
+            "label": "User homer id",
+            "description": "1001"
+        },
+        {
+            "name": "PGID",
+            "label": "User group homer id",
+            "description": "1001"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "FQDN",
+            "label": "Fully qualified domain name",
+            "description": "example : homer.domain.tld"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Service data location",
+            "description": "example /app/ service"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example : app-network"
+        }]
+    },
+
+    {
+        "type": 3,
         "title": "JDownloader",
         "description": "Utilitaire de téléchargement",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/jdownloader.org\/\" target=\"_blank\" rel=\"noopener\">jdownloader.org<\/a>",
