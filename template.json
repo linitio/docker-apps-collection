@@ -1156,10 +1156,6 @@
             "label": "Nom du service"
         },
         {
-            "name": "DB_SERVER",
-            "label": "Nom du conteneur MariaDB/MySQL"
-        },
-        {
             "name": "DATA_LOCATION",
             "label": "Localisation des données du service"
         },

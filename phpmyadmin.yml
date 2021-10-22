@@ -17,7 +17,7 @@ services:
     image: phpmyadmin
     container_name: $SERVICE
     environment:
-      - PMA_HOST=$DB_SERVER
+      - PMA_ARBITRARY=1
     healthcheck:
       test: curl --fail http://localhost:80 || exit 1
       interval: 1m
