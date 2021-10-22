@@ -39,6 +39,8 @@ services:
     - "traefik.http.routers.$SERVICE.rule=Host(`$NDD`)"
     - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
     - "traefik.docker.network=$NETWORK_APP"
+    volumes:
+      - /srv/docker-data/pgadmin:/var/lib/pgadmin
     networks:
       - default
       - default1
