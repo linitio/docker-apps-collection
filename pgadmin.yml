@@ -40,7 +40,7 @@ services:
     - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
     - "traefik.docker.network=$NETWORK_APP"
     volumes:
-      - /srv/docker-data/pgadmin:/var/lib/pgadmin
+      - $DATA_LOCATION:/var/lib/pgadmin
     networks:
       - default
       - default1

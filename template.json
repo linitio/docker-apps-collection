@@ -1124,6 +1124,10 @@
             "label": "Nom de domaine"
         },
         {
+            "name": "DATA_LOCATION",
+            "label": "Localisation des données de l'application"
+        },
+        {
             "name": "NETWORK_APP",
             "label": "Nom du réseau applicatif"
         },
