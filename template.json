@@ -1124,6 +1124,10 @@
             "label": "Nom de domaine"
         },
         {
+            "name": "DATA_LOCATION",
+            "label": "Localisation des données de l'application"
+        },
+        {
             "name": "NETWORK_APP",
             "label": "Nom du réseau applicatif"
         },
@@ -1150,10 +1154,6 @@
         "env": [{
             "name": "SERVICE",
             "label": "Nom du service"
-        },
-        {
-            "name": "DB_SERVER",
-            "label": "Nom du conteneur MariaDB/MySQL"
         },
         {
             "name": "DATA_LOCATION",
@@ -1551,7 +1551,7 @@
     },
 
     {
-        "type": 3,
+        "type": 1,
         "title": "Redis",
         "description": "Redis Server",
 	    "note": "<p>Application website : <a href=\"https:\/\/redis.io\/\" target=\"_blank\" rel=\"noopener\">redis.io<\/a>",
