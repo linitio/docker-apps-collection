@@ -1551,7 +1551,7 @@
     },
 
     {
-        "type": 1,
+        "type": 3,
         "title": "Redis",
         "description": "Redis Server",
 	    "note": "<p>Application website : <a href=\"https:\/\/redis.io\/\" target=\"_blank\" rel=\"noopener\">redis.io<\/a>",
