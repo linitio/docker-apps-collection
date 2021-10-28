@@ -1839,13 +1839,13 @@
     {
         "type": 3,
         "title": "Uptime-Kuma",
-        "description": "It is a self-hosted monitoring tool like Uptime Robot.",
-        "note": "<p>Application website : <a href=\"https:\/\/github.com\/louislam\/uptime-kuma\" target=\"_blank\" rel=\"noopener\">uisp.ui.com<\/a>",
+        "description": "A self-hosted monitoring tool like Uptime Robot.",
+        "note": "<p>Application website : <a href=\"https:\/\/github.com\/louislam\/uptime-kuma\" target=\"_blank\" rel=\"noopener\">github.com/louislam/uptime-kuma<\/a>",
         "categories": [
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/uptime-kuma_logo.jpg",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/uptime-kuma_logo.png",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
             "stackfile": "stack/uptime-kuma.yml"
