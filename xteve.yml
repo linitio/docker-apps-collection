@@ -34,7 +34,8 @@ services:
       timeout: 30s
       retries: 3
     volumes:
-      - $DATA_LOCATION:/config:rw
+      - $DATA_LOCATION/config:/config:rw
+      - $DATA_LOCATION/root:/root/.xteve
       - /dev/shm:/tmp/xteve
 
 networks:
