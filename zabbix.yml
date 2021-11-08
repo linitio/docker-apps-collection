@@ -54,11 +54,11 @@ services:
       - $DATA_LOCATION/alertscripts:/usr/lib/zabbix/alertscripts
 
     # Facultatif  
-    networks:
-      default:
-        ipv4_address: "172.19.0.15"
-      default1:
-        ipv4_address: "172.20.0.15"
+    #networks:
+    #  default:
+    #    ipv4_address: "172.19.0.15"
+    #  default1:
+    #    ipv4_address: "172.20.0.15"
 
   zabbix-web:    # The main Zabbix web UI or interface
     image: zabbix/zabbix-web-nginx-pgsql:ubuntu-5.4-latest
