@@ -72,7 +72,7 @@ services:
       - default
     
   element:
-    image: "vectorim/riot-web:latest"
+    image: "vectorim/riot-web:v1.7.33"
     container_name: "element"
     healthcheck:
       test: curl --fail http://localhost:80 || exit 1
