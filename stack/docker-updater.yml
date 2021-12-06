@@ -1,0 +1,28 @@
+version: '3.3'
+services:
+  dockupdater:
+    image: dockupdater/dockupdater
+    container_name: $SERVICE
+    restart: unless-stopped
+    environment:
+      - TZ=$TZ
+      - INTERVAL=$INTERVAL
+      - CLEANUP=$CLEAN
+      - LATEST=true
+      - NOTIFIERS="slack://docker_update@xoxb-1858520034899-2633476952292-2NZEr3KUYqiWaFIDExM9HB4c/#softwares-update"
+      - SKIP_START_NOTIF=true
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    volumes:
+      '/var/run/docker.sock:/var/run/docker.sock'
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: $NETWORK_APP
+        

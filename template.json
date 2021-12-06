@@ -1981,7 +1981,7 @@
         },
         {
             "name": "URL_LOKI",
-            "label": "Lien du serveur loki",
+            "label": "URL of Loki service",
             "description": "example : http://loki.domain.tld/loki/api/v1/push"
         },
         {
@@ -2283,6 +2283,72 @@
         {
             "name": "NETWORK_APP",
             "label": "Nom du réseau applicatif"
+        }]
+    },
+
+    {
+        "type": 3,
+        "title": "YOURLS",
+        "description": "URL Shortener",
+        "note": "<p>Application website: <a href=\"https:\/\/yourls.org\/\" target=\"_blank\" rel=\"noopener\">yourls.org<\/a>",
+        "categories": [
+            "Utility"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/yourls_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "stack/yourls.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "example: yourls"
+        },
+        {
+            "name": "DB_USER",
+            "label": "Database username",
+            "description": "example: yourls"
+        },
+        {
+            "name": "DB_PASS",
+            "label": "Database password"
+        },
+        {
+            "name": "DB_HOST",
+            "label": "Database servername",
+            "description": "example: mariadb"
+        },
+        {
+            "name": "DB_NAME",
+            "label": "Database name",
+            "description": "example: yourls"
+        },
+        {
+            
+            "name": "DATA_LOCATION",
+            "label": "Location of service data",
+            "description": "example /app/service"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "URL of Loki service",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "FQDN",
+            "label": "Fully qualified domain name",
+            "description": "example : yourls.domain.tld"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example: app-network"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Data network name",
+            "description": "example: data-network"
         }]
     },
 
