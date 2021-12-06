@@ -2330,7 +2330,7 @@
             "description": "example: admin"
         },
 	    {
-            "name": "ADMIN_PASWWORD",
+            "name": "ADMIN_PASSWORD",
             "label": "Admin password"
         },
         {    
