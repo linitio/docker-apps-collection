@@ -1,0 +1,57 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 06/12/2021
+
+# Environment variables to declare :
+#     - SERVICE : service name (example : yourls)
+#     - DATA_LOCATION : location of service data (example /app/"service")
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - DB_USER : database user (example : yourls)
+#     - DB_PASS : database password
+#     - DB_HOST : database hostname (example : mariadb)
+#     - DB_NAME : database name (example : yourls)
+#     - FQDN : fully qualified domain name (example : yourls.domain.tld)
+#     - NETWORK_APP : application network name
+#     - ADMIN_USER : admin user
+#     - ADMIN_PASSWORD : admin password
+
+# Work with Portainer
+
+version: "2"
+
+services:
+  yourls:
+    image: yourls:apache
+    container_name: $SERVICE
+    environment:
+      YOURLS_DB_USER: $DB_USER
+      YOURLS_DB_PASS: $DB_PASS
+      YOURLS_DB_HOST: $DB_HOST
+      YOURLS_DB_NAME: $DB_NAME
+      YOURLS_SITE: https://$FQDN
+      YOURLS_PASS: $ADMIN_PASSWORD
+      YOURLS_USER: $ADMIN_USER
+     healthcheck:
+      test: curl --fail http://localhost:80 || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
+      - "traefik.docker.network=$NETWORK_APP"
+    volumes:
+      - $DATA_LOCATION/config:/var/www/html
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: $NETWORK_APP
