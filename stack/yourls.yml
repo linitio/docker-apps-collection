@@ -30,7 +30,7 @@ services:
       YOURLS_SITE: https://$FQDN
       YOURLS_PASS: $ADMIN_PASSWORD
       YOURLS_USER: $ADMIN_USER
-     healthcheck:
+    healthcheck:
       test: curl --fail http://localhost:80 || exit 1
       interval: 1m
       timeout: 30s
