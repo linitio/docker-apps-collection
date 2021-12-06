@@ -20,7 +20,7 @@ version: "2"
 
 services:
   yourls:
-    image: yourls:apache
+    image: yourls:latest
     container_name: $SERVICE
     environment:
       YOURLS_DB_USER: $DB_USER
