@@ -2360,17 +2360,16 @@
             "label": "Database name",
             "description": "example: yourls"
         },
-	{
+	    {
             "name": "ADMIN_USER",
             "label": "Admin username",
             "description": "example: admin"
         },
-	{
-            "name": "ADMIN_PASWWORD",
+	    {
+            "name": "ADMIN_PASSWORD",
             "label": "Admin password"
         },
-        {
-            
+        {    
             "name": "DATA_LOCATION",
             "label": "Location of service data",
             "description": "example /app/service"

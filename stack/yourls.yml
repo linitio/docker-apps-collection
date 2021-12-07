@@ -50,8 +50,12 @@ services:
       - $DATA_LOCATION/config:/var/www/html
     networks:
       - default
+      - default1
 
 networks:
   default:
     external:
       name: $NETWORK_APP
+  default1:
+    external:
+      name: $NETWORK_DATA
