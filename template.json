@@ -3,13 +3,13 @@
 	"templates": [{
         "type": 3,
         "title": "Bing Wallpaper Proxy",
-        "description": "A self-hosted monitoring tool like Uptime Robot.",
-        "note": "<p>Application website : <a href=\"https:\/\/github.com\/louislam\/uptime-kuma\" target=\"_blank\" rel=\"noopener\">github.com/louislam/uptime-kuma<\/a>",
+        "description": "API proxy for Bing images.",
+        "note": "<p>Application website : <a href=\"https:\/\/github.com\/TimothyYe\/bing-wallpaper\" target=\"_blank\" rel=\"noopener\">github.com/TimothyYe/bing-wallpaper\/a>",
         "categories": [
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/uptime-kuma_logo.png",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/bing-proxy_logo.png",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
             "stackfile": "stack/bing-wallpaper.yml"

@@ -4,7 +4,7 @@
 # Environment variables to declare :
 #     - SERVICE : name of the service (example : bing-wallpaper)
 #     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
-#     - FQDN : fully qualified domain name (example : uptime.domain.tld)
+#     - FQDN : fully qualified domain name (example : bing.domain.tld)
 #     - NETWORK_APP : application network name
 
 # Work with Portainer
@@ -15,6 +15,11 @@ services:
     image: linitio/bing-wallpaper
     container_name: $SERVICE
     restart: unless-stopped
+    healthcheck:
+      test: wget -nv -t1 --spider 'http://localhost:9000'
+      interval: 1m
+      timeout: 30s
+      retries: 3
     logging:
       driver: loki
       options:
