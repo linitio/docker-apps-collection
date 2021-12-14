@@ -74,6 +74,7 @@ services:
   element:
     image: "vectorim/riot-web:v1.7.33"
     container_name: "element"
+    restart: unless-stopped
     healthcheck:
       test: curl --fail http://localhost:80 || exit 1
       interval: 1m
