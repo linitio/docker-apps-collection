@@ -22,6 +22,7 @@ services:
   yourls:
     image: yourls:apache
     container_name: $SERVICE
+    restart: unless-stopped
     environment:
       YOURLS_DB_USER: $DB_USER
       YOURLS_DB_PASS: $DB_PASS
