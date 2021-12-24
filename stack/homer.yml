@@ -33,5 +33,3 @@ networks:
   default:
     external:
       name: $NETWORK_APP
-
-    
