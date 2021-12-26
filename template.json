@@ -295,6 +295,61 @@
             "description": "example : data-network"
         }]
     },
+
+    {
+        "type": 3,
+        "title": "FreshRSS",
+        "description": "Alternative to Feedly",
+	    "note": "<p>Site de l'application : <a href=\"https:\/\/github.com\/mozilla-services\/syncserver\/\" target=\"_blank\" rel=\"noopener\">github.com/mozilla-services/syncserver<\/a>",
+        "categories": [
+		    "Utility"
+        ],
+        "platform": "linux",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/ffsync-server_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "stack/freshrss.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name"
+        },
+        {
+            "name": "CRON",
+            "label": "Time between to RSS sync",
+            "description": "example : */20"
+        },
+        {
+            "name": "TZ",
+            "label": "Application timezone",
+            "description": "example: Europe/Paris"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "FQDN",
+            "label": "Fully qualified domain name",
+            "description": "example : sync.domain.tld"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Apllication data location",
+            "description": "example : /apps/'service'"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example : app-network"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Data network name",
+            "description": "example : data-network"
+        }]
+    },
     
     {
         "type": 3,
