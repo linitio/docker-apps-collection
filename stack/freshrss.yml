@@ -22,7 +22,7 @@ services:
     container_name: $SERVICE
     restart: unless-stopped
     environment:
-      - CRON_MIN: '$CRON'
+      - CRON_MIN: "$CRON"
       - TZ: $TZ
     logging:
       driver: loki
