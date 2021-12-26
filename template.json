@@ -300,12 +300,12 @@
         "type": 3,
         "title": "FreshRSS",
         "description": "Alternative to Feedly",
-	    "note": "<p>Site de l'application : <a href=\"https:\/\/github.com\/mozilla-services\/syncserver\/\" target=\"_blank\" rel=\"noopener\">github.com/mozilla-services/syncserver<\/a>",
+	    "note": "<p>Application website : <a href=\"https:\/\/freshrss.org\/\" target=\"_blank\" rel=\"noopener\">freshrss.org<\/a>",
         "categories": [
 		    "Utility"
         ],
         "platform": "linux",
-        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/ffsync-server_logo.png",
+        "logo": "https://gitlab.com/kallioli/docker-server-container/-/raw/master/img/freshrss_logo.png",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
             "stackfile": "stack/freshrss.yml"
