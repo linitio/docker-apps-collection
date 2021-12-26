@@ -24,6 +24,11 @@ services:
     environment:
       - CRON_MIN=$CRON
       - TZ=$TZ
+    healthcheck:
+      test: grep -qr "apache2" /proc/*/status || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
     logging:
       driver: loki
       options:
