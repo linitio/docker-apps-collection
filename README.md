@@ -1,2 +1,1 @@
-# Docker Server Container
-
+# Docker Applications Collection
