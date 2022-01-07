@@ -9,7 +9,7 @@
 #     - DB_HOST : nom du conteneur SGBD
 #     - DB_PORT : port du SGBD
 #     - DB_NAME : nom de la base de données
-#     - DB_USER : nom d'utilisateur pour la base de données (exemple : papamica)
+#     - DB_USER : nom d'utilisateur pour la base de données (exemple : zabbix)
 #     - DB_PASSWORD : mot de passe pour la base de données
 #     - TZ : Timezone du service
 #     - NETWORK_APP : nom du réseau applicatif

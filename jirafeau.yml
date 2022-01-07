@@ -5,7 +5,7 @@
 #     - SERVICE : nom du service (exemple : plex)
 #     - DATA_LOCATION : localisation des données (exemple /apps/"service")
 #     - URL_LOKI : lien du serveur loki (exemple : ndd/loki/api/v1/push)
-#     - NDD : lien du nom de domaine (exemple : papamica.fr)
+#     - NDD : lien du nom de domaine (exemple : send.domain.tld)
 
 # Fonctionne avec Portainer
 version: '2'
