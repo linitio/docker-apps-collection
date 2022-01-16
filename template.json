@@ -9,7 +9,7 @@
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/bing!wallpaper_logo.png",
+        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/bing_wallpaper_logo.png",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
             "stackfile": "stack/bing-wallpaper.yml"
@@ -1565,7 +1565,7 @@
 		    "Media management"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/plex_logo.png",
+        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/quassel_logo.png",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
             "stackfile": "stack/quassel-core.yml"
