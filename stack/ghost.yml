@@ -16,7 +16,7 @@
 
 version: '3.9'
 services:
- ghost:
+  ghost:
     image: ghost:latest
     container_name: $SERVICE
     restart: unless-stopped
