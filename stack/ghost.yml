@@ -1,0 +1,61 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 16/01/2022
+
+# Environment variables to declare :
+#     - SERVICE : service name (example : ghost)
+#     - DATA_LOCATION : location of service data (example /app/"service")
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - DB_USER : database user (example : ghost)
+#     - DB_PASS : database password
+#     - DB_HOST : database hostname (example : mariadb)
+#     - DB_NAME : database name (example : yourls)
+#     - FQDN : fully qualified domain name (example : blog.domain.tld)
+#     - NETWORK_APP : application network name
+
+# Work with Portainer
+
+version: '3.9'
+services:
+ ghost:
+    image: ghost:latest
+    container_name: $SERVICE
+    restart: unless-stopped
+    environment:
+      database__client: mysql
+      database__connection__host: $DB_HOST
+      database__connection__user: $DB_USER
+      database__connection__password: $DB_PASS
+      database__connection__database: $DB_NAME
+      # this url value is just an example, and is likely wrong for your environment!
+      url: https://$FQDN
+      # contrary to the default mentioned in the linked documentation, this image defaults to NODE_ENV=production (so development mode needs to be explicitly specified if desired)
+      NODE_ENV: production
+     healthcheck:
+      test: curl --fail http://localhost:2368 || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
+      - "traefik.docker.network=$NETWORK_APP"
+    volumes:
+      - $DATA_LOCATION/config:/var/lib/ghost/content
+    networks:
+      - default
+      - default1
+
+networks:
+  default:
+    external:
+      name: $NETWORK_APP
+  default1:
+    external:
+      name: $NETWORK_DATA
