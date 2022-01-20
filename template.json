@@ -362,7 +362,7 @@
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/yourls_logo.png",
         "repository": {
-            "url": "https://github.com/kallioli/docker-apps-collection/tree/master",
+            "url": "https://github.com/kallioli/docker-apps-collection",
             "stackfile": "stack/ghost.yml"
         },
         "env": [{
