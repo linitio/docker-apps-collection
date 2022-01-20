@@ -30,11 +30,11 @@ services:
       url: https://$FQDN
       # contrary to the default mentioned in the linked documentation, this image defaults to NODE_ENV=production (so development mode needs to be explicitly specified if desired)
       NODE_ENV: production
-    healthcheck:
-      test: curl --fail http://localhost:2368 || exit 1
-      interval: 1m
-      timeout: 30s
-      retries: 3
+    #healthcheck:
+    #  test: curl --fail http://localhost:2368 || exit 1
+    #  interval: 1m
+    #  timeout: 30s
+    #  retries: 3
     logging:
       driver: loki
       options:
