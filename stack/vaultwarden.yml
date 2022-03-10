@@ -71,8 +71,6 @@ services:
     
 networks:
   default:
-    external:
-      name: $NETWORK_APP
+    name: ${NETWORK_APP:-tmp}
   default1:
-    external:
-      name: $NETWORK_DATA
+    name: ${NETWORK_DATA:-tmp}
