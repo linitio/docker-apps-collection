@@ -1,0 +1,38 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 15/03/2022
+
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : mariadb)
+#     - DB_ROOT_PASS : passord of root user
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - DATA_LOCATION : location of service data (example /app/"service")
+#     - NETWORK_DATA : data network name
+
+# Work with Portainer
+
+version: "3.1"
+services:
+  mariadb:
+    image: mariadb
+    container_name: $SERVICE
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=$DB_ROOT_PASS
+    healthcheck:
+      test: mysqladmin ping -h localhost -u root --password=$DB_ROOT_PASS
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    volumes:
+      - $DATA_LOCATION:/config
+    networks:
+      - default
+
+networks:
+  default:
+    name: ${NETWORK_DATA:-tmp}
