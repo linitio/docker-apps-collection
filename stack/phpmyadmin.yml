@@ -1,17 +1,17 @@
-# Docker-compose mis à disposition par Kevin Allioli
-# Date de mise à jour : 13/03/2021
+# Docker-compose provided by Kevin Allioli
+# Last update : 15/03/2022
 
-# Variables d'environnement à déclarer :
-#     - SERVICE : nom du service (exemple : mariadb)
-#     - DB_SERVER : nom du conteneur MariaDB/MySQL
-#     - DATA_LOCATION : localisation des données (exemple /apps/"service")
-#     - NDD : Nom de domaine de l'application
-#     - NETWORK_APP : nom du réseau applicatif
-#     - NETWORK_DATA : nom du réseau data
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : phpmyadmin)
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - DATA_LOCATION : location of service data (example /app/"service")
+#     - FQDN : fully qualified domain name (example : pma.domain.tld)
+#     - NETWORK_APP : application network name
+#     - NETWORK_DATA : database network name
 
-# Fonctionne avec Portainer
+# Work with Portainer
 
-version: "2"
+version: "3.3"
 services:
   phpmyadmin:
     image: phpmyadmin
@@ -34,7 +34,7 @@ services:
     labels:
     - "traefik.enable=true"
     - "traefik.http.routers.$SERVICE.entrypoints=https"
-    - "traefik.http.routers.$SERVICE.rule=Host(`$NDD`)"
+    - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
     - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
     - "traefik.docker.network=$NETWORK_APP"
     networks:
@@ -44,7 +44,7 @@ services:
 networks:
   default:
     external:
-      name: $NETWORK_APP
+      name: ${NETWORK_APP}
   default1:
     external:
-       name: $NETWORK_DATA
+       name: ${NETWORK_DATA}
