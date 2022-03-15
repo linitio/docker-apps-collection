@@ -29,7 +29,7 @@ services:
         loki-url: "$URL_LOKI"
         loki-external-labels: service={{.Name}}
     volumes:
-      - $DATA_LOCATION:/config
+      - $DATA_LOCATION:/var/lib/mysql
     networks:
       - default
 
