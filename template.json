@@ -921,7 +921,7 @@
             "description": "example : /apps/'service'"
         },
         {
-            "name": "NETWORK",
+            "name": "NETWORK_DATA",
             "label": "Data network name",
             "description": "example: data-network"
         }]
