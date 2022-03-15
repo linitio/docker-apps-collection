@@ -898,8 +898,8 @@
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/mariadb_logo.png",
         "repository": {
-            "url": "https://kallioli.github.io/docker-apps-collection/stack",
-            "stackfile": "mariadb.yml"
+            "url": "https://kallioli.github.io/docker-apps-collection",
+            "stackfile": "stack/mariadb.yml"
         },
         "env": [{
             "name": "SERVICE",
