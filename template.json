@@ -786,29 +786,29 @@
     {
         "type": 3,
         "title": "Keycloak",
-        "description": "Serveur d'authentification SSO",
-	    "note": "<p>Site de l'application : <a href=\"https:\/\/keycloak.org\/\" target=\"_blank\" rel=\"noopener\">keycloak.org<\/a>",
+        "description": "Authentication server",
+	    "note": "<p>Application website : <a href=\"https:\/\/keycloak.org\/\" target=\"_blank\" rel=\"noopener\">keycloak.org<\/a>",
         "categories": [
-		    "Sécurité"
+		    "Security"
         ],
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/keycloak_logo.png",
         "repository": {
-            "stackfile": "stack/keycloack.yml",
+            "stackfile": "stack/keycloak.yml",
             "url": "https://github.com/kallioli/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
             "label": "Service name",
-            "description": "example: keycloack"
+            "description": "example: keycloak"
         },
         {
             "name": "KC_USER",
-            "label": "Keycloack admin username"
+            "label": "Keycloak admin username"
         },
         {
             "name": "KC_PASSWORD",
-            "label": "Keycloack admin password"
+            "label": "Keycloak admin password"
         },
         {
             "name": "DB_HOST",
@@ -818,12 +818,12 @@
         {
             "name": "DB_NAME",
             "label": "Database name",
-            "description": "exemple : keycloack"
+            "description": "exemple : keycloak"
         },
         {
             "name": "DB_USER",
             "label": "Database username",
-            "description": "example: keycloack"
+            "description": "example: keycloak"
         },
         {
             "name": "DB_PASS",
@@ -837,7 +837,7 @@
         {
             "name": "FQDN",
             "label": "Fully qualified domain name",
-            "description": "example : kanboard.domain.tld"
+            "description": "example : auth.domain.tld"
         },
         {
             "name": "NETWORK_APP",
