@@ -898,8 +898,8 @@
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/mariadb_logo.png",
         "repository": {
-            "url": "https://kallioli.github.io/docker-apps-collection",
-            "stackfile": "stack/mariadb.yml"
+            "url": "https://kallioli.github.io/docker-apps-collection/stack",
+            "stackfile": "mariadb.yml"
         },
         "env": [{
             "name": "SERVICE",
@@ -908,7 +908,7 @@
         },
         {
             "name": "DB_ROOT_PASS",
-            "label": "Password of postgres user"
+            "label": "Password of root user"
         },
         {
             "name": "URL_LOKI",
