@@ -1,5 +1,5 @@
 # Docker-compose provided by Kevin Allioli
-# Last update : 03/05/2021
+# Last update : 15/03/2022
 
 # Environment variables to declare :
 #     - SERVICE : name of the service (example : mariadb)
@@ -35,5 +35,4 @@ services:
 
 networks:
   default:
-    external:
-      name: $NETWORK_DATA
+    name: ${NETWORK_DATA:-tmp}

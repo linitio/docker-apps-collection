@@ -1,5 +1,5 @@
 # Docker-compose provided by Kevin Allioli
-# Last update : 06/06/2021
+# Last update : 15/03/2022
 
 # Environment variables to declare :
 #     - SERVICE : name of the service (example : zabbix-proxy)
@@ -59,5 +59,4 @@ services:
 
 networks:
   default:
-    external:
-      name: $NETWORK_APP
+    name: ${NETWORK_APP:-tmp}

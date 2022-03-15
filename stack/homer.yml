@@ -31,5 +31,4 @@ services:
 
 networks:
   default:
-    external:
-      name: $NETWORK_APP
+    name: ${NETWORK_APP:-tmp}

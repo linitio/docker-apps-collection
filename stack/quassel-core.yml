@@ -1,5 +1,5 @@
 # Docker-compose provided by Kevin Allioli
-# Last update : 17/09/2021
+# Last update : 15/03/2022
 
 # Environment variables to declare :
 #     - SERVICE : name of the service (example : quassel-core)
@@ -58,8 +58,4 @@ services:
 
 networks:
   default:
-    external:
-      name: $NETWORK_APP
-  default1:
-    external:
-      name: $NETWORK_DATA
+    name: ${NETWORK_APP:-tmp}

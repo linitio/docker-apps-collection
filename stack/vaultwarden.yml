@@ -1,5 +1,5 @@
 # Docker-compose provided by Kevin Allioli
-# Last update : 03/05/2021
+# Last update : 15/02/2022
 
 # Environment variables to declare :
 #     - SERVICE : service name (example : vaultwarden)

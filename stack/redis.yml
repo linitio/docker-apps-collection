@@ -1,5 +1,5 @@
 # Docker-compose provided by Kevin Allioli
-# Last update : 22/05/2021
+# Last update : 15/00/2022
 
 # Environment variables to declare :
 #     - SERVICE : name of the service (example : redis)
@@ -32,5 +32,4 @@ services:
 
 networks:
   default:
-    external:
-      name: $NETWORK_DATA
+    name: ${NETWORK_DATA:-tmp}

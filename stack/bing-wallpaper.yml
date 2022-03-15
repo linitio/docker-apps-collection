@@ -1,5 +1,5 @@
 # Docker-compose provided by Kevin Allioli
-# Last update : 07/12/2021
+# Last update : 15/03/2021
 
 # Environment variables to declare :
 #     - SERVICE : name of the service (example : bing-wallpaper)
@@ -35,6 +35,5 @@ services:
       - default
 
 networks:
-  default:
-    external:
-      name: $NETWORK_APP
+  external:
+    name: ${NETWORK_APP:-tmp}

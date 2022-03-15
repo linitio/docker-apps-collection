@@ -1,5 +1,5 @@
 # Docker-compose provided by Kevin Allioli
-# Last update : 08/05/2021
+# Last update : 15/03/2022
 
 # Environment variables to declare :
 #     - SERVICE : name of the service (example : cachet)
@@ -61,8 +61,6 @@ services:
 
 networks:
   default:
-    external:
-      name: $NETWORK_APP
+    name: ${NETWORK_APP:-tmp}
   default1:
-    external:
-      name: $NETWORK_DATA
+    name: ${NETWORK_DATA:-tmp}
