@@ -794,8 +794,8 @@
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/keycloak_logo.png",
         "repository": {
-            "url": "https://github.com/kallioli/docker-server-container",
-            "stackfile": "auth/keycloak.yml"
+            "stackfile": "stack/keycloack.yml",
+            "url": "https://github.com/kallioli/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
