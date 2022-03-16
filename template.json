@@ -1731,8 +1731,8 @@
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/redis_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
-            "stackfile": "stack/redis.yml"
+            "stackfile": "stack/redis.yml",
+            "url": "https://github.com/kallioli/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
