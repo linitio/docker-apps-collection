@@ -1,5 +1,5 @@
 # Docker-compose provided by Kevin Allioli
-# Last update : 15/03/2022
+# Last update : 16/03/2022
 
 # Environment variables to declare :
 #     - SERVICE : service name (example : yourls)
@@ -16,7 +16,7 @@
 
 # Work with Portainer
 
-version: "2"
+version: "3.3"
 
 services:
   yourls:
