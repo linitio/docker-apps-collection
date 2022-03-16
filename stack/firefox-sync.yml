@@ -52,6 +52,6 @@ services:
 
 networks:
   default:
-    name: ${NETWORK_APP:-tmp}
+    name: ${NETWORK_APP}
   default1:
-    name: ${NETWORK_DATA:-tmp}
+    name: ${NETWORK_DATA}

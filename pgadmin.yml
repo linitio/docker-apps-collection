@@ -1,18 +1,19 @@
-# Docker-compose mis à disposition par Kevin Allioli
-# Date de mise à jour : 15/03/2021
+# Docker-compose provided by Kevin Allioli
+# Last update : 16/03/2022
 
-# Variables d'environnement à déclarer :
-#     - SERVICE : nom du service (exemple : pgadmin)
-#     - EMAIL : email utilisateur admin
-#     - PASSWORD : Mot de passe de l'administrateur
-#     - DATA_LOCATION : localisation des données (exemple /apps/"service")
-#     - NDD : nom de domaine de l'application
-#     - NETWORK_APP : nom du réseau du conteneur
-#     - NETWORK_DATA : nom du réseau du conteneur
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : pgadmin)
+#     - EMAIL : admin e-mail address
+#     - PASSWORD : admin password
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - DATA_LOCATION : location of service data (example /app/"service")
+#     - FQDN : fully qualified domain name (example : pga.domain.tld)
+#     - NETWORK_APP : application network name
+#     - NETWORK_DATA : data network name
 
-# Fonctionne avec Portainer
+# Work with portainer
 
-version: "2"
+version: "3.3"
 services:
   pgadmin:
     image: dpage/pgadmin4
@@ -36,7 +37,7 @@ services:
     labels:
     - "traefik.enable=true"
     - "traefik.http.routers.$SERVICE.entrypoints=https"
-    - "traefik.http.routers.$SERVICE.rule=Host(`$NDD`)"
+    - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
     - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
     - "traefik.docker.network=$NETWORK_APP"
     volumes:
@@ -48,7 +49,7 @@ services:
 networks:
   default:
     external:
-      name: $NETWORK_APP
+      name: ${NETWORK_APP}
   default1:
     external:
-       name: $NETWORK_DATA
+       name: ${NETWORK_DATA}
