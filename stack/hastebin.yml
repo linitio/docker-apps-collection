@@ -1,5 +1,5 @@
 # Docker-compose provided by Kevin Allioli
-# Last update : 15/03/2022
+# Last update : 16/03/2022
 
 # Environment variables to declare :
 #     - SERVICE : name of the service (example : hastebin)
@@ -41,6 +41,6 @@ services:
 
 networks:
   default:
-    name: ${NETWORK_APP:-tmp}
+    name: ${NETWORK_APP}
   default1:
-    name: ${NETWORK_DATA:-tmp}
+    name: ${NETWORK_DATA}
