@@ -35,4 +35,5 @@ services:
 
 networks:
   default:
-    name: ${NETWORK_DATA:-tmp}
+    external:
+      name: ${NETWORK_DATA}

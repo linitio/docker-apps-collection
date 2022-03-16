@@ -32,4 +32,5 @@ services:
 
 networks:
   default:
-    name: ${NETWORK_DATA}
+    external:
+      name: ${NETWORK_DATA}
