@@ -43,6 +43,8 @@ services:
 
 networks:
   default:
-    name: ${NETWORK_APP:-tmp}
+    external:
+      name: ${NETWORK_APP}
   default1:
-    name: ${NETWORK_DATA:-tmp}
+    external:
+      name: ${NETWORK_DATA}

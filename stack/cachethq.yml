@@ -61,6 +61,8 @@ services:
 
 networks:
   default:
-    name: ${NETWORK_APP}
+    external:
+      name: ${NETWORK_APP}
   default1:
-    name: ${NETWORK_DATA}
+    external:
+      name: ${NETWORK_DATA}

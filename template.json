@@ -1971,8 +1971,8 @@
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/unms_logo.jpg",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
-            "stackfile": "stack/unms.yml"
+            "stackfile": "stack/unms.yml",
+            "url": "https://github.com/kallioli/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",

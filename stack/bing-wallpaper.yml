@@ -36,4 +36,5 @@ services:
 
 networks:
   default:
-    name: ${NETWORK_APP}
+    external:
+      name: ${NETWORK_APP}
