@@ -419,7 +419,7 @@
     {
         "type": 3,
         "title": "Grafana",
-        "description": "Monitoring and vvisualization tool",
+        "description": "Monitoring and visualization tool",
 	    "note": "<p>Application website : <a href=\"https:\/\/grafana.com\/\" target=\"_blank\" rel=\"noopener\">grafana.com<\/a>",
         "categories": [
 		    "monitoring"
