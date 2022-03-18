@@ -447,6 +447,10 @@
             "description": "example /app/service"
         },
         {
+            "name": "ADMIN_PASSWD",
+            "label": "Admin password"
+        },
+        {
             "name": "URL_LOKI",
             "label": "URL of Loki service",
             "description": "example : http://loki.domain.tld/loki/api/v1/push"

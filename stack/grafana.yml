@@ -6,6 +6,7 @@
 #     - SERVICE : name of the service (example : grafana)
 #     - PUID : uid de l'utilisateur système (exemple : 1001)
 #     - DATA_LOCATION : location of service data (example /app/"service")
+#     - ADMIN_PASSWD : Grafana admin password
 #     - FQDN : fully qualified domain name (example : hastebin.domain.tld)
 #     - NETWORK_APP : application network name
 
