@@ -1,14 +1,15 @@
-# Docker-compose mis à disposition par Kevin Allioli
-# Date de mise à jour : 14/03/2021
+# Docker-compose provided by Kevin Allioli
+# Last update : 18/03/2022
 
-# Variables d'environnement à déclarer :
-#     - SERVICE : nom du service (exemple : grafana)
+# Environment variables to declare :
+
+#     - SERVICE : name of the service (example : grafana)
 #     - PUID : uid de l'utilisateur système (exemple : 1001)
-#     - CONF_DATA_LOCATION : localisation des données de configuration (exemple /apps/"service")
-#     - DATA_LOCATION : localisation des données (exemple /apps/"service")
-#     - NDD : Nom de domaine
-#     - NETWORK_APP : nom du réseau applicatif
-# Fonctionne avec Portainer
+#     - DATA_LOCATION : location of service data (example /app/"service")
+#     - FQDN : fully qualified domain name (example : hastebin.domain.tld)
+#     - NETWORK_APP : application network name
+
+# Work with Portainer
 
 version: '2' 
 services:
@@ -17,15 +18,15 @@ services:
     container_name: $SERVICE
     user: "$PUID"
     volumes:
-      - $DATA_LOCATION:/var/lib/grafana
-      - $CONF_DATA_LOCATION:/etc/grafana
+      - $DATA_LOCATION/data:/var/lib/grafana
+      - $DATA_LOCATION/config:/etc/grafana
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=GaTFsttaC2K6
+      - GF_SECURITY_ADMIN_PASSWORD=$ADMIN_PASSWD
       - GF_PANELS_DISABLE_SANITIZE_HTML=true
       - GF_INSTALL_PLUGINS=grafana-piechart-panel,grafana-worldmap-panel,alexanderzobnin-zabbix-app
       - GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS=alexanderzobnin-zabbix-datasource
-      - GF_SERVER_DOMAIN=$NDD
-      - GF_SERVER_ROOT_URL=https://$NDD
+      - GF_SERVER_DOMAIN=$FQDN
+      - GF_SERVER_ROOT_URL=https://$FQDN
     healthcheck:
       test: wget -nv -t1 --spider 'http://localhost:3000/'
       interval: 1m
@@ -40,7 +41,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.grafana.entrypoints=https"
-      - "traefik.http.routers.grafana.rule=Host(`$NDD`)"
+      - "traefik.http.routers.grafana.rule=Host(`$FQDN`)"
       - "traefik.http.services.grafana.loadbalancer.server.port=3000"
       - "traefik.docker.network=$NETWORK_APP"
     networks:
@@ -49,4 +50,4 @@ services:
 networks:
   default:
     external:
-      name: $NETWORK_APP
+      name: ${NETWORK_APP}
