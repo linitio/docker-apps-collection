@@ -871,6 +871,11 @@
             "description": "example: loki"
         },
         {
+            "name": "DATA_LOCATION",
+            "label": "Location of service data",
+            "description": "example : /apps/'service'"
+        },
+        {
             "name": "FQDN",
             "label": "Fully qualified domain name",
             "description": "example : loki.domain.tld"

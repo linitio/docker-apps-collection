@@ -21,6 +21,9 @@ services:
       interval: 1m
       timeout: 30s
       retries: 3
+    volumes: 
+      - $DATA_LOCATION/config/loki-config.yaml:/etc/loki/loki-config.yaml
+      - $DATA_LOCATION/data:/data/loki
     networks:
       - default
       - default1
