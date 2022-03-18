@@ -1,18 +1,18 @@
-# Docker-compose mis à disposition par Kevin Allioli
-# Date de mise à jour : 18/03/2021
+# Docker-compose provided by Kevin Allioli
+# Last update : 18/03/2022
 
-# Variables d'environnement à déclarer :
-#     - SERVICE : nom du service (exemple : mariadb)
-#     - NDD : Nom de domaine de l'application
-#     - NETWORK_APP : nom du réseau applicatif
-#     - NETWORK_DATA : nom du réseau data
+# Environment variables to declare :
+#     - SERVICE : service name (example : loki)
+#     - FQDN : fully qualified domain name (example : loki.domain.tld
+#     - NETWORK_APP : application network name
+#     - NETWORK_DATA : data network name
 
-# Fonctionne avec Portainer
+# Work with portainer
 
-version: "2"
+version: "3.3"
 services:
   loki:
-    image: grafana/loki:1.5.0
+    image: grafana/loki:latest
     container_name: $SERVICE
     restart: unless-stopped
     command: -config.file=/etc/loki/local-config.yaml
@@ -27,7 +27,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.$SERVICE.entrypoints=https"
-      - "traefik.http.routers.$SERVICE.rule=Host(`$NDD`)"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
       - "traefik.http.services.$SERVICE.loadbalancer.server.port=3100"
       - "traefik.docker.network=$NETWORK_APP"
 
@@ -49,7 +49,7 @@ services:
 networks:
   default:
     external:
-      name: $NETWORK_APP
+      name: ${NETWORK_APP}
   default1:
     external:
-      name: $NETWORK_DATA
+      name: ${NETWORK_DATA}

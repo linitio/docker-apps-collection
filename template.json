@@ -11,23 +11,23 @@
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/bing_wallpaper_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
-            "stackfile": "stack/bing-wallpaper.yml"
+            "stackfile": "stack/bing-wallpaper.yml",
+            "url": "https://github.com/kallioli/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
             "label": "Service name",
-            "description": "example: uptime-kuma"
+            "description": "example: bing-wallpaper"
         },
         {
             "name": "URL_LOKI",
-            "label": "Lien du serveur loki",
+            "label": "Loki service URL",
             "description": "example : http://loki.domain.tld/loki/api/v1/push"
         },
         {
             "name": "FQDN",
             "label": "Fully qualified domain name",
-            "description": "example : vaultwarden.domain.tld"
+            "description": "example : bing-prx.domain.tld"
         },
         {
             "name": "NETWORK_APP",
@@ -47,8 +47,8 @@
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/cachethq_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
-            "stackfile": "stack/cachethq.yml"
+            "stackfile": "stack/cachethq.yml",
+            "url": "https://github.com/kallioli/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -63,7 +63,7 @@
         {
             "name": "DB_DRV",
             "label": "Database driver",
-            "description": "example: pgsql"
+            "description": "example: pgsql, mysql"
         },
         {
             "name": "DB_HOST",
