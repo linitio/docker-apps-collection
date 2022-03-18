@@ -854,36 +854,40 @@
     {
         "type": 3,
         "title": "Loki",
-        "description": "Utilitaire d'agrégation des logs",
-	    "note": "<p>Site de l'application : <a href=\"https:\/\/grafana.com/oss/loki\/\" target=\"_blank\" rel=\"noopener\">grafana.com/oss/loki<\/a>",
+        "description": "UAggregation logs utility",
+	    "note": "<p>Application website : <a href=\"https:\/\/grafana.com/oss/loki\/\" target=\"_blank\" rel=\"noopener\">grafana.com/oss/loki<\/a>",
         "categories": [
-		    "Surveillance"
+		    "Monitoring"
         ],
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/loki_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
-            "stackfile": "loki.yml"
+            "stackfile": "stack/loki.yml",
+            "url": "https://github.com/kallioli/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
-            "label": "Nom du service"
+            "label": "Service name",
+            "description": "example: loki"
         },
         {
-            "name": "NDD",
-            "label": "Nom de domaine"
+            "name": "FQDN",
+            "label": "Fully qualified domain name",
+            "description": "example : loki.domain.tld"
         },
         {
             "name": "SERVICE_PROMTAIL",
-            "label": "Nom du service promtail"
+            "label": "Promtail service name"
         },
         {
             "name": "NETWORK_APP",
-            "label": "Nom du réseau applicatif"
+            "label": "Application network name",
+            "description": "example: app-network"
         },
         {
             "name": "NETWORK_DATA",
-            "label": "Nom du réseau data"
+            "label": "Data network name",
+            "description": "example: data-network"
         }]
     },
     
