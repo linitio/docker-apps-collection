@@ -2,12 +2,11 @@
 # Last update : 29/03/2022
 
 # Environment variables to declare :
-#     - SERVICE : name of the service (example : joplin)
-#     - APP_BASE_URL : full URL of service (example : https://joplin.domain.tld)
-#     - DB_USER : database user (example : joplin)
+#     - SERVICE : name of the service (example : n8n)
+#     - DB_USER : database user (example : n8n)
 #     - DB_PASS : database password
 #     - DB_HOST : database hostname (example : postgresql)
-#     - DB_NAME : database name (example : joplin)
+#     - DB_NAME : database name (example : n8n)
 #     - DB_PORT : database serve port (example : 5432)
 #     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
 #     - FQDN : fully qualified domain name (example : joplin.domain.tld)
@@ -22,7 +21,7 @@ services:
     image: n8nio/n8n
     container_name: $SERVICE
     restart: unless-stopped
-    environment:
+    command: /bin/sh -c "sleep 5; n8n start"
     environment:
       - DB_TYPE=postgresdb
       - DB_POSTGRESDB_HOST=$DB_HOST
@@ -30,9 +29,6 @@ services:
       - DB_POSTGRESDB_DATABASE=$DB_NAME
       - DB_POSTGRESDB_USER=$DB_USER
       - DB_POSTGRESDB_PASSWORD=$DB_PASS
-      - N8N_BASIC_AUTH_ACTIVE=true
-      - N8N_BASIC_AUTH_USER
-      - N8N_BASIC_AUTH_PASSWORD
     healthcheck:
       test: grep -qr "node" /proc/*/status || exit 1
       interval: 1m
@@ -62,7 +58,3 @@ networks:
   default1:
     external:
       name: ${NETWORK_DATA}
-
-    # Wait 5 seconds to start n8n to make sure that PostgreSQL is ready
-    # when n8n tries to connect to it
-    command: /bin/sh -c "sleep 5; n8n start"
