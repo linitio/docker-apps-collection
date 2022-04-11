@@ -37,7 +37,6 @@ services:
     labels:
       - traefik.enable=true
       - traefik.docker.network=${NETWORK_APP}
-      - traefik.constraint-label=traefik-public
       - traefik.http.routers.$SERVICE-http.rule=Host(`${FQDN?Variable not set}`)
       - traefik.http.routers.$SERVICE-http.entrypoints=http
       - traefik.http.routers.$SERVICE-http.middlewares=https-redirect
