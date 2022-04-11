@@ -6,7 +6,7 @@
         "description": "MariaDB Server",
         "note": "<p>Application website : <a href=\"https:\/\/mariadb.org\/\" target=\"_blank\" rel=\"noopener\">mariadb.org<\/a>",
         "categories": [
-            "Database"
+            "database"
         ],
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/mariadb_logo.png",
@@ -46,7 +46,7 @@
         "description": "API proxy for Bing images.",
         "note": "<p>Application website : <a href=\"https:\/\/github.com\/TimothyYe\/bing-wallpaper\" target=\"_blank\" rel=\"noopener\">github.com/TimothyYe/bing-wallpaper\/a>",
         "categories": [
-            "Utility"
+            "utility"
         ],
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/bing_wallpaper_logo.png",
