@@ -1,0 +1,61 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 29/03/2022
+
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : matomo)
+#     - DB_USER : database user (example : matomo)
+#     - DB_PASS : database password
+#     - DB_HOST : database hostname (example : mariadb)
+#     - DB_NAME : database name (example : matomo)
+#     - DB_PREFIX : database prefix (example : matomo_)
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - FQDN : fully qualified domain name (example : matomo.domain.tld)
+#     - DATA_LOCATION : location of service data (example /app/"service")
+#     - NETWORK_APP : application network name
+#     - NETWORK_DATA : data network name
+
+# Work with Portainer
+
+version: '3.3'
+services:
+  matomo:
+    image: matomo
+    container_name: $SERVICE
+    restart: unless-stopped
+    environment:
+      - MATOMO_DATABASE_HOST=$DB_HOST
+      - MATOMO_DATABASE_ADAPTER=mysql
+      - MATOMO_DATABASE_TABLES_PREFIX=$DB_PREFIX
+      - MATOMO_DATABASE_USERNAME=$DB_USER
+      - MATOMO_DATABASE_PASSWORD=$DB_PASS
+      - MATOMO_DATABASE_DBNAME=$DB_NAME
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.constraint-label=traefik-public"
+      - "traefik.http.routers.$SERVICE-http.rule=Host(`${FQDN}`)"
+      - "traefik.http.routers.$SERVICE-http.entrypoints=http"
+      - "traefik.http.routers.$SERVICE-http.middlewares=https-redirect"
+      - "traefik.http.routers.$SERVICE-https.rule=Host(`${FQDN}`)"
+      - "traefik.http.routers.$SERVICE-https.entrypoints=https"
+      - "traefik.http.routers.$SERVICE-https.tls=true"
+      - "traefik.http.routers.$SERVICE-https.tls.certresolver=le"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
+      - "traefik.docker.network=$NETWORK_APP"
+    volumes:
+      - $DATA_LOCATION:/var/www/html
+    networks:
+      - default
+      - default1
+
+networks:
+  default:
+    external:
+      name: ${NETWORK_APP}
+  default1:
+    external:
+      name: ${NETWORK_DATA}

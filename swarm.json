@@ -42,22 +42,46 @@
 
     {
         "type": 2,
-        "title": "Bing Wallpaper Proxy",
-        "description": "API proxy for Bing images.",
-        "note": "<p>Application website : <a href=\"https:\/\/github.com\/TimothyYe\/bing-wallpaper\" target=\"_blank\" rel=\"noopener\">github.com/TimothyYe/bing-wallpaper\/a>",
+        "title": "Matomo",
+        "description": "Free and open source web stats tool.",
+        "note": "<p>Application website : <a href=\"https:\/\/matomo.org/\" target=\"_blank\" rel=\"noopener\">matomo.org<\/a>",
         "categories": [
             "utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/bing_wallpaper_logo.png",
+        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/matomo_logo.png",
         "repository": {
-            "stackfile": "stack/bing-wallpaper.yml",
+            "stackfile": "stack/matomo.yml",
             "url": "https://github.com/kallioli/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
             "label": "Service name",
-            "description": "example: bing-wallpaper"
+            "description": "example: matomo"
+        },
+        {
+            "name": "DB_USER",
+            "label": "Database username",
+            "description": "example: matomo"
+        },
+        {
+            "name": "DB_PASS",
+            "label": "Database password"
+        },
+        {
+            "name": "DB_HOST",
+            "label": "Database hostname server",
+            "description": "exemple : mariadb, postgresql"
+        },
+        {
+            "name": "DB_NAME",
+            "label": "Database name",
+            "description": "exemple : matomo"
+        },
+        {
+            "name": "DB_PREFIX",
+            "label": "Database prefix",
+            "description": "exemple : matomo_"
         },
         {
             "name": "URL_LOKI",
@@ -67,12 +91,22 @@
         {
             "name": "FQDN",
             "label": "Fully qualified domain name",
-            "description": "example : bing-prx.domain.tld"
+            "description": "example : matomo.domain.tld"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Location of service data",
+            "description": "example : /apps/'service'"
         },
         {
             "name": "NETWORK_APP",
             "label": "Application network name",
             "description": "example: app-network"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Data network name",
+            "description": "example: data-network"
         }]
     }
     ]
