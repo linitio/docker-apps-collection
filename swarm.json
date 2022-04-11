@@ -51,7 +51,7 @@
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/matomo_logo.png",
         "repository": {
-            "stackfile": "stack/matomo.yml",
+            "stackfile": "swarm-stack/matomo.yml",
             "url": "https://github.com/kallioli/docker-apps-collection"
         },
         "env": [{
