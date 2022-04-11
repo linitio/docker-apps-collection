@@ -18,7 +18,7 @@
 
 version: '3.3'
 services:
-  matomo:
+  matomo-web:
     image: matomo
     container_name: $SERVICE
     restart: unless-stopped
