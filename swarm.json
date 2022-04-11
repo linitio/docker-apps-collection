@@ -1,7 +1,7 @@
 {
    "version": "2",
    "templates": [
-      {
+    {
         "type": 2,
         "title": "MariaDB",
         "description": "MariaDB Server",
@@ -39,6 +39,6 @@
             "label": "Data network name",
             "description": "example: data-network"
         }]
-    },
+    }
    ]
 }
