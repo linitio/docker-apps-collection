@@ -20,8 +20,6 @@ version: '3.3'
 services:
   matomo:
     image: matomo
-    container_name: $SERVICE
-    restart: unless-stopped
     environment:
       - MATOMO_DATABASE_HOST=$DB_HOST
       - MATOMO_DATABASE_ADAPTER=mysql
@@ -29,24 +27,27 @@ services:
       - MATOMO_DATABASE_USERNAME=$DB_USER
       - MATOMO_DATABASE_PASSWORD=$DB_PASS
       - MATOMO_DATABASE_DBNAME=$DB_NAME
+    deploy:
+      placement:
+        constraints: [node.role == worker]
+      update_config:
+        delay: 30s
+      restart_policy:
+        condition: on-failure
+        max_attempts: 5
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=$NETWORK_APP
+        - traefik.constraint-label=traefik-public
+        - traefik.http.routers.portainer.entrypoints=https
+        - traefik.http.routers.portainer.rule=Host(`$FQDN`)
+        - traefik.http.services.portainer.loadbalancer.server.port=80
     logging:
       driver: loki
       options:
         loki-url: "$URL_LOKI"
         loki-external-labels: service={{.Name}}
-    labels:
-      - traefik.enable=true
-      - traefik.docker.network=${NETWORK_APP}
-      - traefik.constraint-label=traefik-public
-      - traefik.http.routers.$SERVICE-http.rule=Host(`${FQDN?Variable not set}`)
-      - traefik.http.routers.$SERVICE-http.entrypoints=http
-      - traefik.http.routers.$SERVICE-http.middlewares=https-redirect
-      - traefik.http.routers.$SERVICE-https.rule=Host(`${FQDN?Variable not set}`)
-      - traefik.http.routers.$SERVICE-https.entrypoints=https
-      - traefik.http.routers.$SERVICE-https.tls=true
-      - traefik.http.routers.$SERVICE-https.tls.certresolver=le
-      - traefik.http.services.$SERVICE.loadbalancer.server.port=80
-
+    
     volumes:
       - $DATA_LOCATION:/var/www/html
     networks:
