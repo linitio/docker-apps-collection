@@ -1,0 +1,62 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 26/04/2022
+
+# Environment variables to declare :
+#     - SERVICE : service name (example : keycloack)
+#     - KC_USER : keycloack admin username 
+#     - KC_PASSWORD : keycloack admin password
+#     - DB_HOST : database hostname (example : mariadb)
+#     - DB_NAME : database name (example : keycloack)
+#     - DB_USER : database user (example : keycloack)
+#     - DB_PASS : database password
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - FQDN : fully qualified domain name (example : auth.domain.tld)
+#     - NETWORK_APP : application network name
+#     - NETWORK_DATA : database network name
+
+# Fonctionne avec Portainer
+
+version: "3.3"
+services:
+  keycloak:
+    image: jboss/keycloak
+    environment:
+      KEYCLOAK_USER: $KC_USER
+      KEYCLOAK_PASSWORD: $KC_PASSWORD
+      PROXY_ADDRESS_FORWARDING: 'true'
+      DB_ADDR: $DB_HOST
+      DB_DATABASE: $DB_NAME
+      DB_USER: $DB_USER
+      DB_PASSWORD: $DB_PASS
+    healthcheck:
+      test: curl --fail http://localhost:8080/auth/realms/master
+      interval: 1m
+      timeout: 30s
+      retries: 3
+    deploy:
+      placement:
+        constraints: [node.role == worker]
+      update_config:
+        delay: 30s
+      restart_policy:
+        condition: on-failure
+        max_attempts: 5
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=$NETWORK_APP
+        - traefik.constraint-label=traefik-public
+        - traefik.http.routers.$SERVICE.entrypoints=https
+        - traefik.http.routers.$SERVICE$SERVICE.rule=Host(`$FQDN`)
+        - traefik.http.services.$SERVICE.loadbalancer.server.port=8080
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    networks:
+      - default
+  
+networks:
+  default:
+    external:
+      name: ${NETWORK_APP}

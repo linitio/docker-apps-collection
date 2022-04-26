@@ -1,0 +1,48 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 16/03/2022
+
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : hastebin)
+#     - DATA_LOCATION : location of service data (example /app/"service")
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - FQDN : fully qualified domain name (example : hastebin.domain.tld)
+#     - NETWORK_APP : application network name
+
+# Work with Portainer
+
+version: "2"
+services:
+  hastebin:
+    image: rlister/hastebin
+    container_name: $SERVICE
+    restart: unless-stopped
+    environment:
+      STORAGE_TYPE: redis
+      STORAGE_HOST: $REDIS_SERVER
+    healthcheck:
+      test: wget -s 'http://localhost:7777'
+      interval: 1m
+      timeout: 30s
+      retries: 3
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=7777"
+      - "traefik.docker.network=$NETWORK_APP" 
+    networks:
+      - default
+      - default1
+
+networks:
+  default:
+    external:
+      name: ${NETWORK_APP}
+  default1:
+    external:
+      name: ${NETWORK_DATA}
