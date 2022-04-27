@@ -28,6 +28,7 @@ services:
       DB_DATABASE: $DB_NAME
       DB_USER: $DB_USER
       DB_PASSWORD: $DB_PASS
+      DB_VENDOR: $DB_TYPE
     healthcheck:
       test: curl --fail http://localhost:8080/auth/realms/master
       interval: 1m

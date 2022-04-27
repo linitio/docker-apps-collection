@@ -27,6 +27,11 @@
             "name": "KC_PASSWORD",
             "label": "Keycloak admin password"
         },
+	{
+             "name": "DB_TYPE",
+             "label": "Database engine type",
+             "description": "exemple : mariadb, postgres, oracle, mssql, mysql"
+        },
         {
             "name": "DB_HOST",
             "label": "Database hostname server",
