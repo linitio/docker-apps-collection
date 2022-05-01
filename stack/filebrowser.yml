@@ -32,8 +32,9 @@ services:
         loki-external-labels: service={{.Name}}
     volumes:
       - $DATA_LOCATION:/srv
-      - $JSON_CONFIG_FILE:/config.json
-      - $DB_FILE:/database.db
+      - $JSON_CONFIG_FILE:/config/settings.json
+      - $DB_FILE:/database/filebrowser.db
+      - $BRANDING_DIR:/customization
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.$SERVICE.entrypoints=https"
