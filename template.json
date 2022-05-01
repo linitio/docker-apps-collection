@@ -195,6 +195,10 @@
             "label": "Localisation des données applicative"
         },
 	{
+            "name": "CUSTOM_DIR",
+            "label": "Location for customization files"
+        },
+	{
             "name": "PUID",
             "label": "Filebrowser user id",
 	    "description": "example: 1001"
