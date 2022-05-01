@@ -195,7 +195,7 @@
             "label": "Localisation des données applicative"
         },
 	{
-            "name": "CUSTOM_DIR",
+            "name": "BRANDING_DIR",
             "label": "Location for customization files"
         },
 	{
