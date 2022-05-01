@@ -175,16 +175,16 @@
     {
         "type": 3,
         "title": "Filebrowser",
-        "description": "Utilitaire partage de fichiers",
-	    "note": "<p>Site de l'application : <a href=\"https:\/\/filebrowser.org\/\" target=\"_blank\" rel=\"noopener\">filebrowser.org<\/a>",
+        "description": "File sharing utility",
+	    "note": "<p>Application website : <a href=\"https:\/\/filebrowser.org\/\" target=\"_blank\" rel=\"noopener\">filebrowser.org<\/a>",
         "categories": [
-		    "Partage de fichiers"
+		    "File sharing"
         ],
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/filebrowser_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
-            "stackfile": "filebrowser.yml"
+	    "stackfile": "stack/filebrowser.yml",
+            "url": "https://github.com/kallioli/docker-server-container"
         },
         "env": [{
             "name": "SERVICE",
@@ -193,6 +193,16 @@
         {
             "name": "DATA_LOCATION",
             "label": "Localisation des données applicative"
+        },
+	{
+            "name": "PUID",
+            "label": "Filebrowser user id",
+	    "description": "example: 1001"
+        },
+	{
+             "name": "PGID",
+             "label": "Filebrowser group id",
+             "description": "example: 1001"
         },
         {
             "name": "JSON_CONFIG_FILE",
@@ -207,7 +217,7 @@
             "label": "Url du service loki"
         },
         {
-            "name": "NDD",
+            "name": "FQDN",
             "label": "Nom de domaine"
         },
         {
