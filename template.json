@@ -183,8 +183,8 @@
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/filebrowser_logo.png",
         "repository": {
-	    "stackfile": "stack/filebrowser.yml",
-            "url": "https://github.com/kallioli/docker-server-container"
+            "url": "https://github.com/kallioli/docker-apps-collection",
+            "stackfile": "stack/filebrowser.yml"
         },
         "env": [{
             "name": "SERVICE",
