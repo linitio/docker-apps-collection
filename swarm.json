@@ -270,6 +270,11 @@
             "description": "exemple : mariadb, postgresql"
         },
         {
+            "name": "DB_PORT",
+            "label": "Database server port",
+            "description": "exemple : 5432, 3306"
+        },
+        {
             "name": "DB_NAME",
             "label": "Database name",
             "description": "exemple : wikijs"
