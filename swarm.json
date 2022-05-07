@@ -304,7 +304,6 @@
             "description": "example: app-network"
         }]
     },
-
     {
         "type": 2,
         "title": "YOURLS",
