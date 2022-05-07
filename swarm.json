@@ -1,0 +1,319 @@
+{
+    "version": "2",
+    "templates": [{
+        "type": 2,
+        "title": "Joplin",
+        "description": "Free and open source note taking utility",
+        "note": "<p>Appluication website : <a href=\"https:\/\/joplinapp.org\/\" target=\"_blank\" rel=\"noopener\">joplinapp.org<\/a>",
+        "categories": [
+            "Utility"
+        ],
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/joplin_logo.png",
+        "repository": {
+            "stackfile": "swarm-stack/joplin.yml",
+            "url": "https://github.com/kallioli/docker-apps-collection"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "example: joplin"
+        },
+        {
+            "name": "APP_BASE_URL",
+            "label": "Full application base url",
+            "description": "example : https://joplin.domain.tld"
+        },
+        {
+            "name": "DB_USER",
+            "label": "Database username",
+            "description": "example : joplin"
+        },
+        {
+            "name": "DB_PASS",
+            "label": "Database password"
+        },
+        {
+            "name": "DB_HOST",
+            "label": "Database hostname server",
+            "description": "exemple : mariadb, postgresql"
+        },
+        {
+            "name": "DB_NAME",
+            "label": "Database name",
+            "description": "exemple : joplin"
+        },
+        {
+            "name": "DB_PORT",
+            "label": "Database server port",
+            "description": "exemple : 5432"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "FQDN",
+            "label": "Fully qualified domain name",
+            "description": "example : joplin.domain.tld"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example: app-network"
+        }]
+    },
+    {
+        "type": 2,
+        "title": "Keycloak",
+        "description": "Authentication server",
+	    "note": "<p>Application website : <a href=\"https:\/\/keycloak.org\/\" target=\"_blank\" rel=\"noopener\">keycloak.org<\/a>",
+        "categories": [
+		    "security"
+        ],
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/keycloak_logo.png",
+        "repository": {
+            "stackfile": "swarm-stack/keycloak.yml",
+            "url": "https://github.com/kallioli/docker-apps-collection"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "example: keycloak"
+        },
+        {
+            "name": "KC_USER",
+            "label": "Keycloak admin username"
+        },
+        {
+            "name": "KC_PASSWORD",
+            "label": "Keycloak admin password"
+        },
+	{
+             "name": "DB_TYPE",
+             "label": "Database engine type",
+             "description": "exemple : mariadb, postgres, oracle, mssql, mysql"
+        },
+        {
+            "name": "DB_HOST",
+            "label": "Database hostname server",
+            "description": "exemple : mariadb, postgresql"
+        },
+        {
+            "name": "DB_NAME",
+            "label": "Database name",
+            "description": "exemple : keycloak"
+        },
+        {
+            "name": "DB_USER",
+            "label": "Database username",
+            "description": "example: keycloak"
+        },
+        {
+            "name": "DB_PASS",
+            "label": "Database password"
+        },
+
+        {
+            "name": "URL_LOKI",
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "FQDN",
+            "label": "Fully qualified domain name",
+            "description": "example : auth.domain.tld"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example: app-network"
+        }]
+    },
+    {
+        "type": 2,
+        "title": "MariaDB",
+        "description": "MariaDB Server",
+        "note": "<p>Application website : <a href=\"https:\/\/mariadb.org\/\" target=\"_blank\" rel=\"noopener\">mariadb.org<\/a>",
+        "categories": [
+            "database"
+        ],
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/mariadb_logo.png",
+        "repository": {
+            "stackfile": "stack/mariadb.yml",
+            "url": "https://github.com/kallioli/docker-apps-collection"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "example: mariadb"
+        },
+        {
+            "name": "DB_ROOT_PASS",
+            "label": "Password of root user"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Location of service data",
+            "description": "example : /apps/'service'"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Data network name",
+            "description": "example: data-network"
+        }]
+    },
+
+    {
+        "type": 2,
+        "title": "Matomo",
+        "description": "Free and open source web stats tool.",
+        "note": "<p>Application website : <a href=\"https:\/\/matomo.org/\" target=\"_blank\" rel=\"noopener\">matomo.org<\/a>",
+        "categories": [
+            "utility"
+        ],
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/matomo_logo.png",
+        "repository": {
+            "stackfile": "swarm-stack/matomo.yml",
+            "url": "https://github.com/kallioli/docker-apps-collection"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "example: matomo"
+        },
+        {
+            "name": "DB_USER",
+            "label": "Database username",
+            "description": "example: matomo"
+        },
+        {
+            "name": "DB_PASS",
+            "label": "Database password"
+        },
+        {
+            "name": "DB_HOST",
+            "label": "Database hostname server",
+            "description": "exemple : mariadb, postgresql"
+        },
+        {
+            "name": "DB_NAME",
+            "label": "Database name",
+            "description": "exemple : matomo"
+        },
+        {
+            "name": "DB_PREFIX",
+            "label": "Database prefix",
+            "description": "exemple : matomo_"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "FQDN",
+            "label": "Fully qualified domain name",
+            "description": "example : matomo.domain.tld"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Location of service data",
+            "description": "example : /apps/'service'"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example: app-network"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Data network name",
+            "description": "example: data-network"
+        }]
+    },
+
+    {
+        "type": 2,
+        "title": "YOURLS",
+        "description": "URL Shortener",
+        "note": "<p>Application website: <a href=\"https:\/\/yourls.org\/\" target=\"_blank\" rel=\"noopener\">yourls.org<\/a>",
+        "categories": [
+            "Utility"
+        ],
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/yourls_logo.png",
+        "repository": {
+            "stackfile": "swarm-stack/yourls.yml",
+            "url": "https://github.com/kallioli/docker-apps-collection"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "example: yourls"
+        },
+        {
+            "name": "DB_USER",
+            "label": "Database username",
+            "description": "example: yourls"
+        },
+        {
+            "name": "DB_PASS",
+            "label": "Database password"
+        },
+        {
+            "name": "DB_HOST",
+            "label": "Database servername",
+            "description": "example: mariadb"
+        },
+        {
+            "name": "DB_NAME",
+            "label": "Database name",
+            "description": "example: yourls"
+        },
+        {
+            "name": "ADMIN_USER",
+            "label": "Admin username",
+            "description": "example: admin"
+        },
+        {
+            "name": "ADMIN_PASSWORD",
+            "label": "Admin password"
+        },
+        {    
+            "name": "DATA_LOCATION",
+            "label": "Location of service data",
+            "description": "example /app/service"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "URL of Loki service",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "FQDN",
+            "label": "Fully qualified domain name",
+            "description": "example : yourls.domain.tld"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example: app-network"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Data network name",
+            "description": "example: data-network"
+        }]
+    }
+    ]
+}

@@ -1,0 +1,62 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 15/03/2022
+
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : joplin)
+#     - APP_BASE_URL : full URL of service (example : https://joplin.domain.tld)
+#     - DB_USER : database user (example : joplin)
+#     - DB_PASS : database password
+#     - DB_HOST : database hostname (example : postgresql)
+#     - DB_NAME : database name (example : joplin)
+#     - DB_PORT : database serve port (example : 5432)
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - FQDN : fully qualified domain name (example : joplin.domain.tld)
+#     - NETWORK_APP : application network name
+
+# Work with Portainer
+
+version: '3.3'
+services:
+  joplin:
+    image: joplin/server:latest
+    environment:
+      - APP_PORT=22300
+      - APP_BASE_URL=$APP_BASE_URL
+      - DB_CLIENT=pg
+      - POSTGRES_USER=$DB_USER      
+      - POSTGRES_PASSWORD=$DB_PASS
+      - POSTGRES_HOST=$DB_HOST
+      - POSTGRES_DATABASE=$DB_NAME
+      - POSTGRES_PORT=$DB_PORT
+    healthcheck:
+      test: grep -qr "node" /proc/*/status || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
+    deploy:
+      placement:
+        constraints: [node.role == worker]
+      update_config:
+        delay: 30s
+      restart_policy:
+        condition: on-failure
+        max_attempts: 5
+      labels:
+        - traefik.enable=true
+        - traefik.constraint-label=traefik-public
+        - traefik.http.routers.$SERVICE.entrypoints=https
+        - traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)
+        - traefik.http.services.$SERVICE.loadbalancer.server.port=22300
+        - traefik.docker.network=$NETWORK_APP
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: ${NETWORK_APP}

@@ -6,17 +6,20 @@
 #     - DATA_LOCATION : localisation des données (exemple /apps/"service")
 #     - JSON_CONFIG_FILE : chemin du fichier config.json
 #     - DB_FILE : chemin du fichier database.db
-#     - NDD : Nom de domaine de l'application
+#     - FQDN : Nom de domaine de l'application
 #     - NETWORK_APP : nom du réseau applicatif
 
 # Fonctionne avec Portainer
 
-version: "2"
+version: "3.3"
 services:
   filebrowser:
-    image: filebrowser/filebrowser
+    image: filebrowser/filebrowser:s6
     container_name: $SERVICE
     restart: unless-stopped
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
     healthcheck:
       test: wget -nv -t1 --spider 'http://localhost:80'
       interval: 1m
@@ -29,12 +32,13 @@ services:
         loki-external-labels: service={{.Name}}
     volumes:
       - $DATA_LOCATION:/srv
-      - $JSON_CONFIG_FILE:/config.json
-      - $DB_FILE:/database.db
+      - $JSON_CONFIG_FILE:/config/settings.json
+      - $DB_FILE:/database/filebrowser.db
+      - $BRANDING_DIR:/customization
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.$SERVICE.entrypoints=https"
-      - "traefik.http.routers.$SERVICE.rule=Host(`$NDD`)"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
       - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
       - "traefik.docker.network=$NETWORK_APP"
     networks:
@@ -43,4 +47,4 @@ services:
 networks:
   default:
     external:
-      name: $NETWORK_APP
+      name: ${NETWORK_APP}
