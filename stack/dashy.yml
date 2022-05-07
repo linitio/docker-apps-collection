@@ -1,0 +1,48 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 07/05/2022
+
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : dashy)
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - FQDN : fully qualified domain name (example : dashboard.domain.tld)
+#     - DATA_LOCATION : files downloaded location (example /app/"service")
+#     - NETWORK_APP : application network name
+
+# Work with Portainer
+
+version: "3.3"
+services:
+  dashy:
+    image: lissy93/dashy:latest
+    container_name: $SERVICE
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - UID=$PUID
+      - GID=$PGID
+    healthcheck:
+      test: ['CMD', 'node', '/app/services/healthcheck']
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
+      - "traefik.docker.network=$NETWORK_APP"
+    volumes:
+      - $DATA_LOCATION/config.yml:/app/public/conf.yml
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: ${NETWORK_APP}

@@ -171,6 +171,57 @@
             "label": "Nom du réseau applicatif"
         }]
     },
+
+    {
+        "type": 3,
+        "title": "Dashy",
+        "description": "Dashy helps you organize your self-hosted services by making them accessible from a single place",
+            "note": "<p>Application website : <a href=\"https:\/\/github.com\/Lissy93\/dashy\/\" target=\"_blank\" rel=\"noopener\">github.com/Lissy93/dashy<\/a>",
+        "categories": [
+                    "Utility"
+        ],
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/dashy_logo.png",
+        "repository": {
+            "url": "https://github.com/kallioli/docker-apps-collection",
+            "stackfile": "stack/dashy.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name", 
+            "description": "example: dashy"
+        },
+        {
+            "name": "PUID",
+            "label": "User dashy id",
+            "description": "1001"
+        },
+        {
+            "name": "PGID",
+            "label": "User group dashy id",
+            "description": "1001"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "FQDN", 
+            "label": "Fully qualified domain name",
+            "description": "example : dashy.domain.tld"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Service data location",
+            "description": "example /app/service/config.yml"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example : app-network"
+        }]
+    },
         
     {
         "type": 3,
