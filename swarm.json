@@ -91,7 +91,7 @@
             "name": "KC_PASSWORD",
             "label": "Keycloak admin password"
         },
-	{
+	    {
              "name": "DB_TYPE",
              "label": "Database engine type",
              "description": "exemple : mariadb, postgres, oracle, mssql, mysql"
@@ -171,7 +171,6 @@
             "description": "example: data-network"
         }]
     },
-
     {
         "type": 2,
         "title": "Matomo",
@@ -239,6 +238,65 @@
             "name": "NETWORK_DATA",
             "label": "Data network name",
             "description": "example: data-network"
+        }]
+    },
+    {
+        "type": 2,
+        "title": "WikiJS",
+        "description": "Wiki application written in NodeJS",
+        "note": "<p>Application website : <a href=\"https:\/\/js.wiki\/\" target=\"_blank\" rel=\"noopener\">js.wiki<\/a>",
+        "categories": [
+            "website"
+        ],
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/wikijs_logo.png",
+        "repository": {
+            "stackfile": "swarm-stack/wikijs.yml",
+            "url": "https://github.com/kallioli/docker-apps-collection"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "example: wikijs"
+        },
+        {
+             "name": "DB_TYPE",
+             "label": "Database engine type",
+             "description": "exemple : mariadb, postgresql"
+        },
+        {
+            "name": "DB_HOST",
+            "label": "Database hostname server",
+            "description": "exemple : mariadb, postgresql"
+        },
+        {
+            "name": "DB_NAME",
+            "label": "Database name",
+            "description": "exemple : wikijs"
+        },
+        {
+            "name": "DB_USER",
+            "label": "Database username",
+            "description": "example: wikijs"
+        },
+        {
+            "name": "DB_PASS",
+            "label": "Database password"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "FQDN",
+            "label": "Fully qualified domain name",
+            "description": "example : wiki.domain.tld"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example: app-network"
         }]
     },
 

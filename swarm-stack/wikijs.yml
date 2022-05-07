@@ -1,0 +1,59 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 08/05/2022
+
+# Environment variables to declare :
+#     - SERVICE : service name (example : wikijs)
+#     - DB_TYPE : database engine type (example : postgres, mariadb)
+#     - DB_HOST : database hostname server (example : postgresql)
+#     - DB_PORT : database port (example : 5432)
+#     - DB_USER : database username
+#     - DB_PASSWORD : database password
+#     - DB_NAME : database name (example : wikijs)
+#     - FQDN : fully qualified domain name (example : wiki.domain.tld) 
+#     - NETWORK_APP : application network name
+
+# Fonctionne avec Portainer
+
+version: '3.3'
+services:
+  wikijs:
+    image: requarks/wiki:2
+    environment:
+      - DB_TYPE=$DB_TYPE
+      - DB_HOST=$DB_HOST
+      - DB_PORT=$DB_PORT
+      - DB_USER=$DB_USER
+      - DB_PASS=$DB_PASSWORD
+      - DB_NAME=$DB_NAME
+    healthcheck:
+      test: curl --fail http://localhost:3000 || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
+    deploy:
+      placement:
+        constraints: [node.role == worker]
+      update_config:
+        delay: 30s
+      restart_policy:
+        condition: on-failure
+        max_attempts: 5
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=$NETWORK_APP
+        - traefik.constraint-label=traefik-public
+        - traefik.http.routers.$SERVICE.entrypoints=https
+        - traefik.http.routers.$SERVICE$SERVICE.rule=Host(`$FQDN`)
+        - traefik.http.services.$SERVICE.loadbalancer.server.port=3000
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: ${NETWORK_APP}
