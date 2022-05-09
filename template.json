@@ -413,7 +413,7 @@
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/joplin_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/kallioli/docker-apps-collection",
             "stackfile": "stack/fleet.yml"
         },
         "env": [{
