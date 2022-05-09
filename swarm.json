@@ -1,6 +1,46 @@
 {
     "version": "2",
     "templates": [{
+        "type": 3,
+        "title": "Hastebin",
+        "description": "Code sharing utility",
+	    "note": "<p>Application website : <a href=\"https:\/\/hastebin.com\/\" target=\"_blank\" rel=\"noopener\">hastebin.com<\/a>",
+        "categories": [
+		    "Utility"
+        ],
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/hastebin_logo.png",
+        "repository": {
+            "stackfile": "swarm-stack/hastebin.yml",
+            "url": "https://github.com/kallioli/docker-apps-collection"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "example: hastebin"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "FQDN",
+            "label": "Fully qualified domain name",
+            "description": "example : hastebin.domain.tld"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example : app-network"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Data network name",
+            "description": "example : data-network"
+        }]
+    },  
+    {
         "type": 2,
         "title": "Joplin",
         "description": "Free and open source note taking utility",
