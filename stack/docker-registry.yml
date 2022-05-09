@@ -1,0 +1,46 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 09/05/2022
+
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : registry)
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - FQDN : fully qualified domain name (example : dashboard.domain.tld)
+#     - DATA_LOCATION : files downloaded location (example /app/"service")
+#     - NETWORK_APP : application network name
+
+# Work with Portainer
+
+version: "3.3"
+services:
+  reggistry:
+    image: registry:2
+    container_name: $SERVICE
+    restart: unless-stopped
+    environment:
+      REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /data
+    #healthcheck:
+    #test: ['CMD', 'node', '/app/services/healthcheck']
+    #  interval: 1m30s
+    #  timeout: 10s
+    #  retries: 3
+    #  start_period: 40s
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=5000"
+      - "traefik.docker.network=$NETWORK_APP"
+    volumes:
+      - $DATA_LOCATION/data:/data
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: ${NETWORK_APP}
