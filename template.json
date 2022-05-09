@@ -404,6 +404,76 @@
 
     {
         "type": 3,
+        "title": "Fleet",
+        "description": "Tool to mange docker registry",
+	    "note": "<p>Appluication website : <a href=\"https:\/\/joplinapp.org\/\" target=\"_blank\" rel=\"noopener\">joplinapp.org<\/a>",
+        "categories": [
+		    "Utility"
+        ],
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/joplin_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "stack/fleet.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "example: fleet"
+        },
+        {
+            "name": "PUID",
+            "label": "fleet user id",
+            "description": "1001"
+        },
+        {
+            "name": "PGID",
+            "label": "fleet group id",
+            "description": "1001"
+        },
+        {
+            "name": "DB_USER",
+            "label": "Database username",
+            "description": "example : fleet"
+        },
+        {
+            "name": "DB_PASS",
+            "label": "Database password"
+        },
+        {
+            "name": "DB_HOST",
+            "label": "Database hostname server",
+            "description": "exemple : mariadb"
+        },
+        {
+            "name": "DB_NAME",
+            "label": "Database name",
+            "description": "exemple : fleet"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "FQDN",
+            "label": "Fully qualified domain name",
+            "description": "example : joplin.domain.tld"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example: app-network"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Data network name",
+            "description": "example: data-network"
+        }]
+    },
+
+    {
+        "type": 3,
         "title": "FreshRSS",
         "description": "Alternative to Feedly",
 	    "note": "<p>Application website : <a href=\"https:\/\/freshrss.org\/\" target=\"_blank\" rel=\"noopener\">freshrss.org<\/a>",

@@ -18,12 +18,11 @@ services:
     restart: unless-stopped
     environment:
       REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /data
-    #healthcheck:
-    #test: ['CMD', 'node', '/app/services/healthcheck']
-    #  interval: 1m30s
-    #  timeout: 10s
-    #  retries: 3
-    #  start_period: 40s
+    healthcheck:
+    test: wget -nv -t1 --spider 'http://localhost:5000' || exit 1
+      interval: 1m
+      timeout: 10s
+      retries: 3
     logging:
       driver: loki
       options:

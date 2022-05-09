@@ -1,0 +1,55 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 09/05/2022
+
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : fleet)
+#     - PUID : system user id (example : 1001)
+#     - PGID : system group id (example : 1001)
+#     - DB_USER : database user (example : fleet)
+#     - DB_PASS : database password
+#     - DB_HOST : database hostname (example : mariadb)
+#     - DB_NAME : database name (example : fleet)
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - FQDN : fully qualified domain name (example : fleet.domain.tld)
+#     - NETWORK_APP : application network name
+#     - NETWORK_DATA : data network name
+
+# Work with Portainer
+
+version: "3.3"
+services:
+  fleet:
+    image: lscr.io/linuxserver/fleet:latest
+    container_name: $SERVICE
+    restart: unless-stopped
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - fleet_admin_authentication_type=DATABASE
+      - fleet_database_url=jdbc:mariadb://$DB_HOST:3306/$DB_NAME
+      - fleet_database_username=$DB_USER
+      - fleet_database_password=$DB_PASS
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=8080"
+      - "traefik.docker.network=$NETWORK_APP"
+    volumes:
+      - $DATA_LOCATION/config>:/config
+    networks:
+      - default
+      - default1
+
+networks:
+  default:
+    external:
+      name: ${NETWORK_APP}
+  default1:
+    external:
+      name: ${NETWORK_DATA}
