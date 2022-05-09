@@ -3,6 +3,7 @@
 
 # Environment variables to declare :
 #     - SERVICE : name of the service (example : hastebin)
+#     - EXPIRE  : set number of seconds to expire keys (example : 2592000)
 #     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
 #     - FQDN : fully qualified domain name (example : hastebin.domain.tld)
 #     - NETWORK_APP : application network name
@@ -42,6 +43,7 @@ services:
     environment:
       STORAGE_TYPE: redis
       STORAGE_HOST: redis
+      STORAGE_EXPIRE_SECONDS: $EXPIRE
     healthcheck:
       test: wget -s 'http://localhost:7777'
       interval: 1m
