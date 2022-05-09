@@ -1,7 +1,7 @@
 {
     "version": "2",
     "templates": [{
-        "type": 3,
+        "type": 2,
         "title": "Hastebin",
         "description": "Code sharing utility",
 	    "note": "<p>Application website : <a href=\"https:\/\/hastebin.com\/\" target=\"_blank\" rel=\"noopener\">hastebin.com<\/a>",
