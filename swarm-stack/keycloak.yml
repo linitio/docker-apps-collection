@@ -9,10 +9,10 @@
 #     - DB_NAME : database name (example : keycloack)
 #     - DB_USER : database user (example : keycloack)
 #     - DB_PASS : database password
+#     - DB_VENDOR : database engyne type (example : postgresql, mariadb...)
 #     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
 #     - FQDN : fully qualified domain name (example : auth.domain.tld)
 #     - NETWORK_APP : application network name
-#     - NETWORK_DATA : database network name
 
 # Fonctionne avec Portainer
 
@@ -47,7 +47,7 @@ services:
         - traefik.docker.network=$NETWORK_APP
         - traefik.constraint-label=traefik-public
         - traefik.http.routers.$SERVICE.entrypoints=https
-        - traefik.http.routers.$SERVICE$SERVICE.rule=Host(`$FQDN`)
+        - traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)
         - traefik.http.services.$SERVICE.loadbalancer.server.port=8080
     logging:
       driver: loki
