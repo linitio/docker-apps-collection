@@ -297,7 +297,7 @@
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/phpmyadmin_logo.png",
         "repository": {
-            "stackfile": "stack/phpmyadmin.yml",
+            "stackfile": "swarm-stack/phpmyadmin.yml",
             "url": "https://github.com/kallioli/docker-apps-collection"
         },
         "env": [{
