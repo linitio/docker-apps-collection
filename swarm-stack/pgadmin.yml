@@ -1,0 +1,68 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 16/03/2022
+
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : pgadmin)
+#     - EMAIL : admin e-mail address
+#     - PASSWORD : admin password
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - DATA_LOCATION : location of service data (example /app/"service")
+#     - FQDN : fully qualified domain name (example : pga.domain.tld)
+#     - NETWORK_APP : application network name
+#     - NETWORK_DATA : data network name
+
+# Work with portainer
+
+version: "3.3"
+services:
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=$EMAIL
+      - PGADMIN_DEFAULT_PASSWORD=$PASSWORD
+      - PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION="True"
+      - PGADMIN_CONFIG_CONSOLE_LOG_LEVEL=10
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+      update_config:
+        delay: 30s
+      restart_policy:
+        condition: on-failure
+        max_attempts: 5
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=$NETWORK_APP
+        - traefik.constraint-label=traefik-public
+        - traefik.http.routers.$SERVICE.entrypoints=https
+        - traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)
+        - traefik.http.services.$SERVICE.loadbalancer.server.port=80
+    healthcheck:
+      test: wget -nv -t1 --spider 'http://localhost:80/misc/ping'
+      interval: 1m
+      timeout: 30s
+      retries: 3
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    labels:
+    - "traefik.enable=true"
+    - "traefik.http.routers.$SERVICE.entrypoints=https"
+    - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
+    - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
+    - "traefik.docker.network=$NETWORK_APP"
+    volumes:
+      - $DATA_LOCATION:/var/lib/pgadmin
+    networks:
+      - default
+      - default1
+
+networks:
+  default:
+    external:
+      name: ${NETWORK_APP}
+  default1:
+    external:
+       name: ${NETWORK_DATA}

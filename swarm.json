@@ -287,12 +287,66 @@
     },
     {
         "type": 2,
+        "title": "pgAdmin",
+        "description": "Administration application for PostgreSQL",
+	    "note": "<p>Application website : <a href=\"https:\/\/www.pgadmin.org\/\" target=\"_blank\" rel=\"noopener\">www.pgadmin.org<\/a>",
+        "categories": [
+		    "database",
+            "utility"
+        ],
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/postgresql_logo.png",
+        "repository": {
+            "stackfile": "swarm-stack/pgadmin.yml",
+            "url": "https://github.com/kallioli/docker-apps-collection"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "example: pgadmin"
+        },
+        {
+            "name": "EMAIL",
+            "label": "Admin e-mail address"
+        },
+        {
+            "name": "PASSWORD",
+            "label": "Admin password"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "FQDN",
+            "label": "Fully qualified domain name",
+            "description": "example : pga.domain.tld"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Service data location",
+            "description": "example /app/ service"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example: app-network"
+        },
+        {
+            "name": "NETWORK_DATA",
+            "label": "Data network name",
+            "description": "example: data-network"
+        }]
+    },
+    {
+        "type": 2,
         "title": "phpMyAdmin",
         "description": "Administration application for MariaDB and MySQL",
 	    "note": "<p>Application website : <a href=\"https:\/\/www.phpmyadmin.net\/\" target=\"_blank\" rel=\"noopener\">www.phpmyadmin.net<\/a>",
         "categories": [
-		    "Database",
-            "Utility"
+		    "database",
+            "utility"
         ],
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/phpmyadmin_logo.png",
