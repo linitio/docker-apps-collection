@@ -2865,64 +2865,51 @@
     {
         "type": 3,
         "title": "Zabbix",
-        "description": "Service de monitoring Zabbix",
-	    "note": "<p>Site de l'application : <a href=\"https:\/\/zabbix.com\/\" target=\"_blank\" rel=\"noopener\">zabbix.com<\/a>",
+        "description": "Moitoring service",
+	    "note": "<p>Application website : <a href=\"https:\/\/zabbix.com\/\" target=\"_blank\" rel=\"noopener\">zabbix.com<\/a>",
         "categories": [
-		    "Surveillance"
+		    "monitoring"
         ],
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/zabbix_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
-            "stackfile": "zabbix.yml"
+            "stackfile": "stack/zabbix.yml",
+            "url": "https://github.com/kallioli/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
-            "label": "Nom du service"
+            "label": "Service name",
+            "description": "example: zabbix"
         },
         {
             "name": "TZ",
-            "label": "Timezone du conteneur"
+            "label": "Container Timezone",
+            "description": "example: Europe/Paris"
         },
         {
             "name": "DATA_LOCATION",
-            "label": "Dossier des données de l'application"
-        },
-        {
-            "name": "DB_HOST",
-            "label": "Nom du conteneur SGBD"
-        },
-        {
-            "name": "DB_PORT",
-            "label": "Port du SGBD"
-        },
-        {
-            "name": "DB_NAME",
-            "label": "Nom de la base de données"
-        },
-        {
-            "name": "DB_USER",
-            "label": "Utilisateur de la base de données"
-        },
-        {
-            "name": "DB_PASSWORD",
-            "label": "Mot de passe de la base de données"
+            "label": "Location of service data",
+            "description": "example /app/service"
         },
         {
             "name": "URL_LOKI",
-            "label": "Url du service loki"
+            "label": "URL of Loki service",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
         },
         {
-            "name": "NDD",
-            "label": "Nom de domaine"
+            "name": "FQDN",
+            "label": "Fully qualified domain name",
+            "description": "example : yourls.domain.tld"
         },
         {
             "name": "NETWORK_APP",
-            "label": "Nom du réseau applicatif"
+            "label": "Application network name",
+            "description": "example: app-network"
         },
         {
             "name": "NETWORK_DATA",
-            "label": "Nom du réseau data"
+            "label": "Data network name",
+            "description": "example: data-network"
         }]
     },
 
