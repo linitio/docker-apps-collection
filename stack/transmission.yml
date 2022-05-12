@@ -1,0 +1,60 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 12/05/2022
+
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : joplin)
+#     - PUID : system user id (example : 1001)
+#     - PGID : system group id (example : 1001)
+#     - TZ : container time zone (example : Europe/Paris)
+#     - APP_USER : Transmission user (example : transmission)
+#     - APP_PASSWD : Transmission user password
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - DATA_LOCATION : location of service data (example /app/"service")
+#     - FQDN : fully qualified domain name (example : torrent.domain.tld)
+#     - NETWORK_APP : application network name
+
+# Work with Portainer
+
+version: "3.3"
+services:
+  transmission:
+    image: lscr.io/linuxserver/transmission:latest
+    container_name: $SERVICE
+    restart: unless-stopped
+    environment:
+      - PUID=$PUID
+      - PGID=$PGID
+      - TZ=$TZ
+      - TRANSMISSION_WEB_HOME=/combustion-release/
+      - USER=$APP_USER
+      - PASS=$APP_PASSWD
+     healthcheck:
+      test: curl --fail http://localhost:9091 || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=9091"
+      - "traefik.docker.network=$NETWORK_APP"
+    volumes:
+      - $DATA_LOCATION/config:/config
+      - $DATA_LOCATION/downloads:/downloads
+      - $DATA_LOCATION/watch:/watch
+    ports:
+      - 51413:51413
+      - 51413:51413/udp
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: ${NETWORK_APP}

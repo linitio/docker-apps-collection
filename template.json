@@ -2201,6 +2201,67 @@
 
     {
         "type": 3,
+        "title": "Transmission",
+        "description": "Transmission torrent client",
+	    "note": "<p>Application website : <a href=\"https:\/\/transmissionbt.com\/\" target=\"_blank\" rel=\"noopener\">transmissionbt.com<\/a>",
+        "categories": [
+		    "utility"
+        ],
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/pyload_logo.png",
+        "repository": {
+            "stackfile": "stack/transmission.yml",
+            "url": "https://github.com/kallioli/docker-apps-collection"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "pyload"
+        },
+        {
+            "name": "PUID",
+            "label": "User pyload id",
+            "description": "1001"
+        },
+        {
+            "name": "PGID",
+            "label": "User group pyload id",
+            "description": "1001"
+        },
+        {
+            "name": "TZ",
+            "label": "Service time zone",
+            "description": "(example : Europe/Paris)"
+        },
+        {
+            "name": "FQDN",
+            "label": "Fully qualified domain name",
+            "description": "example : pyload.domain.tld"
+        },
+        {
+            "name": "CONFIG_DATA_LOCATION",
+            "label": "Location of service configuration",
+            "description": "example /app/service"
+        },
+        {
+            "name": "DOWNLOAD_DATA_LOCATION",
+            "label": "Location of downloaded files",
+            "description": "example /app/service"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example: app-network"
+        }]
+    },
+
+    {
+        "type": 3,
         "title": "TT-RSS",
         "description": "Aggrégateur de flux RSS",
 	    "note": "<p>Site de l'application : <a href=\"https:\/\/tt-rss.org\/\" target=\"_blank\" rel=\"noopener\">tt-rss.org<\/a>",
