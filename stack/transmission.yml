@@ -28,7 +28,7 @@ services:
       - TRANSMISSION_WEB_HOME=/combustion-release/
       - USER=$APP_USER
       - PASS=$APP_PASSWD
-     healthcheck:
+    healthcheck:
       test: curl --fail http://localhost:9091 || exit 1
       interval: 1m
       timeout: 30s
