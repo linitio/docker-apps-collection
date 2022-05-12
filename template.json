@@ -2208,7 +2208,7 @@
 		    "utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/pyload_logo.png",
+        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/transmission_logo.png",
         "repository": {
             "stackfile": "stack/transmission.yml",
             "url": "https://github.com/kallioli/docker-apps-collection"
@@ -2216,16 +2216,16 @@
         "env": [{
             "name": "SERVICE",
             "label": "Service name",
-            "description": "pyload"
+            "description": "transmission"
         },
         {
             "name": "PUID",
-            "label": "User pyload id",
+            "label": "User transmission id",
             "description": "1001"
         },
         {
             "name": "PGID",
-            "label": "User group pyload id",
+            "label": "User group transmission id",
             "description": "1001"
         },
         {
@@ -2234,18 +2234,22 @@
             "description": "(example : Europe/Paris)"
         },
         {
+            "name": "APP_USER",
+            "label": "Web UI username",
+            "description": "example : transmission"
+        },
+        {
+            "name": "APP_PASSWD",
+            "label": "Web UI password"
+        },
+        {
             "name": "FQDN",
             "label": "Fully qualified domain name",
             "description": "example : pyload.domain.tld"
         },
         {
-            "name": "CONFIG_DATA_LOCATION",
-            "label": "Location of service configuration",
-            "description": "example /app/service"
-        },
-        {
-            "name": "DOWNLOAD_DATA_LOCATION",
-            "label": "Location of downloaded files",
+            "name": "DATA_LOCATION",
+            "label": "Location of data service",
             "description": "example /app/service"
         },
         {
