@@ -36,8 +36,35 @@ services:
       timeout: 30s
       retries: 3
     volumes: 
-      - $DATA_LOCATION/config/loki-config.yaml:/etc/loki/loki-config.yaml
+      - $DATA_LOCATION/loki/config/loki-config.yaml:/etc/loki/loki-config.yaml
       - $DATA_LOCATION_DATA/data:/data/loki
+    networks:
+      - default
+
+  promtail:
+    image: grafana/promtail:latest
+    command: -config.file=/etc/promtail/docker-config.yaml
+    deploy:
+      deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.platform.os == linux
+      update_config:
+        delay: 30s
+      restart_policy:
+        condition: on-failure
+        max_attempts: 5
+      labels:
+        - traefik.enable=false
+    healthcheck:
+      test: grep -q "promtail" /proc/1/status || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
+    volumes:
+      - /var/log:/var/log:ro
+      - $DATA_LOCATION/promtail/config/promtail-config.yaml:/etc/promtail/promtail-config.yaml
     networks:
       - default
 
