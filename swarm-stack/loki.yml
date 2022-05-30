@@ -1,0 +1,74 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 12/05/2022
+
+# Environment variables to declare :
+#     - SERVICE : service name (example : loki)
+#     - FQDN : fully qualified domain name (example : loki.domain.tld
+#     - DATA_LOCATION_CONFIG : location of service configuration (example /app/"service")
+#     - DATA_LOCATION_DATA : location of service configuration (example /app/"service")
+#     - NETWORK_APP : application network name
+
+# Work with portainer
+
+version: "3.3"
+services:
+  loki:
+    image: grafana/loki:latest
+    command: -config.file=/etc/loki/local-config.yaml
+    deploy:
+      placement:
+        constraints: [node.labels.monitoring == true]
+      update_config:
+        delay: 30s
+      restart_policy:
+        condition: on-failure
+        max_attempts: 5
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=$NETWORK_APP
+        - traefik.constraint-label=traefik-public
+        - traefik.http.routers.$SERVICE.entrypoints=https
+        - traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)
+        - traefik.http.services.$SERVICE.loadbalancer.server.port=3100
+    healthcheck:
+      test: nc -z 127.0.0.1 3100 || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
+    volumes: 
+      - $DATA_LOCATION/loki/config/loki-config.yaml:/etc/loki/loki-config.yaml
+      - $DATA_LOCATION_DATA/data:/data/loki
+    networks:
+      - default
+
+  promtail:
+    image: grafana/promtail:latest
+    command: -config.file=/etc/promtail/docker-config.yaml
+    deploy:
+      deploy:
+      mode: global
+      placement:
+        constraints:
+          - node.platform.os == linux
+      update_config:
+        delay: 30s
+      restart_policy:
+        condition: on-failure
+        max_attempts: 5
+      labels:
+        - traefik.enable=false
+    healthcheck:
+      test: grep -q "promtail" /proc/1/status || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
+    volumes:
+      - /var/log:/var/log:ro
+      - $DATA_LOCATION/promtail/config/promtail-config.yaml:/etc/promtail/promtail-config.yaml
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: ${NETWORK_APP}

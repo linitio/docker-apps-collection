@@ -179,6 +179,46 @@
     },
     {
         "type": 2,
+        "title": "Loki",
+        "description": "Aggregation logs utility",
+	    "note": "<p>Application website : <a href=\"https:\/\/grafana.com/oss/loki\/\" target=\"_blank\" rel=\"noopener\">grafana.com/oss/loki<\/a>",
+        "categories": [
+		    "Monitoring"
+        ],
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/loki_logo.png",
+        "repository": {
+            "stackfile": "swarm-stack/loki.yml",
+            "url": "https://github.com/kallioli/docker-apps-collection"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+            "description": "example: loki"
+        },
+        {
+            "name": "DATA_LOCATION_CONFIG",
+            "label": "Location of service configuration",
+            "description": "example : /apps/'service'"
+        },
+        {
+            "name": "DATA_LOCATION_DATA",
+            "label": "Location of service data",
+            "description": "example : /apps/'service'"
+        },
+        {
+            "name": "FQDN",
+            "label": "Fully qualified domain name",
+            "description": "example : loki.domain.tld"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example: app-network"
+        }]
+    },
+    {
+        "type": 2,
         "title": "MariaDB",
         "description": "MariaDB Server",
         "note": "<p>Application website : <a href=\"https:\/\/mariadb.org\/\" target=\"_blank\" rel=\"noopener\">mariadb.org<\/a>",
