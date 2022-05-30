@@ -1,0 +1,54 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 30/05/2022
+
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : dashy)
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - DB_USER : database username
+#     - DB_PASS : database password
+#     - DB_HOST : database server hostname
+#     - DB_NAME : database name
+#     - FQDN : fully qualified domain name (example : dashboard.domain.tld)
+#     - DATA_LOCATION : files downloaded location (example /app/"service")
+#     - NETWORK_APP : application network name
+
+# Work with Portainer
+
+version: '3.5'
+services:
+  atuin:
+    image: ghcr.io/ellie/atuin:main
+    container_name: $SERVICE
+    restart: unless-stopped
+    environment:
+      ATUIN_HOST: "0.0.0.0"
+      ATUIN_OPEN_REGISTRATION: "true"
+      ATUIN_DB_URI: postgres://$DB_USER:$DB_PASS@DB_HOST/DB_NAME
+    command: server start
+    healthcheck:
+      test: grep -qr "atuin" /proc/*/status || exit 1
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+     start_period: 40s
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=8888"
+      - "traefik.docker.network=$NETWORK_APP"
+    volumes:
+      - $DATA_LOCATION/config:/config
+    networks:
+      - default
+      - default1
+
+networks:
+  default:
+    external:
+      name: ${NETWORK_APP}
