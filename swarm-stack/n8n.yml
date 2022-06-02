@@ -29,7 +29,9 @@ services:
       - DB_POSTGRESDB_PASSWORD=$DB_PASS
     deploy:
       placement:
-        constraints: [node.role == worker]
+        constraints:
+        - node.role == worker
+        - node.labels.general == true
       update_config:
         delay: 30s
       restart_policy:
