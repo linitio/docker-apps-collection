@@ -22,7 +22,8 @@ services:
     environment:
       - DATABASE_URL=mysql://$DB_USER:$DB_PASS@$DB_HOST/$DB_NAME
     deploy:
-      constraints: [node.role == worker]
+      placement:
+        constraints: [node.role == worker]
       update_config:
         delay: 30s
       restart_policy:
