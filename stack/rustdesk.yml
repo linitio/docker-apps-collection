@@ -1,0 +1,58 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 15/06/2022
+
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : rustdesk)
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - FQDN : fully qualified domain name (example : rustdesk.domain.tld)
+#     - DATA_LOCATION : location of service data (example /app/"service")
+#     - NETWORK_APP : application network name
+
+# Work with Portainer
+
+version: '3.3'
+services:
+  hbbs:
+    container_name: $SERVICE-hbbs
+    ports:
+      - 21115:21115
+      - 21116:21116
+      - 21116:21116/udp
+      - 21118:21118
+    image: rustdesk/rustdesk-server:latest
+    command: hbbs -r $FQDN:21117
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    volumes:
+      - $DATA_LOCATION/hbbs:/root
+    networks:
+      - default
+    depends_on:
+      - hbbr
+    restart: unless-stopped
+
+  hbbr:
+    container_name: $SERVICE-hbbr
+    ports:
+      - 21117:21117
+      - 21119:21119
+    image: rustdesk/rustdesk-server:latest
+    command: hbbr
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    volumes:
+      - $DATA_LOCATION/hbbr:/root
+    networks:
+      - default
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: ${NETWORK_APP}
