@@ -2157,12 +2157,12 @@
         "type": 3,
         "title": "RustDesk",
         "description": "Remote access service (alternative to Teamviewer)",
-	    "note": "<p>Application website : <a href=\"https:\/\/redis.io\/\" target=\"_blank\" rel=\"noopener\">redis.io<\/a>",
+	    "note": "<p>Application website : <a href=\"https:\/\/rustdesk.com\/\" target=\"_blank\" rel=\"noopener\">rustdesk.com<\/a>",
         "categories": [
 		    "utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/redis_logo.png",
+        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/rustdesk_logo.png",
         "repository": {
             "stackfile": "stack/rustdesk.yml",
             "url": "https://github.com/kallioli/docker-apps-collection"
