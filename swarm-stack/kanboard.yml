@@ -1,15 +1,15 @@
 # Docker-compose provided by Kevin Allioli
-# Last update : 10/05/2022
+# Last update : 02/06/2022
 
 # Environment variables to declare :
-#     - SERVICE : name of the service (example : n8n)
-#     - DB_USER : database user (example : n8n)
+#     - SERVICE : name of the service (example : kanboard)
+#     - DB_USER : database user (example : kanboard)
 #     - DB_PASS : database password
-#     - DB_HOST : database hostname (example : postgresql)
-#     - DB_NAME : database name (example : n8n)
-#     - DB_PORT : database serve port (example : 5432)
+#     - DB_HOST : database hostname (example : mariadb)
+#     - DB_NAME : database name (example : kanboard)
 #     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
-#     - FQDN : fully qualified domain name (example : n8n.domain.tld)
+#     - FQDN : fully qualified domain name (example : kanboard.domain.tld)
+#     - DATA_LOCATION : location of service data (example /app/"service")
 #     - NETWORK_APP : application network name
 #     - NETWORK_DATA : data network name
 
@@ -17,16 +17,15 @@
 
 version: '3.3'
 services:
-  n8n:
-    image: n8nio/n8n
-    command: /bin/sh -c "sleep 5; n8n start"
+  kanboard:
+    image: kanboard/kanboard:latest
     environment:
-      - DB_TYPE=postgresdb
-      - DB_POSTGRESDB_HOST=$DB_HOST
-      - DB_POSTGRESDB_PORT=$DB_PORT
-      - DB_POSTGRESDB_DATABASE=$DB_NAME
-      - DB_POSTGRESDB_USER=$DB_USER
-      - DB_POSTGRESDB_PASSWORD=$DB_PASS
+      - DATABASE_URL=mysql://$DB_USER:$DB_PASS@$DB_HOST/$DB_NAME
+    healthcheck:
+      test: curl --fail http://localhost || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
     deploy:
       placement:
         constraints:
@@ -43,19 +42,15 @@ services:
         - traefik.constraint-label=traefik-public
         - traefik.http.routers.$SERVICE.entrypoints=https
         - traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)
-        - traefik.http.services.$SERVICE.loadbalancer.server.port=5678
-    healthcheck:
-      test: grep -qr "node" /proc/*/status || exit 1
-      interval: 1m
-      timeout: 30s
-      retries: 3
+        - traefik.http.services.$SERVICE.loadbalancer.server.port=80
     logging:
       driver: loki
       options:
         loki-url: "$URL_LOKI"
         loki-external-labels: service={{.Name}}
     volumes:
-      - $DATA_LOCATION:/home/node/.n8n
+      - $DATA_LOCATION/data:/var/www/app/data
+      - $DATA_LOCATION/plugins:/var/www/app/plugins
     networks:
       - default
 
