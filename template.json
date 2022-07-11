@@ -853,12 +853,12 @@
         "type": 3,
         "title": "Jellyfin",
         "description": "Media server",
-	    "note": "<p>Application website : <a href=\"https:\/\/plex.tv\/\" target=\"_blank\" rel=\"noopener\">plex.tv<\/a>",
+	    "note": "<p>Application website : <a href=\"https:\/\/jellyfin.org\/\" target=\"_blank\" rel=\"noopener\">jellyfin.org<\/a>",
         "categories": [
 		    "Media management"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/plex_logo.png",
+        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/jellyfin_logo.png",
         "repository": {
             "stackfile": "stack/jellyfin.yml",
             "url": "https://github.com/kallioli/docker-apps-collection"
