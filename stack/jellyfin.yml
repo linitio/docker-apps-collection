@@ -2,7 +2,7 @@
 # Last update : 11/07/2021
 
 # Environment variables to declare :
-#     - SERVICE : name of the service (example : plex)
+#     - SERVICE : name of the service (example : jellyfin)
 #     - PUID : system user id (example : 1001)
 #     - PGID : system group id (example : 1001)
 #     - TZ : container time zone (example : Europe/Paris)
@@ -12,7 +12,7 @@
 # Work with Portainer
 
 ---
-version: "2.1"
+version: "3"
 services:
   jellyfin:
     image: lscr.io/linuxserver/jellyfin:latest
@@ -23,6 +23,11 @@ services:
       - PGID=$PGID
       - TZ=$TZ
       - JELLYFIN_PublishedServerUrl=$FQDN
+    healthcheck:
+      test: curl --fail http://localhost:8096/health || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
     logging:
       driver: loki
       options:
