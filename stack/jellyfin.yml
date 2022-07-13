@@ -40,9 +40,9 @@ services:
       - "traefik.http.services.$SERVICE.loadbalancer.server.port=8096"
       - "traefik.docker.network=$NETWORK_APP"
     volumes:
-      - $CONFIG_DATA_LOCATION/library:/config
-      - $DATA_LOCATION/tvshows:/data/tvshows
-      - $DATA_LOCATION/movies:/data/movies
+      - $DATA_LOCATION/library:/config
+      - $DATA_LOCATION/medias/tvshows:/data/tvshows
+      - $DATA_LOCATION/medias/movies:/data/movies
     networks:
       - default
 
