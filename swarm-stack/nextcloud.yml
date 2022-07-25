@@ -47,17 +47,17 @@ services:
         - traefik.http.routers.$SERVICE.entrypoints=https
         - traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)
         # Middlewares:
-        - traefik.http.routers.$SERVICE.middlewares=$SERVICE@docker,$SERVICE-dav@docker
+        # - traefik.http.routers.$SERVICE.middlewares=$SERVICE@docker,$SERVICE-dav@docker
         # Middleware cloud adds additional headers:
-        - traefik.http.middlewares.$SERVICE.headers.customFrameOptionsValue=SAMEORIGIN
-        - traefik.http.middlewares.$SERVICE.headers.framedeny=true
-        - traefik.http.middlewares.$SERVICE.headers.sslredirect=true
-        - traefik.http.middlewares.$SERVICE.headers.stsIncludeSubdomains=true
-        - traefik.http.middlewares.$SERVICE.headers.stsPreload=true
-        - traefik.http.middlewares.$SERVICE.headers.stsSeconds=15552000
+        # - traefik.http.middlewares.$SERVICE.headers.customFrameOptionsValue=SAMEORIGIN
+        # - traefik.http.middlewares.$SERVICE.headers.framedeny=true
+        # - traefik.http.middlewares.$SERVICE.headers.sslredirect=true
+        # - traefik.http.middlewares.$SERVICE.headers.stsIncludeSubdomains=true
+        # - traefik.http.middlewares.$SERVICE.headers.stsPreload=true
+        # - traefik.http.middlewares.$SERVICE.headers.stsSeconds=15552000
         # Middleware cloud-dav replaces .well-known paths for caldav and carddav with proper nextcloud path
-        - traefik.http.middlewares.$SERVICE-dav.replacepathregex.regex=^/.well-known/ca(l|rd)dav
-        - traefik.http.middlewares.$SERVICE-dav.replacepathregex.replacement=/remote.php/dav/
+        # - traefik.http.middlewares.$SERVICE-dav.replacepathregex.regex=^/.well-known/ca(l|rd)dav
+        # - traefik.http.middlewares.$SERVICE-dav.replacepathregex.replacement=/remote.php/dav/
         - traefik.http.services.$SERVICE.loadbalancer.server.port=80
     healthcheck:
       test: curl --fail http://localhost:80 || exit 1
