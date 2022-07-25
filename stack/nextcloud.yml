@@ -1,13 +1,7 @@
 # Docker-compose provided by Kevin Allioli
-# Last update : 15/03/2022
+# Last update : 25/07/2022
 
 # Environment variables to declare :
-#     - SERVICE : name of the service (example : synapse)
-#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
-#     - FQDN : fully qualified domain name (example : uptime.domain.tld)
-#     - DATA_LOCATION : files downloaded location (example /app/"service")
-#     - NETWORK_APP : application network name
-
 #     - SERVICE : name of the service (example : nextcloud)
 #     - DB_HOST : database hostname or container name
 #     - DB_NAME : database name
