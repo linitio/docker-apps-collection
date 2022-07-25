@@ -1530,7 +1530,7 @@
         "type": 3,
         "title": "Nextcloud",
         "description": "Cloud storage application and more (Dropbox alternative)",
-	    "note": "<p>Site de l'application : <a href=\"https:\/\/nextcloud.com\/\" target=\"_blank\" rel=\"noopener\">nextcloud.com<\/a>",
+	    "note": "<p>Application website : <a href=\"https:\/\/nextcloud.com\/\" target=\"_blank\" rel=\"noopener\">nextcloud.com<\/a>",
         "categories": [
 		    "utility"
         ],
@@ -1543,22 +1543,22 @@
         "env": [{
             "name": "SERVICE",
             "label": "Service name",
-	    "description": "example: nextcloud"
+	        "description": "example: nextcloud"
         },
         {
             "name": "DB_HOST",
             "label": "Database hostname or container name",
-	    "description": "example: postgresql"
+	        "description": "example: postgresql"
         },
         {
             "name": "DB_NAME",
             "label": "Database name",
-	    "description": "example: nextcloud"
+	        "description": "example: nextcloud"
         },
         {
             "name": "DB_USER",
             "label": "Database username",
-	    "description": "example: nextcloud"
+	        "description": "example: nextcloud"
         },
         {
             "name": "DB_PASS",
@@ -1575,14 +1575,14 @@
         {
             "name": "NETXCLOUD_TRUSTED_DOMAINS",
             "label": "Allowed domain name in nextcloud application",
-	    "description": "example : cloud.domain.tld"
+	        "description": "example : cloud.domain.tld"
         },
         {
             "name": "DATA_LOCATION",
             "label": "Location of service data",
-	    "description": "example : /apps/'service'"
+	        "description": "example : /apps/'service'"
         },
-	{
+	    {
            "name": "URL_LOKI",
            "label": "Loki service URL",
            "description": "example : http://loki.domain.tld/loki/api/v1/push"
@@ -1590,17 +1590,17 @@
         {
             "name": "FQDN",
             "label": "Fully qualified domain name",
-	    "description": "example : cloud.domain.tld"
+	        "description": "example : cloud.domain.tld"
         },
         {
             "name": "NETWORK_APP",
             "label": "Application network name",
-	    "description": "example: app-network"
+	        "description": "example: app-network"
         },
         {
             "name": "NETWORK_DATA",
             "label": "Data network name",
-	    "description": "example: data-network"
+	        "description": "example: data-network"
         }]
     },
 
