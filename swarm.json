@@ -450,6 +450,78 @@
     },
     {
         "type": 2,
+        "title": "Nextcloud",
+        "description": "Cloud storage application and more (Dropbox alternative)",
+	    "note": "<p>Application website : <a href=\"https:\/\/nextcloud.com\/\" target=\"_blank\" rel=\"noopener\">nextcloud.com<\/a>",
+        "categories": [
+		    "utility"
+        ],
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/nextcloud_logo.png",
+        "repository": {
+	    "stackfile": "swarm-stack/nextcloud.yml",
+            "url": "https://github.com/linitio/docker-apps-collection"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name",
+	        "description": "example: nextcloud"
+        },
+        {
+            "name": "DB_HOST",
+            "label": "Database hostname or container name",
+	        "description": "example: postgresql"
+        },
+        {
+            "name": "DB_NAME",
+            "label": "Database name",
+	        "description": "example: nextcloud"
+        },
+        {
+            "name": "DB_USER",
+            "label": "Database username",
+	        "description": "example: nextcloud"
+        },
+        {
+            "name": "DB_PASS",
+            "label": "Database password"
+        },
+        {
+            "name": "NEXTCLOUD_ADMIN_USER",
+            "label": "Nextcloud administrator username"
+        },
+        {
+            "name": "NEXTCLOUD_ADMIN_PASSWORD",
+            "label": "Nextcloud administrator password"
+        },
+        {
+            "name": "NETXCLOUD_TRUSTED_DOMAINS",
+            "label": "Allowed domain name in nextcloud application",
+	        "description": "example : cloud.domain.tld"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Location of service data",
+	        "description": "example : /apps/'service'"
+        },
+	    {
+           "name": "URL_LOKI",
+           "label": "Loki service URL",
+           "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "FQDN",
+            "label": "Fully qualified domain name",
+	        "description": "example : cloud.domain.tld"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+	        "description": "example: app-network"
+        }]
+    },
+    {
+        "type": 2,
         "title": "pgAdmin",
         "description": "Administration application for PostgreSQL",
 	    "note": "<p>Application website : <a href=\"https:\/\/www.pgadmin.org\/\" target=\"_blank\" rel=\"noopener\">www.pgadmin.org<\/a>",
