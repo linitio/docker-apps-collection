@@ -1,0 +1,81 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 15/03/2022
+
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : synapse)
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - FQDN : fully qualified domain name (example : uptime.domain.tld)
+#     - DATA_LOCATION : files downloaded location (example /app/"service")
+#     - NETWORK_APP : application network name
+
+#     - SERVICE : name of the service (example : nextcloud)
+#     - DB_HOST : database hostname or container name
+#     - DB_NAME : database name
+#     - DB_USER : database username 
+#     - DB_PASS : database password
+#     - NEXTCLOUD_ADMIN_USER : nextcloud administrator username
+#     - NEXTCLOUD_ADMIN_PASSWORD : nextcloud administrator password
+#     - NEXTCLOUD_TRUSTED_DOMAINS : allowed domain name in nextcloud application
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - DATA_LOCATION : data location (example /app/"service")
+#     - FQDN : fully qualified domain name (example : cloud.domain.tld)
+#     - NETWORK_APP : application network name
+#     - NETWORK_DATA : data network name
+
+# Work with Portainer
+
+version: '3.3'
+services:
+  nextcloud:
+    container_name: $SERVICE
+    image: nextcloud
+    restart: unless-stopped
+    environment:
+      - POSTGRES_HOST=$DB_HOST
+      - POSTGRES_DB=$DB_NAME
+      - POSTGRES_USER=$DB_USER
+      - POSTGRES_PASSWORD=$DB_PASS
+      - NEXTCLOUD_ADMIN_USER=$NEXTCLOUD_ADMIN_USER
+      - NEXTCLOUD_ADMIN_PASSWORD=$NEXTCLOUD_ADMIN_PASSWORD
+      - NEXTCLOUD_TRUSTED_DOMAINS=$NEXTCLOUD_TRUSTED_DOMAINS
+    healthcheck:
+      test: curl --fail http://localhost:80 || exit 1
+      interval: 1m
+      timeout: 30s
+      retries: 3
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    volumes:
+      - $DATA_LOCATION:/var/www/html
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$NDD`)"
+      # Middlewares:
+      - "traefik.http.routers.$SERVICE.middlewares=$SERVICE@docker,$SERVICE-dav@docker"
+      # Middleware cloud adds additional headers:
+      - "traefik.http.middlewares.$SERVICE.headers.customFrameOptionsValue=SAMEORIGIN"
+      - "traefik.http.middlewares.$SERVICE.headers.framedeny=true"
+      - "traefik.http.middlewares.$SERVICE.headers.sslredirect=true"
+      - "traefik.http.middlewares.$SERVICE.headers.stsIncludeSubdomains=true"
+      - "traefik.http.middlewares.$SERVICE.headers.stsPreload=true"
+      - "traefik.http.middlewares.$SERVICE.headers.stsSeconds=15552000"
+      # Middleware cloud-dav replaces .well-known paths for caldav and carddav with proper nextcloud path
+      - "traefik.http.middlewares.$SERVICE-dav.replacepathregex.regex=^/.well-known/ca(l|rd)dav"
+      - "traefik.http.middlewares.$SERVICE-dav.replacepathregex.replacement=/remote.php/dav/"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=80"
+      - "traefik.docker.network=$NETWORK_APP"
+    networks:
+      - default
+      - default1
+
+networks:
+  default:
+    external:
+      name: $NETWORK_APP
+  default1:
+    external:
+      name: $NETWORK_DATA
