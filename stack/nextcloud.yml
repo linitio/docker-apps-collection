@@ -22,7 +22,7 @@ version: '3.3'
 services:
   nextcloud:
     container_name: $SERVICE
-    image: nextcloud
+    image: ghcr.io/linitio/docker-nextcloud:latest
     restart: unless-stopped
     environment:
       - POSTGRES_HOST=$DB_HOST
@@ -69,7 +69,7 @@ services:
 networks:
   default:
     external:
-      name: $NETWORK_APP
+      name: ${NETWORK_APP}
   default1:
     external:
-      name: $NETWORK_DATA
+      name: ${NETWORK_DATA}
