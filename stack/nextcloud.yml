@@ -47,7 +47,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.$SERVICE.entrypoints=https"
-      - "traefik.http.routers.$SERVICE.rule=Host(`$NDD`)"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
       # Middlewares:
       - "traefik.http.routers.$SERVICE.middlewares=$SERVICE@docker,$SERVICE-dav@docker"
       # Middleware cloud adds additional headers:
