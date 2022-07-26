@@ -1573,7 +1573,7 @@
             "label": "Nextcloud administrator password"
         },
         {
-            "name": "NETXCLOUD_TRUSTED_DOMAINS",
+            "name": "NEXTCLOUD_TRUSTED_DOMAINS",
             "label": "Allowed domain name in nextcloud application",
 	        "description": "example : cloud.domain.tld"
         },
