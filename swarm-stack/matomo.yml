@@ -54,7 +54,6 @@ services:
       - $DATA_LOCATION:/var/www/html
     networks:
       - default
-      - default1
 
 networks:
   default:
