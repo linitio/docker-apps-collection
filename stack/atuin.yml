@@ -23,7 +23,7 @@ services:
     environment:
       ATUIN_HOST: "0.0.0.0"
       ATUIN_OPEN_REGISTRATION: "true"
-      ATUIN_DB_URI: postgres://$DB_USER:$DB_PASS@DB_HOST/DB_NAME
+      ATUIN_DB_URI: postgres://$DB_USER:$DB_PASS@$DB_HOST/$DB_NAME
     command: server start
     healthcheck:
       test: grep -qr "atuin" /proc/*/status || exit 1
