@@ -11,7 +11,7 @@
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/gitea_logo.png",
         "repository": {
-            "stackfile": "swarm-stack/hastebin.yml",
+            "stackfile": "swarm-stack/gitea.yml",
             "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
