@@ -20,7 +20,7 @@ services:
       USER_GID: $PGID
       USER: git
     healthcheck:
-      test: wget -s 'http://localhost:3000'
+      test: wget --spider 'http://localhost:3000'
       interval: 1m
       timeout: 30s
       retries: 3
