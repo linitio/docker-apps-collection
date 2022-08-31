@@ -197,7 +197,7 @@
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/changedetector_logo.png",
         "repository": {
             "url": "https://gitlab.com/kallioli/docker-server-container",
-            "stackfile": "stack/changedetector.yml"
+            "stackfile": "stack/changedetectkion.yml"
         },
         "env": [{
             "name": "SERVICE",
