@@ -1,0 +1,47 @@
+# Docker-compose provided by Kevin Allioli
+# Last update : 15/03/2022
+
+# Environment variables to declare :
+#     - SERVICE : name of the service (example : freshrss)
+#     - DATA_LOCATION : location of service data (example /app/"service")
+#     - URL_LOKI : loki service URL (example : http://ip:3100/loki/api/v1/push)
+#     - FQDN : fully qualified domain name (example : hastebin.domain.tld)
+#     - NETWORK_APP : application network name
+
+
+# Work with Portainer
+
+---
+version: "3.3"
+services:
+  changedetection:
+    image: ghcr.io/dgtlmoon/changedetection.io
+    container_name: $SERVICE
+    hostname: changedetection
+    restart: unless-stopped
+    #healthcheck:
+    # test: grep -qr "apache2" /proc/*/status || exit 1
+    #  interval: 1m
+    #  timeout: 30s
+    #  retries: 3
+    logging:
+      driver: loki
+      options:
+        loki-url: "$URL_LOKI"
+        loki-external-labels: service={{.Name}}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.$SERVICE.entrypoints=https"
+      - "traefik.http.routers.$SERVICE.rule=Host(`$FQDN`)"
+      - "traefik.http.services.$SERVICE.loadbalancer.server.port=5000"
+      - "traefik.docker.network=$NETWORK_APP"
+    volumes:
+      - $DATA_LOCATION/data:/datastore
+    networks:
+      - default
+      - default1
+
+networks:
+  default:
+    external:
+      name: ${NETWORK_APP}

@@ -187,6 +187,47 @@
 
     {
         "type": 3,
+        "title": "Change detector",
+        "description": "Detect change on webpage",
+	    "note": "<p>Application website : <a href=\"https:\/\/freshrss.org\/\" target=\"_blank\" rel=\"noopener\">freshrss.org<\/a>",
+        "categories": [
+		    "Utility"
+        ],
+        "platform": "linux",
+        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/changedetector_logo.png",
+        "repository": {
+            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "stackfile": "stack/changedetector.yml"
+        },
+        "env": [{
+            "name": "SERVICE",
+            "label": "Service name"
+        },
+        {
+            "name": "URL_LOKI",
+            "label": "Loki service URL",
+            "description": "example : http://loki.domain.tld/loki/api/v1/push"
+        },
+        {
+            "name": "FQDN",
+            "label": "Fully qualified domain name",
+            "description": "example : sync.domain.tld"
+        },
+        {
+            "name": "DATA_LOCATION",
+            "label": "Apllication data location",
+            "description": "example : /apps/'service'"
+        },
+        {
+            "name": "NETWORK_APP",
+            "label": "Application network name",
+            "description": "example : app-network"
+        }]
+    },
+
+
+    {
+        "type": 3,
         "title": "Docker Registry",
         "description": "Private DockerHub Alternative.",
         "note": "<p>Application website : <a href=\"https:\/\/github.com\/TimothyYe\/bing-wallpaper\" target=\"_blank\" rel=\"noopener\">github.com/TimothyYe/bing-wallpaper\/a>",
