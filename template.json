@@ -196,7 +196,7 @@
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/changedetector_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://gitlab.com/linitio/docker-server-container",
             "stackfile": "stack/changedetection.yml"
         },
         "env": [{
