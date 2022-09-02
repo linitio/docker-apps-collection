@@ -9,10 +9,10 @@
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/atuin_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/atuin_logo.png",
         "repository": {
             "stackfile": "stack/atuin.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -74,10 +74,10 @@
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/bing_wallpaper_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/bing_wallpaper_logo.png",
         "repository": {
             "stackfile": "stack/bing-wallpaper.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -110,10 +110,10 @@
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/cachethq_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/cachethq_logo.png",
         "repository": {
             "stackfile": "stack/cachethq.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -235,10 +235,10 @@
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/docker_registry_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/docker_registry_logo.png",
         "repository": {
             "stackfile": "stack/docker-registry.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -276,9 +276,9 @@
 		    "Sauvegarde"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/duplicati_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/duplicati_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "duplicati.yml"
         },
         "env": [{
@@ -328,9 +328,9 @@
                     "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/dashy_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/dashy_logo.png",
         "repository": {
-            "url": "https://github.com/kallioli/docker-apps-collection",
+            "url": "https://github.com/linitio/docker-apps-collection",
             "stackfile": "stack/dashy.yml"
         },
         "env": [{
@@ -379,9 +379,9 @@
 		    "File sharing"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/filebrowser_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/filebrowser_logo.png",
         "repository": {
-            "url": "https://github.com/kallioli/docker-apps-collection",
+            "url": "https://github.com/linitio/docker-apps-collection",
             "stackfile": "stack/filebrowser.yml"
         },
         "env": [{
@@ -437,9 +437,9 @@
 		    "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/ffsync-server_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/ffsync-server_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "stack/firefox-sync.yml"
         },
         "env": [{
@@ -517,9 +517,9 @@
 		    "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/joplin_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/joplin_logo.png",
         "repository": {
-            "url": "https://github.com/kallioli/docker-apps-collection",
+            "url": "https://github.com/linitio/docker-apps-collection",
             "stackfile": "stack/fleet.yml"
         },
         "env": [{
@@ -587,9 +587,9 @@
 		    "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/freshrss_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/freshrss_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "stack/freshrss.yml"
         },
         "env": [{
@@ -642,9 +642,9 @@
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/yourls_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/yourls_logo.png",
         "repository": {
-            "url": "https://github.com/kallioli/docker-apps-collection",
+            "url": "https://github.com/linitio/docker-apps-collection",
             "stackfile": "stack/ghost.yml"
         },
         "env": [{
@@ -707,10 +707,10 @@
 		    "monitoring"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/grafana_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/grafana_logo.png",
         "repository": {
             "stackfile": "stack/grafana.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
 
         },
         "env": [{
@@ -758,10 +758,10 @@
 		    "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/hastebin_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/hastebin_logo.png",
         "repository": {
             "stackfile": "stack/hastebin.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -804,9 +804,9 @@
 		    "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/homer_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/homer_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "stack/homer.yml"
         },
         "env": [{
@@ -855,9 +855,9 @@
 		    "Téléchargement"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/jdownloader_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/jdownloader_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "jdownloader.yml"
         },
         "env": [{
@@ -899,10 +899,10 @@
 		    "Media management"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/jellyfin_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/jellyfin_logo.png",
         "repository": {
             "stackfile": "stack/jellyfin.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -950,14 +950,14 @@
         "type": 3,
         "title": "Jirafeau",
         "description": "Partages de fichiers (alternative à WeTransfert)",
-        "note": "<p>Site de l'application : <a href=\"https:\/\/gitlab.com\/mojo42\/Jirafeau\" target=\"_blank\" rel=\"noopener\">Gitlab.com<\/a>",
+        "note": "<p>Site de l'application : <a href=\"https:\/\/github.com\/mojo42\/Jirafeau\" target=\"_blank\" rel=\"noopener\">github.com<\/a>",
         "categories": [
             "Partage de fichiers"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/jirafeau_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/jirafeau_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "jirafeau.yml"
         },
         "env": [{
@@ -1002,9 +1002,9 @@
 		    "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/joplin_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/joplin_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "stack/joplin.yml"
         },
         "env": [{
@@ -1072,9 +1072,9 @@
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/kanboard_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/kanboard_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "stack/kanboard.yml"
         },
         "env": [{
@@ -1137,10 +1137,10 @@
 		    "Security"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/keycloak_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/keycloak_logo.png",
         "repository": {
             "stackfile": "stack/keycloak.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -1205,10 +1205,10 @@
 		    "Monitoring"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/loki_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/loki_logo.png",
         "repository": {
             "stackfile": "stack/loki.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -1250,10 +1250,10 @@
 		    "Database"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/mariadb_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/mariadb_logo.png",
         "repository": {
             "stackfile": "stack/mariadb.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -1290,10 +1290,10 @@
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/matomo_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/matomo_logo.png",
         "repository": {
             "stackfile": "stack/matomo.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -1360,9 +1360,9 @@
 		    "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/matrix_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/matrix_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "stack/matrix.yml"
         },
         "env": [{
@@ -1426,9 +1426,9 @@
 		    "Communication"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/mattermost_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/mattermost_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "mattermost.yml"
         },
         "env": [{
@@ -1506,10 +1506,10 @@
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/n8n_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/n8n_logo.png",
         "repository": {
             "stackfile": "stack/n8n.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -1576,7 +1576,7 @@
 		    "utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/nextcloud_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/nextcloud_logo.png",
         "repository": {
 	    "stackfile": "stack/nextcloud.yml",
             "url": "https://github.com/linitio/docker-apps-collection"
@@ -1654,9 +1654,9 @@
 		    "Sécurité"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/openvpn_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/openvpn_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "openvpn.yml"
         },
         "env": [{
@@ -1706,9 +1706,9 @@
 		    "Utilitaire"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/ouroboros_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/ouroboros_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "ouroboros.yml"
         },
         "env": [{
@@ -1759,10 +1759,10 @@
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/postgresql_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/postgresql_logo.png",
         "repository": {
             "stackfile": "stack/pgadmin.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -1814,10 +1814,10 @@
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/phpmyadmin_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/phpmyadmin_logo.png",
         "repository": {
             "stackfile": "stack/phpmyadmin.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -1860,10 +1860,10 @@
 		    "Media management"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/plex_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/plex_logo.png",
         "repository": {
             "stackfile": "stack/plex.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -1931,9 +1931,9 @@
 		    "Partage de fichiers"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/projectsend_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/projectsend_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "projectsend.yml"
         },
         "env": [{
@@ -1991,9 +1991,9 @@
 		    "Database"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/postgresql_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/postgresql_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "stack/postgresql.yml"
         },
         "env": [{
@@ -2031,9 +2031,9 @@
 		    "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/pyload_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/pyload_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "stack/pyload.yml"
         },
         "env": [{
@@ -2092,9 +2092,9 @@
 		    "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/qbittorrent_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/qbittorrent_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "stack/qbittorrent.yml"
         },
         "env": [{
@@ -2148,9 +2148,9 @@
 		    "Media management"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/quassel_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/quassel_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "stack/quassel-core.yml"
         },
         "env": [{
@@ -2233,10 +2233,10 @@
 		    "Database"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/redis_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/redis_logo.png",
         "repository": {
             "stackfile": "stack/redis.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -2269,10 +2269,10 @@
 		    "utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/rustdesk_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/rustdesk_logo.png",
         "repository": {
             "stackfile": "stack/rustdesk.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -2310,9 +2310,9 @@
 		    "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/smtp_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/smtp_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "stack/smtp-relay.yml"
         },
         "env": [{
@@ -2361,9 +2361,9 @@
 		    "Partage de fichiers"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/syncthing_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/syncthing_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "syncthing.yml"
         },
         "env": [{
@@ -2421,10 +2421,10 @@
 		    "utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/transmission_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/transmission_logo.png",
         "repository": {
             "stackfile": "stack/transmission.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -2486,9 +2486,9 @@
 		    "Utilitaire"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/tt-rss_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/tt-rss_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "ttrss.yml"
         },
         "env": [{
@@ -2579,10 +2579,10 @@
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/unms_logo.jpg",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/unms_logo.jpg",
         "repository": {
             "stackfile": "stack/unms.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -2625,10 +2625,10 @@
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/uptime-kuma_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/uptime-kuma_logo.png",
         "repository": {
             "stackfile": "stack/uptime-kuma.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -2666,9 +2666,9 @@
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/vaultwarden_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/vaultwarden_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "stack/vaultwarden.yml"
         },
         "env": [{
@@ -2790,9 +2790,9 @@
 		    "Utilitaire"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/wallabag_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/wallabag_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "wallabag.yml"
         },
         "env": [{
@@ -2870,9 +2870,9 @@
 		    "Partage de fichiers"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/webdav_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/webdav_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "webdav.yml"
         },
         "env": [{
@@ -2918,9 +2918,9 @@
 		    "Web"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/wikijs_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/wikijs_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "wikijs.yml"
         },
         "env": [{
@@ -2978,9 +2978,9 @@
 		    "Web"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/wordpress_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/wordpress_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "wordpress.yml"
         },
         "env": [{
@@ -3039,9 +3039,9 @@
 		    "Gestion de médias"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/xteve_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/xteve_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "xteve.yml"
         },
         "env": [{
@@ -3075,10 +3075,10 @@
             "Utility"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/yourls_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/yourls_logo.png",
         "repository": {
             "stackfile": "stack/yourls.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -3149,10 +3149,10 @@
 		    "monitoring"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/zabbix_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/zabbix_logo.png",
         "repository": {
             "stackfile": "stack/zabbix.yml",
-            "url": "https://github.com/kallioli/docker-apps-collection"
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",
@@ -3200,9 +3200,9 @@
 		    "Monitoring"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/cachethq_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/cachethq_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "stack/zabbix-cachethq.yml"
         },
         "env": [{
@@ -3236,9 +3236,9 @@
 		    "Monitoring"
         ],
         "platform": "linux",
-        "logo": "https://raw.githubusercontent.com/kallioli/docker-apps-collection/master/img/zabbix_logo.png",
+        "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/zabbix_logo.png",
         "repository": {
-            "url": "https://gitlab.com/kallioli/docker-server-container",
+            "url": "https://github.com/linitio/docker-server-container",
             "stackfile": "stack/zabbix-proxy.yml"
         },
         "env": [{
