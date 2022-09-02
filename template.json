@@ -196,8 +196,8 @@
         "platform": "linux",
         "logo": "https://raw.githubusercontent.com/linitio/docker-apps-collection/master/img/changedetector_logo.png",
         "repository": {
-            "url": "https://gitlab.com/linitio/docker-apps-collection",
-            "stackfile": "stack/changedetection.yml"
+            "stackfile": "stack/changedetection.yml",
+            "url": "https://github.com/linitio/docker-apps-collection"
         },
         "env": [{
             "name": "SERVICE",

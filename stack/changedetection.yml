@@ -39,7 +39,6 @@ services:
       - $DATA_LOCATION/data:/datastore
     networks:
       - default
-      - default1
 
 networks:
   default:
